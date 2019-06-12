@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-app="app">
+    <div ng-controller="head">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/Web/index">首页</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                商品维护 <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Web/sp_image" class="text-muted">商品图片</a></li>
+                                <li><a href="#">1111</a></li>
+                                <li><a href="#">2222</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">3333</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">44444</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{dzyname}}</a></li>
+                    <li><a href="javascript:;" class="color-white" ng-click="quit()"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    @*内容页*@
+    <div>
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/comom.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script type="text/javascript" src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+        var app = angular.module('app', []);
+        var token = getCookie("token");
+        app.controller('head', function ($scope, $http) {
+            $scope.dzyname = "";
+            layer.load();
+            $http({
+                method: 'POST',
+                url: '../api/WebApi/User_info?token=' + token,
+                data: { }
+            }).then(function successCallback(response) {
+                console.log(response)
+                if (response.data.error == '0') {
+                    $scope.dzyname = response.data.data.dzyname;
+                } else {
+                    layer.alert(response.data.msg, { icon: 2 }, function () { location.href = "/"; });
+                }
+                layer.closeAll('loading');
+            }, function errorCallback(response) {
+                layer.closeAll('loading');
+                console.log(response);
+            });
+            $scope.quit = function () {
+                layer.confirm("是否确认退出系统？",
+                    { btn: ['是', '否'] }, //按钮
+                    function () {
+                        delCookie("token");
+                        location.href = "/";
+                    },
+                    function () { return; });
+            }
+        })
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

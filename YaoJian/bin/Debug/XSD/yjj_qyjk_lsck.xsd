@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="yjj_qyjk_lsck"
+    targetNamespace="http://cmsland.com/yjj_qyjk_lsck.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://cmsland.com/yjj_qyjk_lsck.xsd"
+    xmlns:jks="http://cmsland.com/yjj_qyjk_lsck.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:annotation>
+    <xs:documentation xml:lang="zh-cn">
+      企业数据上报接口
+      零售出库记录xml架构文件
+      药品零售企业将药品销售给消费者称为零售.
+    </xs:documentation>
+  </xs:annotation>
+
+  <!--根元素 单据集合 一个文件允许包含多个零售出库单据-->
+  <xs:element name="jh">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="dj" maxOccurs="unbounded">
+          <!--单据类型定义-->
+          <xs:complexType>
+            <xs:sequence>
+              <!--单据允许一或多个条目-->
+              <xs:element name="tm"  type="t_tm" maxOccurs="unbounded" />
+            </xs:sequence>
+
+            <!--单据属性 销售单号-->
+            <xs:attribute name="djbh" use="required">
+              <!--内容限定：非空字符串;最大长度50；首尾无空格；中间无连续空格；无换行符、回车或制表符-->
+              <xs:simpleType>
+                <xs:restriction base="xs:token">
+                  <xs:maxLength value="50"/>
+                  <xs:pattern value=".+"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            
+            <!--单据属性 销售日期-->
+            <xs:attribute name="ckrq" type="xs:date" use="required"/>
+
+            <!--单据属性 处理人-->
+            <xs:attribute name="clr">
+              <xs:simpleType>
+                <xs:restriction base="xs:token">
+                  <xs:maxLength value="20"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+
+          <!--单据条目数据重复性约束 同一药品商品同一生产批号在单据中只允许出现一次-->
+          <xs:unique name="tmID">
+            <xs:selector xpath="jks:tm"/>
+            <xs:field xpath="@bwm"/>
+            <xs:field xpath="@bzgg"/>
+            <xs:field xpath="@scph"/>
+          </xs:unique>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+    <!--单据重复性约束 销售单号-->
+    <xs:unique name="djID">
+      <xs:selector xpath="jks:dj"/>
+      <xs:field xpath="@djbh"/>
+    </xs:unique>
+  </xs:element>
+ 
+  <!--单据条目类型-->
+  <xs:complexType name="t_tm">
+    <xs:attributeGroup ref="ag_tm"/>
+  </xs:complexType>
+
+  <!--单据条目属性组定义-->
+  <xs:attributeGroup name="ag_tm">
+    <!--药品本位码-->
+    <xs:attribute name="bwm" use="required">
+      <!--内容限定：14位连续0到9数字-->
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9]{14}"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+
+    <!--药品包装规格-->
+    <xs:attribute name="bzgg" use="required">
+      <!--内容限定：非空字符串;最大长度200；首尾无空格；中间无连续空格；无换行符、回车或制表符-->
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:maxLength value="200"/>
+          <xs:pattern value=".+"/>          
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+
+    <!--药品生产批号-->
+    <xs:attribute name="scph" use="required">
+      <!--内容限定：非空字符串;最大长度50；首尾无空格；中间无连续空格；无换行符、回车或制表符-->
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:maxLength value="50"/>
+          <xs:pattern value=".+"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+
+    <!--药品生产日期-->
+    <xs:attribute name="scrq" type="xs:date" use="required"/>
+
+    <!--药品有效期至 药品有效期截至日期-->
+    <xs:attribute name="yxqz" type="xs:date" use="required"/>
+    
+    <!--数量 必须为大于0正整数-->
+    <xs:attribute name="sl" type="xs:positiveInteger" use="required"/>
+
+    <!--备注-->
+    <xs:attribute name="bz">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:maxLength value="200"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    
+  </xs:attributeGroup>
+</xs:schema>

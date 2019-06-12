@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>登录页</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-app="app" ng-controller="control">
+    <div style="padding: 100px 100px 10px;">
+        <form class="bs-example bs-example-form" role="form">
+            <div class="input-group">
+                <span class="input-group-addon">账号</span>
+                <input type="text" class="form-control" ng-model="lgnname">
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon">密码</span>
+                <input type="password" class="form-control" ng-model="kl" ng-keydown="enter()">
+            </div>
+            <br>
+            <div class="input-group">
+                <input class="btn btn-primary" id="Button1" type="button" value="登录" ng-click="Login()" />
+            </div>
+        </form>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/comom.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script type="text/javascript" src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+        var app = angular.module('app', []);
+        app.controller('control', function ($scope, $http) {
+            $scope.Login = function () {
+                layer.load();
+                $http({
+                    method: 'POST',
+                    url: '../api/WebApi/Login',
+                    data: { lgnname: $scope.lgnname, kl: $scope.kl }
+                }).then(function successCallback(response) {
+                    console.log(response)
+                    if (response.data.error == '0') {
+                        delCookie("token");
+                        setCookie("token", response.data.data);
+                        location.href = "/Web/Index";
+                    } else {
+                        layer.alert(response.data.msg, { icon: 2 });
+                        $scope.kl = "";
+                        //alert(response.data.msg)
+                    }
+                    layer.closeAll('loading');
+                }, function errorCallback(response) {
+                    console.log(response);
+                });
+            };
+            $scope.enter = function () {
+                if (event.keyCode == 13 & $scope.kl != "") {
+                    $scope.Login();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

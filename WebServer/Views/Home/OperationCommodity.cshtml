@@ -1,0 +1,83 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "经营品种库";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-app="app" ng-controller="control">
+    <h2>经营品种库</h2>
+    <input class="btn btn-primary" id="Button1" type="button" value="更新经营品种库" ng-click="updataOperationCommodity()" />
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-condensed" border="1">
+            <tr>
+                <th class="text-center">药品本位码</th>
+                <th class="text-center">包装规格</th>
+                <th class="text-center">药品通用名</th>
+                <th class="text-center">剂型</th>
+                <th class="text-center">规格</th>
+                <th class="text-center">计量单位</th>
+                <th class="text-center">生产企业名称</th>
+                <th class="text-center">批准文号</th>
+            </tr>
+            <tr ng-repeat="item in OperationCommodityList">
+                <td>{{item.medicineCodeNumber}}</td>
+                <td>{{item.packagSpecifications}}</td>
+                <td>{{item.medicineGeneralName}}</td>
+                <td>{{item.doseType}}</td>
+                <td>{{item.specifications}}</td>
+                <td>{{item.measureUnit}}</td>
+                <td>{{item.productionEprice}}</td>
+                <td>{{item.medicineOfficeNumber}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var app = angular.module('app', []);
+        app.controller('control', function ($scope, $http) {
+            $scope.getOperationCommodity = function () {
+                $scope.OperationCommodityList = [];
+                layer.load();
+                $http({
+                    method: 'POST',
+                    url: '../api/Yaojian/GetOperationCommodity',
+                    data: {}
+                }).then(function successCallback(response) {
+                    if (response.data.error == '0') {
+                        console.log(response.data.data)
+                        for (var i = 0; i < response.data.data.length; i++) {
+                            $scope.OperationCommodityList.push(response.data.data[i]);
+                        }
+                    } else {
+                        layer.alert(response.data.msg, { icon: 2 });
+                        //alert(response.data.msg)
+                    }
+                    layer.closeAll('loading');
+                }, function errorCallback(response) {
+                    console.log(response);
+                });
+            };
+            $scope.updataOperationCommodity = function () {
+                layer.load();
+                $http({
+                    method: 'POST',
+                    url: '../api/Yaojian/UpdateOperationCommodity',
+                    data: {}
+                }).then(function successCallback(response) {
+                    if (response.data.error == '0') {
+                        layer.alert(response.data.msg, { icon: 1 });
+                    } else {
+                        layer.alert(response.data.msg, { icon: 2 });
+                    }
+                    layer.closeAll('loading');
+                }, function errorCallback(response) {
+                    console.log(response.data.Message);
+                    layer.closeAll('loading');
+                });
+            }
+            $scope.getOperationCommodity();
+        })
+    </script>
+}

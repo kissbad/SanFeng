@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "商品图片维护";
+    Layout = "~/Views/Shared/Inside_Layout.cshtml";
+}
+<div ng-controller="control">
+    <h2>商品图片维护</h2>
+
+    <form class="bs-example bs-example-form" role="form">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="Text1" ng-model="keyword">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="search()">
+                            搜索!
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <table class="table table-striped" scroll>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in sp_List">
+                <td><img class="img-thumbnail" spid="{{x.spid}}" src="{{x.imageUrl}}" alt="" /></td>
+                <td>
+                    <table class="table">
+                        <tr>
+                            <td>商品编号</td>
+                            <td>{{x.spbh}}</td>
+                        </tr>
+                        <tr>
+                            <td>商品名称</td>
+                            <td>{{x.spmch}}</td>
+                        </tr>
+                        <tr>
+                            <td>生厂厂家</td>
+                            <td>{{x.shengccj}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="fileinput" id="File1" type="file" spid="{{x.spid}}" />
+                            </td>
+                            <td>
+                                <input class="btn btn-primary" id="Button1" type="button" value="上传" ng-click="upload(x.spid)" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+@section scripts{
+    <script>
+        app.directive("scroll", function ($window, $document) {
+            return function ($scope) {
+                angular.element($window).bind("scroll", function () {
+                    var pageYOffset = $window.pageYOffset;
+                    var clientHeight = $document[0].documentElement.clientHeight;
+                    var offsetHeight = $document[0].body.offsetHeight;
+                    if (pageYOffset + clientHeight > offsetHeight * 0.99) {
+                        //scope.shopWorkOnLoad是否正在加载,controller中定义
+                        if ($scope.shopWorkOnLoad == false) {
+                            //加载数据,controller中定义
+                            $scope.getList();//
+                        }
+                    }
+                });
+            };
+        });
+        app.controller('control', function ($scope, $http) {
+            $scope.page_index = 1;
+            $scope.sp_List = [];
+            $scope.shopWorkOnLoad = false;
+            $scope.is_end = false;
+
+            //搜索
+            $scope.search = function () {
+                $scope.page_index = 1
+                $scope.sp_List = [];
+                $scope.is_end = false;
+                $scope.getList();
+            };
+
+            //获取数据
+            $scope.getList = function () {
+                if ($scope.is_end == true) { return; }
+                layer.load();
+                $scope.shopWorkOnLoad = true;
+                $http({
+                    method: 'POST',
+                    url: '../api/WebApi/search_sp',
+                    data: { token: token, keyword: $scope.keyword, pageIndex: $scope.page_index, pageSize: 50 }
+                }).then(function successCallback(response) {
+                    //console.log(response)
+                    if (response.data.error == '0') {
+                        if (response.data.data.length == 0) {
+                            $scope.is_end = true;
+                            layer.closeAll('loading');
+                            return;
+                        }
+                        for (var i = 0; i < response.data.data.length; i++) {
+                            $scope.sp_List.push(response.data.data[i]);
+                        }
+                        $scope.page_index++;
+                    } else {
+                        layer.alert(response.data.msg, { icon: 2 });
+                    }
+                    layer.closeAll('loading');
+                    $scope.shopWorkOnLoad = false;
+                }, function errorCallback(response) {
+                    layer.closeAll('loading');
+                    console.log(response);
+                });
+            };
+
+            //上传
+            $scope.upload = function (spid) {
+                var fd = new FormData();
+                var files = document.querySelector('input[spid=' + spid + ']').files[0];
+                fd.append(spid, files);
+                layer.load();
+                $http.post('../api/WebApi/Upload', fd, {
+                    transformRequest: angular.identity,
+                    headers: {
+                        'Content-Type': undefined
+                    }
+                }).success(function (response) {
+                    if (response.error == '0') {
+                        var img = document.querySelector('img[spid=' + spid + ']');
+                        img.src = response.data[0] + '?t=' + Math.ceil(Math.random() * 10);
+                        layer.alert('上传成功', { icon: 1 });
+                    } else {
+                        layer.alert(response.msg, { icon: 2 });
+                    }
+                    layer.closeAll('loading');
+                }).error(function (response) {
+                    layer.closeAll('loading');
+                    console.log(response);
+                });
+            };
+        })
+    </script>
+}
