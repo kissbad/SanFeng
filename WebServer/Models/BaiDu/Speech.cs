@@ -18,9 +18,9 @@ namespace WebServer.Models.BaiDu
             client.Timeout = 60000;  // 修改超时时间
             // 可选参数
             var option = new Dictionary<string, object>(){
-                { "spd", 4}, // 语速
-                { "vol", 7}, // 音量
-                { "per", 4}  // 发音人，4：情感度丫丫童声
+                { "spd", 5}, // 语速
+                { "vol", 6}, // 音量
+                { "per", 0}  // 发音人，4：情感度丫丫童声
             };
             var result = client.Synthesis(text, option);
 

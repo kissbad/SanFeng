@@ -179,4 +179,3 @@ D:\C#\SanFeng\WebServer\obj\Debug\WebServer.csproj.CoreCompileInputs.cache
 D:\C#\SanFeng\WebServer\obj\Debug\WebServer.csproj.CopyComplete
 D:\C#\SanFeng\WebServer\obj\Debug\WebServer.dll
 D:\C#\SanFeng\WebServer\obj\Debug\WebServer.pdb
-D:\C#\SanFeng\WebServer\obj\Debug\WebServer.csprojAssemblyReference.cache
