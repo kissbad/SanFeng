@@ -11,7 +11,7 @@ namespace WebServer.Models.KSOA
     {
         public string djbh { get; set; }
         public int dj_sn { get; set; }
-        public string xgdjbh { get; set; }
+        public string xgdjbh { get; set; } = "";
         public string spid { get; set; }
         public string dw { get; set; }
         public string pihao { get; set; }

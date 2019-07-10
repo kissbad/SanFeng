@@ -24,6 +24,7 @@ namespace WebServer.Models.KSOA
         public string jlgg { get; set; }
         public string imageUrl { get; set; }
         public string kcshl { get; set; }
+        public string shlv { get; set; }
 
         public static spkfk get_sp(string spid) {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
