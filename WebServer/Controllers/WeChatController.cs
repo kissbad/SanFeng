@@ -297,5 +297,44 @@ namespace WebServer.Controllers
                 return new { error = 1, msg = e.Message };
             }
         }
+       
+        [HttpPost]
+        public object submit_order(P_WX_order p)
+        {
+            try
+            {
+                string djbh = maxbh.get_maxbh("WXD");
+                p.djbh = djbh;
+                using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(P_WX_order.ConnectionString))
+                {
+                    conn.Open();
+                    System.Data.SqlClient.SqlTransaction transaction = conn.BeginTransaction();
+                    try {
+                        if (!p.Save(conn, transaction)) {
+                            throw new Exception("汇总存盘失败");
+                        };
+
+                        foreach (wqh_WX_order_mx i in p.mx) {
+                            i.djbh = djbh;
+                            i.Save(conn, transaction);
+                        }
+                        transaction.Commit();
+                    }
+                    catch (Exception e) {
+                        transaction.Rollback();
+                        return new { error = 1, msg = e.Message };
+                    }
+                    if (conn.State != System.Data.ConnectionState.Closed)
+                    {
+                        conn.Close();
+                    }
+                    return new { error = 0, msg = "提交成功" };
+                }
+            }
+            catch (Exception e)
+            {
+                return new { error = 1, msg = e.Message };
+            }
+        }
     }
 }

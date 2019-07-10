@@ -215,6 +215,8 @@
     <Compile Include="Models\KSOA\sp_init.cs" />
     <Compile Include="Models\KSOA\Token.cs" />
     <Compile Include="Models\KSOA\wqh_speech_lib.cs" />
+    <Compile Include="Models\KSOA\wqh_WX_order_hz.cs" />
+    <Compile Include="Models\KSOA\wqh_WX_order_mx.cs" />
     <Compile Include="Models\KSOA\WX_index_sp.cs" />
     <Compile Include="Models\KSOA\WX_sp_search.cs" />
     <Compile Include="Models\KSOA\zhiydoc.cs" />
@@ -228,6 +230,7 @@
     <Compile Include="Models\Request\P_Search_spph.cs" />
     <Compile Include="Models\Request\P_sp_search.cs" />
     <Compile Include="Models\Request\P_sp_search_order.cs" />
+    <Compile Include="Models\Request\P_WX_order.cs" />
     <Compile Include="Models\TaoBao\OSS.cs" />
     <Compile Include="Models\WeChat\openid.cs" />
     <Compile Include="Models\Yaojian\ContactsBusiness.cs" />
