@@ -39,7 +39,7 @@ values(@medicineCodeNumber,@packagSpecifications,@medicineGeneralName,@doseType,
         public static List<OperationCommodity> GetOperationCommodities() {
             using (SqlConnection conn = new SqlConnection(Global.KSOA_ConnectionString))
             {
-                string sql = @"select * from jk_OperationCommodity";
+                string sql = @"select * from wqh_yj_OperationCommodity";
                 return conn.Query<OperationCommodity>(sql).ToList();
             }
         }

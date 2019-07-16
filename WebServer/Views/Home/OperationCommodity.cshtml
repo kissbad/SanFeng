@@ -7,7 +7,7 @@
 <div ng-app="app" ng-controller="control">
     <h2>经营品种库</h2>
     <input class="btn btn-primary" id="Button1" type="button" value="更新经营品种库" ng-click="updataOperationCommodity()" />
-
+    <input id="Button1" type="button" value="button" ng-click="download()" />
     <div class="table-responsive">
         <table class="table table-striped table-bordered table-condensed" border="1">
             <tr>
@@ -34,6 +34,7 @@
     </div>
 </div>
 @section scripts{
+    <script src="~/Scripts/JSONToExcelConvertor.js"></script>
     <script>
         var app = angular.module('app', []);
         app.controller('control', function ($scope, $http) {
@@ -78,6 +79,12 @@
                 });
             }
             $scope.getOperationCommodity();
+            $scope.download = function () {
+                var excel = JSONToExcelConvertor($scope.OperationCommodityList);
+                var blob = new Blob([excel], { type: 'application/vnd.ms-excel' } );
+                objectURL = URL.createObjectURL(blob);
+                window.location.href = objectURL;
+            }
         })
     </script>
 }
