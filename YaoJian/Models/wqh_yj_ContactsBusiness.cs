@@ -33,5 +33,14 @@ values(@enterPriceName,@enterPriceType,@fullAddress,@district)";
                 return conn.Execute(sql) > 0;
             }
         }
+
+        public static List<wqh_yj_ContactsBusiness> get_list()
+        {
+            using (SqlConnection conn = new SqlConnection(Global.KSOA_ConnectionString))
+            {
+                string sql = @"select * from wqh_yj_ContactsBusiness";
+                return conn.Query<wqh_yj_ContactsBusiness>(sql).ToList();
+            }
+        }
     }
 }

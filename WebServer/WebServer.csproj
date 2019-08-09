@@ -232,6 +232,7 @@
     <Compile Include="Models\Request\P_sp_search_order.cs" />
     <Compile Include="Models\Request\P_WX_order.cs" />
     <Compile Include="Models\TaoBao\OSS.cs" />
+    <Compile Include="Models\Tencent\Map.cs" />
     <Compile Include="Models\WeChat\openid.cs" />
     <Compile Include="Models\Yaojian\ContactsBusiness.cs" />
     <Compile Include="Models\Yaojian\DowloadFileDeal.cs" />

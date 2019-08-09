@@ -127,5 +127,11 @@ namespace YaoJian
                 enabled(button1, true);
             }
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            var list = wqh_yj_ContactsBusiness.get_list();
+            WQH.Office.Excel.cExcel<wqh_yj_ContactsBusiness>(list);
+        }
     }
 }
