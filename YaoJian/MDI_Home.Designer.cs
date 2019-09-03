@@ -40,11 +40,12 @@
             this.销售出库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.销售退货ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.不合格药品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.销毁出库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.销毁出库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图片文字识别ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +54,8 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
-            this.editMenu});
+            this.editMenu,
+            this.图片文字识别ToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(632, 25);
@@ -113,47 +115,54 @@
             // 
             this.undoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.undoToolStripMenuItem.Text = "采购入库";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // 退货出库ToolStripMenuItem
             // 
             this.退货出库ToolStripMenuItem.Name = "退货出库ToolStripMenuItem";
-            this.退货出库ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退货出库ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退货出库ToolStripMenuItem.Text = "采购退货";
             this.退货出库ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // 销售出库ToolStripMenuItem
             // 
             this.销售出库ToolStripMenuItem.Name = "销售出库ToolStripMenuItem";
-            this.销售出库ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.销售出库ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.销售出库ToolStripMenuItem.Text = "销售出库";
             this.销售出库ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // 销售退货ToolStripMenuItem
             // 
             this.销售退货ToolStripMenuItem.Name = "销售退货ToolStripMenuItem";
-            this.销售退货ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.销售退货ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.销售退货ToolStripMenuItem.Text = "销售退货";
             this.销售退货ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // 不合格药品ToolStripMenuItem
             // 
             this.不合格药品ToolStripMenuItem.Name = "不合格药品ToolStripMenuItem";
-            this.不合格药品ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.不合格药品ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.不合格药品ToolStripMenuItem.Text = "不合格药品";
             this.不合格药品ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            // 
+            // 销毁出库ToolStripMenuItem
+            // 
+            this.销毁出库ToolStripMenuItem.Name = "销毁出库ToolStripMenuItem";
+            this.销毁出库ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.销毁出库ToolStripMenuItem.Text = "销毁出库";
+            this.销毁出库ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(133, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.selectAllToolStripMenuItem.Text = "上传查询";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
@@ -173,12 +182,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(32, 17);
             this.toolStripStatusLabel.Text = "状态";
             // 
-            // 销毁出库ToolStripMenuItem
+            // 图片文字识别ToolStripMenuItem
             // 
-            this.销毁出库ToolStripMenuItem.Name = "销毁出库ToolStripMenuItem";
-            this.销毁出库ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.销毁出库ToolStripMenuItem.Text = "销毁出库";
-            this.销毁出库ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            this.图片文字识别ToolStripMenuItem.Name = "图片文字识别ToolStripMenuItem";
+            this.图片文字识别ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.图片文字识别ToolStripMenuItem.Text = "图片文字识别";
+            this.图片文字识别ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // MDI_Home
             // 
@@ -219,6 +228,7 @@
         private System.Windows.Forms.ToolStripMenuItem 销售退货ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 不合格药品ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 销毁出库ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 图片文字识别ToolStripMenuItem;
     }
 }
 

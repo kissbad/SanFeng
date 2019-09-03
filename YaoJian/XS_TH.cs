@@ -68,7 +68,7 @@ namespace YaoJian
                 
                 Uplond uplond = new Uplond();
                 uplond.xml_name = "218";
-                uplond.xml_Validate = "yjj_qyjk_thck.xsd";
+                uplond.xml_Validate = "yjj_qyjk_pfthrk.xsd";
                 uplond.upload_type = "销售退货";
                 var xml = uplond.GetXml<yjj_qyjk_pfthrk>(uplond_data);
                 if (uplond.doUplond(xml, djbhs))
