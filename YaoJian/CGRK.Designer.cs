@@ -33,7 +33,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.yjjqyjkcgrkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.enterPriceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.djbh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,17 +49,17 @@
             this.djbhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rqrqDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ghqyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enterPriceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xsdhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yssbDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yskssjDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ysjssjDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ysjlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yjjqyjkcgrkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yjjqyjkcgrkBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.djmxBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yjjqyjkcgrkBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -108,17 +108,20 @@
             this.clrDataGridViewTextBoxColumn,
             this.ysjlDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.yjjqyjkcgrkBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 58);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(722, 363);
+            this.dataGridView1.Size = new System.Drawing.Size(722, 369);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // yjjqyjkcgrkBindingSource
+            // enterPriceName
             // 
-            this.yjjqyjkcgrkBindingSource.DataSource = typeof(YaoJian.Models.yjj_qyjk_cgrk);
+            this.enterPriceName.DataPropertyName = "enterPriceName";
+            this.enterPriceName.HeaderText = "供货企业（药监）";
+            this.enterPriceName.Name = "enterPriceName";
+            this.enterPriceName.ReadOnly = true;
+            this.enterPriceName.Width = 83;
             // 
             // button2
             // 
@@ -163,7 +166,7 @@
             this.djbh.HeaderText = "单据编号";
             this.djbh.Name = "djbh";
             this.djbh.ReadOnly = true;
-            this.djbh.Width = 61;
+            this.djbh.Width = 78;
             // 
             // bwmDataGridViewTextBoxColumn
             // 
@@ -171,7 +174,7 @@
             this.bwmDataGridViewTextBoxColumn.HeaderText = "本位码";
             this.bwmDataGridViewTextBoxColumn.Name = "bwmDataGridViewTextBoxColumn";
             this.bwmDataGridViewTextBoxColumn.ReadOnly = true;
-            this.bwmDataGridViewTextBoxColumn.Width = 61;
+            this.bwmDataGridViewTextBoxColumn.Width = 66;
             // 
             // medicineCodeNumber
             // 
@@ -256,14 +259,6 @@
             this.ghqyDataGridViewTextBoxColumn.ReadOnly = true;
             this.ghqyDataGridViewTextBoxColumn.Width = 78;
             // 
-            // enterPriceName
-            // 
-            this.enterPriceName.DataPropertyName = "enterPriceName";
-            this.enterPriceName.HeaderText = "供货企业（药监）";
-            this.enterPriceName.Name = "enterPriceName";
-            this.enterPriceName.ReadOnly = true;
-            this.enterPriceName.Width = 83;
-            // 
             // xsdhDataGridViewTextBoxColumn
             // 
             this.xsdhDataGridViewTextBoxColumn.DataPropertyName = "xsdh";
@@ -312,6 +307,10 @@
             this.ysjlDataGridViewTextBoxColumn.ReadOnly = true;
             this.ysjlDataGridViewTextBoxColumn.Width = 61;
             // 
+            // yjjqyjkcgrkBindingSource
+            // 
+            this.yjjqyjkcgrkBindingSource.DataSource = typeof(YaoJian.Models.yjj_qyjk_cgrk);
+            // 
             // CGRK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -326,9 +325,9 @@
             this.Name = "CGRK";
             this.Text = "采购入库";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yjjqyjkcgrkBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.djmxBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yjjqyjkcgrkBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

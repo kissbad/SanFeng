@@ -50,7 +50,7 @@ namespace YaoJian.Models
         {
             XmlElement dj = xml.CreateElement("dj");
             dj.SetAttribute("djbh", djbh);
-            dj.SetAttribute("rqrq", ckrq);
+            dj.SetAttribute("ckrq", ckrq);
             dj.SetAttribute("ghqy", ghqy);
             foreach (var i2 in tm)
             {

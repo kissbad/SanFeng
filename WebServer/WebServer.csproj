@@ -199,6 +199,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaiDu\OCR.cs" />
     <Compile Include="Models\BaiDu\Speech.cs" />
     <Compile Include="Models\Global.cs" />
     <Compile Include="Models\KSOA\DataInfor.cs" />
@@ -215,6 +216,8 @@
     <Compile Include="Models\KSOA\sp_init.cs" />
     <Compile Include="Models\KSOA\Token.cs" />
     <Compile Include="Models\KSOA\wqh_speech_lib.cs" />
+    <Compile Include="Models\KSOA\wqh_WX_order_hz.cs" />
+    <Compile Include="Models\KSOA\wqh_WX_order_mx.cs" />
     <Compile Include="Models\KSOA\WX_index_sp.cs" />
     <Compile Include="Models\KSOA\WX_sp_search.cs" />
     <Compile Include="Models\KSOA\zhiydoc.cs" />
@@ -228,7 +231,9 @@
     <Compile Include="Models\Request\P_Search_spph.cs" />
     <Compile Include="Models\Request\P_sp_search.cs" />
     <Compile Include="Models\Request\P_sp_search_order.cs" />
+    <Compile Include="Models\Request\P_WX_order.cs" />
     <Compile Include="Models\TaoBao\OSS.cs" />
+    <Compile Include="Models\Tencent\Map.cs" />
     <Compile Include="Models\WeChat\openid.cs" />
     <Compile Include="Models\Yaojian\ContactsBusiness.cs" />
     <Compile Include="Models\Yaojian\DowloadFileDeal.cs" />
@@ -342,6 +347,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
+    <Content Include="Scripts\JSONToExcelConvertor.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\layer\layer.js" />

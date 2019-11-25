@@ -50,6 +50,9 @@ namespace YaoJian
                 case "上传查询":
                     form = new UploadFileLog();
                     break;
+                case "图片文字识别":
+                    form = new OCR();
+                    break;
             }
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
