@@ -48,6 +48,8 @@ namespace WebServer.Controllers
                     msg = "查询成功",
                     data = new
                     {
+                        userInfo.dzyid,
+                        userInfo.dzycode,
                         userInfo.dzyname,
                         userInfo.lgnname,
                         userInfo.is_ywy
@@ -330,6 +332,34 @@ namespace WebServer.Controllers
                     }
                     return new { error = 0, msg = "提交成功" };
                 }
+            }
+            catch (Exception e)
+            {
+                return new { error = 1, msg = e.Message };
+            }
+        }
+
+        [HttpGet]
+        public object get_pd_list()
+        {
+            try
+            {
+                var pd_list = Models.KSOA.pdhz.get_pd_list();
+                return new { error = 0, msg = "查询成功", pd_list };
+            }
+            catch (Exception e)
+            {
+                return new { error = 1, msg = e.Message };
+            }
+        }
+
+        [HttpGet]
+        public object get_pdmx(string djbh)
+        {
+            try
+            {
+                var pdmx = Models.KSOA.pdmx.get_pdmx(djbh);
+                return new { error = 0, msg = "查询成功", pdmx };
             }
             catch (Exception e)
             {

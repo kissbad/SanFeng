@@ -211,6 +211,8 @@
     <Compile Include="Models\KSOA\maxbh.cs" />
     <Compile Include="Models\KSOA\mchk.cs" />
     <Compile Include="Models\KSOA\PassWord.cs" />
+    <Compile Include="Models\KSOA\pdhz.cs" />
+    <Compile Include="Models\KSOA\pdmx.cs" />
     <Compile Include="Models\KSOA\sphwph.cs" />
     <Compile Include="Models\KSOA\spkfk.cs" />
     <Compile Include="Models\KSOA\sp_init.cs" />
@@ -218,6 +220,7 @@
     <Compile Include="Models\KSOA\wqh_speech_lib.cs" />
     <Compile Include="Models\KSOA\wqh_WX_order_hz.cs" />
     <Compile Include="Models\KSOA\wqh_WX_order_mx.cs" />
+    <Compile Include="Models\KSOA\wqh_WX_ProjectsList.cs" />
     <Compile Include="Models\KSOA\WX_index_sp.cs" />
     <Compile Include="Models\KSOA\WX_sp_search.cs" />
     <Compile Include="Models\KSOA\zhiydoc.cs" />

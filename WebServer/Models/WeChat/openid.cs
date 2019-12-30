@@ -15,7 +15,7 @@ namespace WebServer.Models.WeChat
         public openid(string appid, string code)
         {
             string url = string.Format(@"https://api.weixin.qq.com/sns/jscode2session?appid={0}&secret={1}&js_code={2}&grant_type=authorization_code",
-                appid, "7c6170cc8edef5b89df49c418b42aa01", code);
+                appid, KSOA.wqh_WX_ProjectsList.GetAppSecret(appid), code);
 
             HttpClient client = new HttpClient();
             client.MaxResponseContentBufferSize = 256000;

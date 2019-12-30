@@ -175,7 +175,6 @@ D:\C#\SanFeng\WebServer\bin\zh-Hans\System.Web.Razor.resources.dll
 D:\C#\SanFeng\WebServer\bin\zh-Hans\System.Web.WebPages.resources.dll
 D:\C#\SanFeng\WebServer\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\C#\SanFeng\WebServer\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-D:\C#\SanFeng\WebServer\obj\Debug\WebServer.csproj.CoreCompileInputs.cache
 D:\C#\SanFeng\WebServer\obj\Debug\WebServer.csproj.CopyComplete
 D:\C#\SanFeng\WebServer\obj\Debug\WebServer.dll
 D:\C#\SanFeng\WebServer\obj\Debug\WebServer.pdb
