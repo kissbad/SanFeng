@@ -159,3 +159,16 @@ System.Security.SecurityException: 不允许所请求的注册表访问权。
 正在移除 EventLog 源 数据同步。
 正在从系统中移除服务 数据同步...
 已成功地从系统中移除服务 数据同步。
+正在安装程序集“D:\C#\SanFeng\DataSynchronization\bin\Debug\DataSynchronization.exe”。
+受影响的参数是:
+   logtoconsole = 
+   assemblypath = D:\C#\SanFeng\DataSynchronization\bin\Debug\DataSynchronization.exe
+   logfile = D:\C#\SanFeng\DataSynchronization\bin\Debug\DataSynchronization.InstallLog
+正在安装服务 数据同步...
+已成功安装服务 数据同步。
+正在日志 Application 中创建 EventLog 源 数据同步...
+正在提交程序集“D:\C#\SanFeng\DataSynchronization\bin\Debug\DataSynchronization.exe”。
+受影响的参数是:
+   logtoconsole = 
+   assemblypath = D:\C#\SanFeng\DataSynchronization\bin\Debug\DataSynchronization.exe
+   logfile = D:\C#\SanFeng\DataSynchronization\bin\Debug\DataSynchronization.InstallLog

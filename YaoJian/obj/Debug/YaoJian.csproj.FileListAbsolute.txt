@@ -49,10 +49,8 @@ D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.XHCK.resources
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.XS_CK.resources
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.XS_TH.resources
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.GenerateResource.cache
-D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.CoreCompileInputs.cache
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.CopyComplete
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.exe
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.pdb
 D:\C#\SanFeng\YaoJian\bin\Debug\AipSdk.dll
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.OCR.resources
-D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csprojAssemblyReference.cache

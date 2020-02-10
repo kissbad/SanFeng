@@ -19,7 +19,7 @@ namespace YaoJian.Models
         public string scph { get; set; }
         public string scrq { get; set; }
         public string yxqz { get; set; }
-        public string sl { get; set; }
+        public int sl { get; set; }
         public string yy { get; set; }
         public string sfcl { get; set; }
 

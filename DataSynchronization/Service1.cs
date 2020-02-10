@@ -20,6 +20,7 @@ namespace DataSynchronization
         }
 
         Thread th = new Thread(ThreadAction);
+        Thread th2 = new Thread(ThreadAction2);
 
         protected override void OnStart(string[] args)
         {
@@ -27,6 +28,9 @@ namespace DataSynchronization
             //开始线程
             th.IsBackground = true;
             th.Start();
+
+            th2.IsBackground = true;
+            th2.Start();
         }
 
         public static void ThreadAction()
@@ -64,9 +68,39 @@ namespace DataSynchronization
             }
         }
 
+        public static void ThreadAction2()
+        {
+            try
+            {
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+                while (true)
+                {
+                    try
+                    {
+                        var lastmodifytime = config.AppSettings.Settings["LastUpdateTime_b"].Value;
+                        KsoaToKsoaB.spkfk(lastmodifytime);
+                        KsoaToKsoaB.mchk(lastmodifytime);
+                        config.AppSettings.Settings["LastUpdateTime_b"].Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                        config.Save(ConfigurationSaveMode.Modified);
+                    }
+                    catch (Exception e)
+                    {
+                        WQH.system.IO.File.WriteLog(e.Message, 1);
+                    }
+                    Thread.Sleep(5 * 60 * 1000);
+                }
+            }
+            catch (Exception e)
+            {
+                WQH.system.IO.File.WriteLog(e.Message, 1);
+            }
+        }
+
         protected override void OnStop()
         {
             th.Abort();
+            th2.Abort();
             WQH.system.IO.File.WriteLog("服务停止 ", 1);
         }
     }

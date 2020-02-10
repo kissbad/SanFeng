@@ -53,10 +53,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\mchk.cs" />
+    <Compile Include="Interface\spkfk.cs" />
+    <Compile Include="KsoaToKsoaB.cs" />
     <Compile Include="KsoaToU8.cs" />
     <Compile Include="KSOA\DataInfor.cs" />
     <Compile Include="KSOA\dwdydz.cs" />
     <Compile Include="KSOA\mchk.cs" />
+    <Compile Include="KSOA\spkfk.cs" />
+    <Compile Include="KSOA_B\DataInfor.cs" />
+    <Compile Include="KSOA_B\mchk.cs" />
+    <Compile Include="KSOA_B\spkfk.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
