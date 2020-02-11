@@ -79,10 +79,14 @@ namespace DataSynchronization
                     try
                     {
                         var lastmodifytime = config.AppSettings.Settings["LastUpdateTime_b"].Value;
-                        KsoaToKsoaB.spkfk(lastmodifytime);
-                        KsoaToKsoaB.mchk(lastmodifytime);
                         config.AppSettings.Settings["LastUpdateTime_b"].Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                         config.Save(ConfigurationSaveMode.Modified);
+
+                        //KsoaToKsoaB.spkfk(lastmodifytime);
+                        //KsoaToKsoaB.mchk(lastmodifytime);
+                        //KsoaToKsoaB.sjjh_jh_rkhz(lastmodifytime);
+                        //KsoaToKsoaB.sjjh_jh_rkmx(lastmodifytime);  
+                        KsoaToKsoaB.sjjh_pf_ckhz(lastmodifytime);
                     }
                     catch (Exception e)
                     {

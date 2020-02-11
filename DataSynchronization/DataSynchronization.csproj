@@ -53,16 +53,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\jh_rkhz.cs" />
+    <Compile Include="Interface\jh_rkmx.cs" />
     <Compile Include="Interface\mchk.cs" />
+    <Compile Include="Interface\pf_ckhz.cs" />
+    <Compile Include="Interface\pf_ckmx.cs" />
     <Compile Include="Interface\spkfk.cs" />
     <Compile Include="KsoaToKsoaB.cs" />
     <Compile Include="KsoaToU8.cs" />
     <Compile Include="KSOA\DataInfor.cs" />
     <Compile Include="KSOA\dwdydz.cs" />
+    <Compile Include="KSOA\jh_rkhz.cs" />
+    <Compile Include="KSOA\jh_rkmx.cs" />
     <Compile Include="KSOA\mchk.cs" />
+    <Compile Include="KSOA\pf_ckhz.cs" />
+    <Compile Include="KSOA\pf_ckmx.cs" />
     <Compile Include="KSOA\spkfk.cs" />
     <Compile Include="KSOA_B\DataInfor.cs" />
     <Compile Include="KSOA_B\mchk.cs" />
+    <Compile Include="KSOA_B\sjjh_jh_rkhz.cs" />
+    <Compile Include="KSOA_B\sjjh_jh_rkmx.cs" />
+    <Compile Include="KSOA_B\sjjh_pf_ckhz.cs" />
+    <Compile Include="KSOA_B\sjjh_pf_ckmx.cs" />
     <Compile Include="KSOA_B\spkfk.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
