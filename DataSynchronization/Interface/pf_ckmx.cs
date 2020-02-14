@@ -30,7 +30,6 @@ namespace DataSynchronization.Interface
         decimal yshl { get; set; }
         decimal yhshj { get; set; }
         string is_zx { get; set; }
-        string is_sjjh { get; set; }
         string lastmodifytime { get; set; }
         decimal ydj { get; set; }
         decimal ndj { get; set; }

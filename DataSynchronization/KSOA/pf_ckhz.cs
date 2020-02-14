@@ -38,7 +38,6 @@ namespace DataSynchronization.KSOA
         public string sanhjsh { get; set; }
         public string wzbh { get; set; }
         public string is_zx { get; set; }
-        public string is_sjjh { get; set; }
         public string lastmodifytime { get; set; }
         public string gldjbh { get; set; }
 

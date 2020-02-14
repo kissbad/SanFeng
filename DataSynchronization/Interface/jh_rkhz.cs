@@ -28,7 +28,6 @@ namespace DataSynchronization.Interface
         string shjy3 { get; set; }
         string lhdh { get; set; }
         string is_zx { get; set; }
-        string is_sjjh { get; set; }
         string lastmodifytime { get; set; }
         string gldjbh { get; set; }
     }

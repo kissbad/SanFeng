@@ -20,7 +20,7 @@ namespace DataSynchronization.KSOA_B
                     string sql1 = @"update a set djbs = @djbs,djlx = @djlx,rq = @rq,ontime = @ontime,bm = @bm,dwbh = @dwbh,username = @username,
 ywy = @ywy,bendian = @bendian,is_chonghong = @is_chonghong,dj_chonghong = @dj_chonghong,thfs = @thfs,
 is_fp = @is_fp,deywy = @deywy,shjy = @shjy,shjy2 = @shjy2,shjy3 = @shjy3,lhdh = @lhdh,is_zx = @is_zx,
-is_sjjh = @is_sjjh,lastmodifytime = @lastmodifytime,gldjbh = @gldjbh
+lastmodifytime = @lastmodifytime,gldjbh = @gldjbh
 from sjjh_jh_rkhz a
 where djbh = @djbh";
                     conn.Execute(sql1, data);
@@ -30,7 +30,7 @@ where djbh = @djbh";
                     string sql2 = @"insert into sjjh_jh_rkhz(djbh,djbs,djlx,rq,ontime,bm,dwbh,username,ywy,bendian,is_chonghong,
 dj_chonghong,thfs,is_fp,deywy,shjy,shjy2,shjy3,lhdh,is_zx,is_sjjh,lastmodifytime,gldjbh)
 values(@djbh,@djbs,@djlx,@rq,@ontime,@bm,@dwbh,@username,@ywy,@bendian,@is_chonghong,
-@dj_chonghong,@thfs,@is_fp,@deywy,@shjy,@shjy2,@shjy3,@lhdh,@is_zx,@is_sjjh,@lastmodifytime,@gldjbh)";
+@dj_chonghong,@thfs,@is_fp,@deywy,@shjy,@shjy2,@shjy3,@lhdh,@is_zx,'',@lastmodifytime,@gldjbh)";
                     conn.Execute(sql2, data);
                 }
             }

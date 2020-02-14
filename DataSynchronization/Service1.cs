@@ -37,23 +37,23 @@ namespace DataSynchronization
         {
             try
             {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var updatetime = config.AppSettings.Settings["UpdateTime"]?.Value;
-
                 while (true)
                 {
                     try
                     {
+                        Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                        var updatetime = config.AppSettings.Settings["UpdateTime"]?.Value;
                         if (DateTime.Now.Minute.ToString() == (string.IsNullOrWhiteSpace(updatetime) ? "0" : updatetime))
                         {
                             var lastmodifytime = config.AppSettings.Settings["LastUpdateTime"].Value;
                             KsoaToU8.mchk(lastmodifytime);
                             //KsoaToU8.dwdydz(lastmodifytime);
                             //修改最后更新时间
-                            config.AppSettings.Settings["LastUpdateTime"].Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                            config.AppSettings.Settings["LastUpdateTime"].Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             config.Save(ConfigurationSaveMode.Modified);
+                            
                         }
-
+                        config = null;
                     }
                     catch (Exception e)
                     {
@@ -72,21 +72,31 @@ namespace DataSynchronization
         {
             try
             {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                
 
                 while (true)
                 {
                     try
                     {
+                        Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                         var lastmodifytime = config.AppSettings.Settings["LastUpdateTime_b"].Value;
-                        config.AppSettings.Settings["LastUpdateTime_b"].Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                        config.AppSettings.Settings["LastUpdateTime_b"].Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         config.Save(ConfigurationSaveMode.Modified);
+                        ConfigurationManager.RefreshSection("appSettings");
+                        config = null;
 
-                        //KsoaToKsoaB.spkfk(lastmodifytime);
-                        //KsoaToKsoaB.mchk(lastmodifytime);
-                        //KsoaToKsoaB.sjjh_jh_rkhz(lastmodifytime);
-                        //KsoaToKsoaB.sjjh_jh_rkmx(lastmodifytime);  
-                        KsoaToKsoaB.sjjh_pf_ckhz(lastmodifytime);
+                        Action<string> action = null;
+                        //action += KsoaToKsoaB.spkfk;
+                        //action += KsoaToKsoaB.mchk;
+                        //action += KsoaToKsoaB.sjjh_jh_rkhz;
+                        //action += KsoaToKsoaB.sjjh_jh_rkmx;
+                        //action += KsoaToKsoaB.sjjh_pf_ckhz;
+                        //action += KsoaToKsoaB.sjjh_pf_ckmx;
+                        //action += KsoaToKsoaB.fapiaogl;
+                        //action += KsoaToKsoaB.fapiaodet;
+                        action += KsoaToKsoaB.sjjh_pdhz;
+
+                        action(lastmodifytime);
                     }
                     catch (Exception e)
                     {

@@ -31,8 +31,7 @@ namespace DataSynchronization.KSOA
         public int chdj_sn { get; set; }
         public decimal yshl { get; set; }
         public decimal yhshj { get; set; }
-        public string is_zx { get; set; }
-        public string is_sjjh { get; set; }
+        public string is_zx { get; set; } = "";
         public string lastmodifytime { get; set; }
         public decimal ydj { get; set; }
         public decimal ndj { get; set; }
