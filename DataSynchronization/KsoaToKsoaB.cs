@@ -206,5 +206,71 @@ namespace DataSynchronization
             }
             WQH.system.IO.File.WriteLog("↑↑↑↑↑B同步sjjh_pdhz结束↑↑↑↑↑", 1);
         }
+
+        public static void sjjh_pdmx(string lastmodifytime)
+        {
+            WQH.system.IO.File.WriteLog("↓↓↓↓↓B开始同步sjjh_pdmx↓↓↓↓↓", 1);
+            var data = KSOA.pdmx.getList(lastmodifytime);
+            if (data.Count > 0)
+            {
+                WQH.system.IO.File.WriteLog(string.Format("最新数据{0}条", data.Count), 1);
+                foreach (var i in data)
+                {
+                    try
+                    {
+                        KSOA_B.sjjh_pdmx.Save(i);
+                    }
+                    catch (Exception e)
+                    {
+                        WQH.system.IO.File.WriteLog(i.djbh + "::" + e.Message, 1);
+                    }
+                }
+            }
+            WQH.system.IO.File.WriteLog("↑↑↑↑↑B同步sjjh_pdmx结束↑↑↑↑↑", 1);
+        }
+
+        public static void sjjh_shpbshz(string lastmodifytime)
+        {
+            WQH.system.IO.File.WriteLog("↓↓↓↓↓B开始同步sjjh_shpbshz↓↓↓↓↓", 1);
+            var data = KSOA.shpbshz.getList(lastmodifytime);
+            if (data.Count > 0)
+            {
+                WQH.system.IO.File.WriteLog(string.Format("最新数据{0}条", data.Count), 1);
+                foreach (var i in data)
+                {
+                    try
+                    {
+                        KSOA_B.sjjh_shpbshz.Save(i);
+                    }
+                    catch (Exception e)
+                    {
+                        WQH.system.IO.File.WriteLog(i.djbh + "::" + e.Message, 1);
+                    }
+                }
+            }
+            WQH.system.IO.File.WriteLog("↑↑↑↑↑B同步sjjh_shpbshz结束↑↑↑↑↑", 1);
+        }
+
+        public static void sjjh_shpbsmx(string lastmodifytime)
+        {
+            WQH.system.IO.File.WriteLog("↓↓↓↓↓B开始同步sjjh_shpbsmx↓↓↓↓↓", 1);
+            var data = KSOA.shpbsmx.getList(lastmodifytime);
+            if (data.Count > 0)
+            {
+                WQH.system.IO.File.WriteLog(string.Format("最新数据{0}条", data.Count), 1);
+                foreach (var i in data)
+                {
+                    try
+                    {
+                        KSOA_B.sjjh_shpbsmx.Save(i);
+                    }
+                    catch (Exception e)
+                    {
+                        WQH.system.IO.File.WriteLog(i.djbh + "::" + e.Message, 1);
+                    }
+                }
+            }
+            WQH.system.IO.File.WriteLog("↑↑↑↑↑B同步sjjh_shpbsmx结束↑↑↑↑↑", 1);
+        }
     }
 }

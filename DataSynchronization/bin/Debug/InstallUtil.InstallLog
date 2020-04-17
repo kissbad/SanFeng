@@ -160,3 +160,10 @@ System.InvalidOperationException: 无法打开计算机“.”上的服务控制
 “提交”阶段已成功完成。
 
 已完成事务处理安装。
+
+
+正在开始卸载。
+查看日志文件的内容以获得 D:\C#\SanFeng\DataSynchronization\bin\Debug\DataSynchronization.exe 程序集的进度。
+该文件位于 D:\C#\SanFeng\DataSynchronization\bin\Debug\DataSynchronization.InstallLog。
+
+卸载完成。

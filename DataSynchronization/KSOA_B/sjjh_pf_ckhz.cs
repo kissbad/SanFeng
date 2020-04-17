@@ -30,10 +30,10 @@ where djbh = @djbh";
                 {
                     string sql2 = @"insert into sjjh_pf_ckhz(djbh,djbs,djlx,rq,ontime,bm,dwbh,username,ywy,bendian,is_zhongyao,
 is_jhfh,printfa,ychrq,ptmch,ptdjbh,isds,is_zt,is_fyf,is_fp,is_fpwc,dj_chonghong,is_chonghong,
-shouhr,sanhdsh,sanhjsh,wzbh,is_zx,is_sjjh,lastmodifytime,gldjbh)
+shouhr,sanhdsh,sanhjsh,wzbh,is_zx,lastmodifytime,gldjbh)
 values(@djbh,@djbs,@djlx,@rq,@ontime,@bm,@dwbh,@username,@ywy,@bendian,@is_zhongyao,
 @is_jhfh,@printfa,@ychrq,@ptmch,@ptdjbh,@isds,@is_zt,@is_fyf,@is_fp,@is_fpwc,@dj_chonghong,@is_chonghong,
-@shouhr,@sanhdsh,@sanhjsh,@wzbh,@is_zx,'',@lastmodifytime,@gldjbh)";
+@shouhr,@sanhdsh,@sanhjsh,@wzbh,@is_zx,@lastmodifytime,@gldjbh)";
                     conn.Execute(sql2, data);
                 }
             }

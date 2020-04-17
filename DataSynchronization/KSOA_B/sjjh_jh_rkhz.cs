@@ -28,9 +28,9 @@ where djbh = @djbh";
                 else
                 {
                     string sql2 = @"insert into sjjh_jh_rkhz(djbh,djbs,djlx,rq,ontime,bm,dwbh,username,ywy,bendian,is_chonghong,
-dj_chonghong,thfs,is_fp,deywy,shjy,shjy2,shjy3,lhdh,is_zx,is_sjjh,lastmodifytime,gldjbh)
+dj_chonghong,thfs,is_fp,deywy,shjy,shjy2,shjy3,lhdh,is_zx,lastmodifytime,gldjbh)
 values(@djbh,@djbs,@djlx,@rq,@ontime,@bm,@dwbh,@username,@ywy,@bendian,@is_chonghong,
-@dj_chonghong,@thfs,@is_fp,@deywy,@shjy,@shjy2,@shjy3,@lhdh,@is_zx,'',@lastmodifytime,@gldjbh)";
+@dj_chonghong,@thfs,@is_fp,@deywy,@shjy,@shjy2,@shjy3,@lhdh,@is_zx,@lastmodifytime,@gldjbh)";
                     conn.Execute(sql2, data);
                 }
             }

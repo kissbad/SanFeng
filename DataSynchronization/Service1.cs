@@ -86,15 +86,18 @@ namespace DataSynchronization
                         config = null;
 
                         Action<string> action = null;
-                        //action += KsoaToKsoaB.spkfk;
-                        //action += KsoaToKsoaB.mchk;
-                        //action += KsoaToKsoaB.sjjh_jh_rkhz;
-                        //action += KsoaToKsoaB.sjjh_jh_rkmx;
-                        //action += KsoaToKsoaB.sjjh_pf_ckhz;
-                        //action += KsoaToKsoaB.sjjh_pf_ckmx;
-                        //action += KsoaToKsoaB.fapiaogl;
-                        //action += KsoaToKsoaB.fapiaodet;
+                        action += KsoaToKsoaB.spkfk;
+                        action += KsoaToKsoaB.mchk;
+                        action += KsoaToKsoaB.sjjh_jh_rkhz;
+                        action += KsoaToKsoaB.sjjh_jh_rkmx;
+                        action += KsoaToKsoaB.sjjh_pf_ckhz;
+                        action += KsoaToKsoaB.sjjh_pf_ckmx;
+                        action += KsoaToKsoaB.fapiaogl;
+                        action += KsoaToKsoaB.fapiaodet;
                         action += KsoaToKsoaB.sjjh_pdhz;
+                        action += KsoaToKsoaB.sjjh_pdmx;
+                        action += KsoaToKsoaB.sjjh_shpbshz;
+                        action += KsoaToKsoaB.sjjh_shpbsmx;
 
                         action(lastmodifytime);
                     }

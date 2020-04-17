@@ -59,8 +59,11 @@
     <Compile Include="Interface\jh_rkmx.cs" />
     <Compile Include="Interface\mchk.cs" />
     <Compile Include="Interface\pdhz.cs" />
+    <Compile Include="Interface\pdmx.cs" />
     <Compile Include="Interface\pf_ckhz.cs" />
     <Compile Include="Interface\pf_ckmx.cs" />
+    <Compile Include="Interface\shpbshz.cs" />
+    <Compile Include="Interface\shpbsmx.cs" />
     <Compile Include="Interface\spkfk.cs" />
     <Compile Include="KsoaToKsoaB.cs" />
     <Compile Include="KsoaToU8.cs" />
@@ -72,8 +75,11 @@
     <Compile Include="KSOA\jh_rkmx.cs" />
     <Compile Include="KSOA\mchk.cs" />
     <Compile Include="KSOA\pdhz.cs" />
+    <Compile Include="KSOA\pdmx.cs" />
     <Compile Include="KSOA\pf_ckhz.cs" />
     <Compile Include="KSOA\pf_ckmx.cs" />
+    <Compile Include="KSOA\shpbshz.cs" />
+    <Compile Include="KSOA\shpbsmx.cs" />
     <Compile Include="KSOA\spkfk.cs" />
     <Compile Include="KSOA_B\DataInfor.cs" />
     <Compile Include="KSOA_B\fapiaodet.cs" />
@@ -82,8 +88,11 @@
     <Compile Include="KSOA_B\sjjh_jh_rkhz.cs" />
     <Compile Include="KSOA_B\sjjh_jh_rkmx.cs" />
     <Compile Include="KSOA_B\sjjh_pdhz.cs" />
+    <Compile Include="KSOA_B\sjjh_pdmx.cs" />
     <Compile Include="KSOA_B\sjjh_pf_ckhz.cs" />
     <Compile Include="KSOA_B\sjjh_pf_ckmx.cs" />
+    <Compile Include="KSOA_B\sjjh_shpbshz.cs" />
+    <Compile Include="KSOA_B\sjjh_shpbsmx.cs" />
     <Compile Include="KSOA_B\spkfk.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
