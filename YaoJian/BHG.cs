@@ -72,7 +72,7 @@ namespace YaoJian
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "系统错误");
+                MessageBox.Show(ex.Message, "系统错误!");
             }
         }
     }
