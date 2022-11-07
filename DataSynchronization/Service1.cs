@@ -47,7 +47,7 @@ namespace DataSynchronization
                         {
                             var lastmodifytime = config.AppSettings.Settings["LastUpdateTime"].Value;
                             KsoaToU8.mchk(lastmodifytime);
-                            //KsoaToU8.dwdydz(lastmodifytime);
+                            //KsoaToU8.dwdydz(lastmodifytime);//没能映射cwjk_jn.tb_dwys
                             //修改最后更新时间
                             config.AppSettings.Settings["LastUpdateTime"].Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             config.Save(ConfigurationSaveMode.Modified);

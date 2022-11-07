@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,7 +21,7 @@ namespace YaoJian.Models
 
         public bool doUplond(XmlDocument xml, List<string> djbhs)
         {
-            string xml_v = WQH.Xml.Validate.XmlValidationByXsd(xml.InnerXml,Global.BasePath + "/XSD/" + xml_Validate);
+            string xml_v = WQH.Xml.Validate.XmlValidationByXsd(xml.InnerXml, Global.BasePath + "/XSD/" + xml_Validate);
             if (!string.IsNullOrWhiteSpace(xml_v))
             {
                 throw new Exception(xml_v);
@@ -35,10 +36,11 @@ namespace YaoJian.Models
 
 
             HttpClientHandler handler = new HttpClientHandler();
-            handler.ClientCertificates.Add(WQH.Web.HTTP.Certificate.GetCertificateFromStore(
-                System.Security.Cryptography.X509Certificates.StoreName.My,
-                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                "广东三丰医药有限公司"));
+            handler.ClientCertificates.Add(WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
+                    System.Security.Cryptography.X509Certificates.StoreName.My,
+                    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+                    "广东三丰医药有限公司-签名证书"));
+
 
 
             HttpClient client = new HttpClient(handler);
@@ -110,22 +112,24 @@ namespace YaoJian.Models
 
             xml.AppendChild(Object);
 
-            var cer = WQH.Web.HTTP.Certificate.GetCertificateFromStore(
-                System.Security.Cryptography.X509Certificates.StoreName.My,
-                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                "广东三丰医药有限公司");
+            var cer = WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
+                    System.Security.Cryptography.X509Certificates.StoreName.My,
+                    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+                    "广东三丰医药有限公司-签名证书");
 
             if (cer == null)
             {
                 throw new MyException("获取证书失败！！");
             }
+            CspParameters cp = new CspParameters();
+            cp.KeyContainerName = "MyKeyContainerName";
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(cp);
 
-            System.Security.Cryptography.CspParameters cspParams = new System.Security.Cryptography.CspParameters();
-            cspParams.KeyContainerName = "XML_DSIG_RSA_KEY";
-            System.Security.Cryptography.RSACryptoServiceProvider rsaKey = new System.Security.Cryptography.RSACryptoServiceProvider(cspParams);
+            //System.Security.Cryptography.CspParameters cspParams = new System.Security.Cryptography.CspParameters();
+            //cspParams.KeyContainerName = "XML_DSIG_RSA_KEY";
+            //System.Security.Cryptography.RSACryptoServiceProvider rsaKey = new System.Security.Cryptography.RSACryptoServiceProvider(cspParams);
 
-
-            XmlElement Signature = WQH.Xml.Sign.SignXmlFile(xml, rsaKey, cer);
+            XmlElement Signature = WQH.Xml.Sign.SignXmlFile(xml, rsa, cer);
             Signature.AppendChild(Object);
 
             xml.RemoveAll();

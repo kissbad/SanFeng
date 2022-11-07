@@ -47,7 +47,7 @@ a.je,a.hsje,a.shlv,a.she,a.zengp,a.pihao,a.sxrq,a.baozhiqi,a.is_chonghong,a.ch_s
 a.ndj,a.hshj2 as nhshj,a.lastmodifytime,a.is_fp 
 from pf_ckmx a 
 join pf_ckhz b on a.djbh=b.djbh 
-where a.lastmodifytime > @lastmodifytime ";
+where a.lastmodifytime > Dateadd(d,-7,convert(datetime,@lastmodifytime)) ";
                 return conn.Query<pf_ckmx>(sql, new { lastmodifytime }).ToList();
             }
         }

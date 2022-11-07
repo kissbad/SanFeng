@@ -46,7 +46,7 @@ yanshr,yansrq,sum(b.psje) as psje,bendian,a.jwh,filterbs,ywbmid,ywyid,a.beizhu,a
 from pdhz a
 join pdmx b on a.djbh=b.djbh 
 join sphwph c on b.spid=c.spid and b.pihao=c.pihao and a.hw=c.hw 
-where c.is_fp = '是' and a.lastmodifytime > @lastmodifytime
+where a.pdbz = '是' and c.is_fp = '是' and a.lastmodifytime > @lastmodifytime
 group by a.djbh,djbs,rq,a.pdbz,yishj,kaiprq,ontime,piaohao,a.hw,bm,ywy,username,shenchr,shenhr,shenhrq,shenhyj,yanshr,yansrq,
 a.psje,bendian,a.jwh,filterbs,ywbmid,ywyid,a.beizhu,a.lastmodifytime ";
                 return conn.Query<pdhz>(sql, new { lastmodifytime }).ToList();

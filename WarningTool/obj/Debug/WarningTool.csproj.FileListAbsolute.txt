@@ -1,0 +1,16 @@
+D:\C#\SanFeng\WarningTool\bin\Debug\WarningTool.exe.config
+D:\C#\SanFeng\WarningTool\bin\Debug\WarningTool.exe
+D:\C#\SanFeng\WarningTool\bin\Debug\WarningTool.pdb
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.Properties.Resources.resources
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.csproj.GenerateResource.cache
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.exe
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.pdb
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.Form1.resources
+D:\C#\SanFeng\WarningTool\bin\Debug\WQH.dll
+D:\C#\SanFeng\WarningTool\bin\Debug\Newtonsoft.Json.dll
+D:\C#\SanFeng\WarningTool\bin\Debug\WQH.pdb
+D:\C#\SanFeng\WarningTool\bin\Debug\Newtonsoft.Json.xml
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.csproj.CopyComplete
+D:\C#\SanFeng\WarningTool\bin\Debug\Dapper.dll
+D:\C#\SanFeng\WarningTool\bin\Debug\Dapper.xml
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.csprojAssemblyReference.cache

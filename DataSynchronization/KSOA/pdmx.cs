@@ -52,7 +52,7 @@ psshl,a.psje,lshj,a.sxrq,is_shp,a.jwh,a.baozhiqi,a.beizhu,Hjid,jiansh,Tpid,biaos
 from pdmx a 
 join pdhz c on a.djbh=c.djbh 
 join sphwph b on a.spid=b.spid and a.pihao =b.pihao and c.hw=b.hw and b.is_fp='是'
-where a.lastmodifytime  > @lastmodifytime";
+where a.pdbz = '是' and a.lastmodifytime  > @lastmodifytime";
                 return conn.Query<pdmx>(sql, new { lastmodifytime }).ToList();
             }
         }

@@ -45,7 +45,7 @@ namespace DataSynchronization.KSOA
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                string sql = @"select * from jh_rkmx where lastmodifytime > @lastmodifytime";
+                string sql = @"select * from jh_rkmx where lastmodifytime > Dateadd(d,-7,convert(datetime,@lastmodifytime))";
                 return conn.Query<jh_rkmx>(sql, new { lastmodifytime }).ToList();
             }
         }

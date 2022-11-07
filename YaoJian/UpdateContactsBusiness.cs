@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using YaoJian.Models;
+using System.Security.Cryptography.X509Certificates;
 
 namespace YaoJian
 {
@@ -56,7 +57,9 @@ namespace YaoJian
             }
         }
 
-        private void DownloadContactsBusiness()
+
+
+        private async void DownloadContactsBusiness()
         {
             try
             {
@@ -72,25 +75,27 @@ namespace YaoJian
 
                     HttpClientHandler handler = new HttpClientHandler();
 
-                    var cer = WQH.Web.HTTP.Certificate.GetCertificateFromStore(
-                        System.Security.Cryptography.X509Certificates.StoreName.My,
-                        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                        "广东三丰医药有限公司");
-                    if (cer == null) {
+                    var cer = WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
+                    System.Security.Cryptography.X509Certificates.StoreName.My,
+                    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+                    "广东三丰医药有限公司-签名证书");
+                    if (cer == null)
+                    {
                         ShowLog("无法获取证书！！");
                         enabled(button1, true);
                         return;
                     }
 
                     handler.ClientCertificates.Add(cer);
+
                     HttpClient client = new HttpClient(handler);
-                    client.MaxResponseContentBufferSize = 256000;
-                    client.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36");
-                    HttpResponseMessage response = client.GetAsync(url).Result;
+                    client.MaxResponseContentBufferSize = 2560000;
+                    client.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36");
+                    HttpResponseMessage response = await client.GetAsync(url);
 
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string resp = response.Content.ReadAsStringAsync().Result;
+                        string resp = await response.Content.ReadAsStringAsync();
 
                         JObject jo = JObject.Parse(resp);
                         Result<Paging<List<wqh_yj_ContactsBusiness>>> result = jo.ToObject<Result<Paging<List<wqh_yj_ContactsBusiness>>>>();
@@ -117,6 +122,7 @@ namespace YaoJian
                     {
                         ShowLog("连接错误：" + response.StatusCode);
                     }
+
                 }
                 ShowLog("更新完成");
                 enabled(button1, true);
@@ -130,8 +136,63 @@ namespace YaoJian
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            var list = wqh_yj_ContactsBusiness.get_list();
-            WQH.Office.Excel.cExcel<wqh_yj_ContactsBusiness>(list);
+            DownloadContactsBusiness2();
+        }
+
+
+
+        private async void DownloadContactsBusiness2()
+        {
+            try
+            {
+                HttpClientHandler handler = new HttpClientHandler();
+
+                var cer = WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
+                    System.Security.Cryptography.X509Certificates.StoreName.My,
+                    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+                    "广东三丰医药有限公司-签名证书");
+                if (cer == null)
+                {
+                    ShowLog("无法获取证书！！");
+                    enabled(button1, true);
+                    return;
+                }
+
+                handler.ClientCertificates.Add(cer);
+
+                HttpClient client = new HttpClient(handler);
+                client.MaxResponseContentBufferSize = 2560000;
+                client.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36");
+                HttpResponseMessage response = await client.GetAsync("https://qy.gdfda.gov.cn:8445/data/clientAccept/toContactsBusiness.do?dataId=}&resType=json");
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                ShowLog(responseBody);
+            }
+            catch (HttpRequestException ex)
+            {
+                ShowLog(ex.Message + ex.StackTrace);
+            }
+
+        }
+
+        public static X509Certificate2 GetCertificateFromStore(StoreName storeNmae, StoreLocation CurrentUser, string certName)
+        {
+            X509Store store = new X509Store(storeNmae, CurrentUser);
+            try
+            {
+                store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+                X509Certificate2Collection certCollection = store.Certificates;
+                X509Certificate2Collection currentCerts = certCollection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+                X509Certificate2Collection signingCert = currentCerts.Find(X509FindType.FindBySubjectName, certName, false);
+                if (signingCert.Count == 0)
+                    return null;
+                return signingCert[1];
+            }
+            finally
+            {
+                store.Close();
+            }
+
         }
     }
 }

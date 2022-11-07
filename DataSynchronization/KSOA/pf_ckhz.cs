@@ -52,7 +52,7 @@ a.is_fp,a.is_fpwc,a.dj_chonghong,a.is_chonghong,a.shouhr,a.sanhdsh,a.sanhjsh,a.w
 from pf_ckhz a 
 left join pf_djhz b on b.djbh=a.xgdjbh 
 left join pf_ckhz c on c.djbh=b.xgdjbh
-where a.lastmodifytime > @lastmodifytime ";
+where a.lastmodifytime > Dateadd(d,-7,convert(datetime,@lastmodifytime)) ";
                 return conn.Query<pf_ckhz>(sql, new { lastmodifytime }).ToList();
             }
         }

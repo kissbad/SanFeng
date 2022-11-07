@@ -199,6 +199,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaiDu\Lexer.cs" />
     <Compile Include="Models\BaiDu\OCR.cs" />
     <Compile Include="Models\BaiDu\Speech.cs" />
     <Compile Include="Models\Global.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Models\KSOA\pdmx.cs" />
     <Compile Include="Models\KSOA\sphwph.cs" />
     <Compile Include="Models\KSOA\spkfk.cs" />
+    <Compile Include="Models\KSOA\splx.cs" />
     <Compile Include="Models\KSOA\sp_init.cs" />
     <Compile Include="Models\KSOA\Token.cs" />
     <Compile Include="Models\KSOA\wqh_speech_lib.cs" />
@@ -232,6 +234,7 @@
     <Compile Include="Models\Request\P_search_dw.cs" />
     <Compile Include="Models\Request\P_search_sp.cs" />
     <Compile Include="Models\Request\P_Search_spph.cs" />
+    <Compile Include="Models\Request\p_splx.cs" />
     <Compile Include="Models\Request\P_sp_search.cs" />
     <Compile Include="Models\Request\P_sp_search_order.cs" />
     <Compile Include="Models\Request\P_WX_order.cs" />

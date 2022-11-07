@@ -179,7 +179,7 @@ namespace DataSynchronization.KSOA
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                return conn.Query<mchk>("select * from mchk(nolock) where lastmodifytime > @lastmodifytime", new { lastmodifytime }).ToList();
+                return conn.Query<mchk>("select * from mchk(nolock) where lastmodifytime > Dateadd(d,-7,convert(datetime,@lastmodifytime))", new { lastmodifytime }).ToList();
             }
         }
     }

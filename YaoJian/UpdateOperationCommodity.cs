@@ -58,7 +58,7 @@ namespace YaoJian
             }
         }
 
-        private void DownloadOperationCommodity()
+        private async void DownloadOperationCommodity()
         {
             try
             {
@@ -74,10 +74,10 @@ namespace YaoJian
 
                     HttpClientHandler handler = new HttpClientHandler();
 
-                    var cer = WQH.Web.HTTP.Certificate.GetCertificateFromStore(
-                        System.Security.Cryptography.X509Certificates.StoreName.My,
-                        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                        "广东三丰医药有限公司");
+                    var cer = WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
+                    System.Security.Cryptography.X509Certificates.StoreName.My,
+                    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+                    "广东三丰医药有限公司-签名证书");
 
                     if (cer == null)
                     {
@@ -90,11 +90,11 @@ namespace YaoJian
                     HttpClient client = new HttpClient(handler);
                     client.MaxResponseContentBufferSize = 256000;
                     client.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36");
-                    HttpResponseMessage response = client.GetAsync(url).Result;
+                    HttpResponseMessage response = await client.GetAsync(url);
 
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string resp = response.Content.ReadAsStringAsync().Result;
+                        string resp = await response.Content.ReadAsStringAsync();
 
                         JObject jo = JObject.Parse(resp);
                         Result<Paging<List<wqh_yj_OperationCommodity>>> result = jo.ToObject<Result<Paging<List<wqh_yj_OperationCommodity>>>>();

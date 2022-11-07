@@ -41,7 +41,7 @@ namespace DataSynchronization.KSOA
 a.dj_chonghong,a.thfs,a.is_fp,a.deywy,a.shjy,a.shjy2,a.shjy3,b.lhdh,a.lastmodifytime 
 from jh_rkhz a 
 left join jh_djhz b ON b.djbh=a.xgdjbh 
-where a.lastmodifytime > @lastmodifytime";
+where a.lastmodifytime > Dateadd(d,-7,convert(datetime,@lastmodifytime))";
                 return conn.Query<jh_rkhz>(sql, new { lastmodifytime }).ToList();
             }
         }

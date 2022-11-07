@@ -141,5 +141,45 @@ namespace WebServer.Controllers
                 return new { error = 1, msg = e.Message };
             }
         }
+
+
+        /// <summary>
+        /// 商品流向
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public object splx(p_splx p)
+        {
+            try
+            {
+                zhiydoc zy = Token.Verify_token(p.token);
+                var spl = spkfk.search("WX_sp_search", new { p.keyword });
+                return new { error = 0, msg = "", data = spl };
+            }
+            catch (Exception e)
+            {
+                return new { error = 1, msg = e.Message };
+            }
+        }
+
+        /// <summary>
+        /// 地址识别
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public object Dzsb(string p)
+        {
+            try
+            {
+                Models.BaiDu.Lexer.dizhisb(p);
+                return null;
+            }
+            catch (Exception e)
+            {
+                return new { error = 1, msg = e.Message };
+            }
+        }
     }
 }
