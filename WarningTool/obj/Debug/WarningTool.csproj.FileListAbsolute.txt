@@ -13,4 +13,6 @@ D:\C#\SanFeng\WarningTool\bin\Debug\Newtonsoft.Json.xml
 D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.csproj.CopyComplete
 D:\C#\SanFeng\WarningTool\bin\Debug\Dapper.dll
 D:\C#\SanFeng\WarningTool\bin\Debug\Dapper.xml
-D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.csprojAssemblyReference.cache
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.csproj.AssemblyReference.cache
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.csproj.SuggestedBindingRedirects.cache
+D:\C#\SanFeng\WarningTool\obj\Debug\WarningTool.csproj.CoreCompileInputs.cache

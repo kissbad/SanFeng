@@ -27,4 +27,6 @@ D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.GenerateR
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.CopyComplete
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.exe
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.pdb
-D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csprojAssemblyReference.cache
+D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.AssemblyReference.cache
+D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.SuggestedBindingRedirects.cache
+D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.CoreCompileInputs.cache
