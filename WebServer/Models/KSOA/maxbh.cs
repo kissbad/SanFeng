@@ -12,7 +12,7 @@ namespace WebServer.Models.KSOA
         public static string get_maxbh(string biaoshi) {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                var sql = @"declare @maxbh varchar(15)
+                var sql = @"declare @maxbh { get; set; }(15)
 exec dbo.SOF_getmaxbh @biaoshi,3,@maxbh output
 select @maxbh";
                 return conn.QueryFirstOrDefault<string>(sql, new { biaoshi });

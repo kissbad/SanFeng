@@ -5,13 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebServer.Models.Request;
+using WebServer.Models.ZhiLian;
 
 namespace WebServer.Controllers
 {
     public class ZhiLianController : ApiController
     {
         /// <summary>
-        /// 获取openid
+        /// 东北制药数据直连
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
@@ -20,7 +21,8 @@ namespace WebServer.Controllers
         {
             try
             {
-                return new { error = 0, msg = "查询成功", data = "55555" };
+                var data = wqh_yl_cg.GetData(p.update_date);
+                return new { error = 0, msg = "查询成功", data };
             }
             catch (Exception e)
             {

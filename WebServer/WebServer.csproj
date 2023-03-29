@@ -251,6 +251,7 @@
     <Compile Include="Models\Yaojian\wqh_yj_UploadFileLog.cs" />
     <Compile Include="Models\Yaojian\yjj_qyjk_cgrk.cs" />
     <Compile Include="Models\Yaojian\yjj_qyjk_pfck.cs" />
+    <Compile Include="Models\ZhiLian\wqh_yl_cg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
