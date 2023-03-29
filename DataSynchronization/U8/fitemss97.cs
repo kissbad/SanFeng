@@ -22,16 +22,10 @@ namespace DataSynchronization.U8
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                string sql = @"if exists(select 1 from fitemss97 where citemcode = @citemcode)
-begin 
-	update a set a.citemname = @citemname,a.bclose = @bclose
-	from fitemss97 a where citemcode = @citemcode
-end
-else
+                string sql = @"if not exists(select 1 from fitemss97 where citemcode = @citemcode)
 begin
 	insert into fitemss97(citemcode,citemname,bclose,citemccode)
-	select @citemcode,@citemname,@bclose,citemccode 
-	from fitemss97class where  cItemCname = '单位联系人'
+	select @citemcode,@citemname,@bclose,@citemccode 
 end";
                 conn.Execute(sql, this);
             }

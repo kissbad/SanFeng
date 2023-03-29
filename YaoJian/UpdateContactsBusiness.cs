@@ -78,7 +78,7 @@ namespace YaoJian
                     var cer = WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
                     System.Security.Cryptography.X509Certificates.StoreName.My,
                     System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                    "广东三丰医药有限公司-签名证书");
+                    Global.Certificate_name);
                     if (cer == null)
                     {
                         ShowLog("无法获取证书！！");
@@ -150,7 +150,7 @@ namespace YaoJian
                 var cer = WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
                     System.Security.Cryptography.X509Certificates.StoreName.My,
                     System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                    "广东三丰医药有限公司-签名证书");
+                    Global.Certificate_name);
                 if (cer == null)
                 {
                     ShowLog("无法获取证书！！");

@@ -66,7 +66,14 @@ namespace DataSynchronization
                         U8.fitemss97 f = new U8.fitemss97();
                         f.citemcode = f.citemname = i.dwlxr;
                         f.bclose = i.dangqzht == "使用中" ? 0 : 1;
+                        f.citemccode = i.isjh == "是" ? "01" : "02";
                         f.Save();
+
+                        cwjk_jn.tb_dwys ys = new cwjk_jn.tb_dwys();
+                        ys.type = 12;
+                        ys.yws = ys.cws = ys.cwdwn = ys.ywdwn = i.dwlxr;
+                        ys.is_zdsc = "1";
+                        ys.Save();
                     }
                     catch (Exception e)
                     {

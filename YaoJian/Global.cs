@@ -16,5 +16,9 @@ namespace YaoJian
         /// 程序路径
         /// </summary>
         public static readonly string BasePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+        /// <summary>
+        /// 证书名称
+        /// </summary>
+        public static readonly string Certificate_name = ConfigurationManager.ConnectionStrings["Certificate_name"]?.ConnectionString;
     }
 }

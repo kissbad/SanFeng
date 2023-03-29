@@ -196,6 +196,7 @@
     <Compile Include="Controllers\WebController.cs" />
     <Compile Include="Controllers\WeChatController.cs" />
     <Compile Include="Controllers\YaojianController.cs" />
+    <Compile Include="Controllers\ZhiLianController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -227,6 +228,7 @@
     <Compile Include="Models\KSOA\WX_sp_search.cs" />
     <Compile Include="Models\KSOA\zhiydoc.cs" />
     <Compile Include="Models\Request\P_Binding_account.cs" />
+    <Compile Include="Models\Request\P_DBZY.cs" />
     <Compile Include="Models\Request\P_Get_openid.cs" />
     <Compile Include="Models\Request\P_Index_spList.cs" />
     <Compile Include="Models\Request\P_Login.cs" />

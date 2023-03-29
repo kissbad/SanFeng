@@ -39,7 +39,7 @@ namespace YaoJian.Models
             handler.ClientCertificates.Add(WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
                     System.Security.Cryptography.X509Certificates.StoreName.My,
                     System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                    "广东三丰医药有限公司-签名证书"));
+                    Global.Certificate_name));
 
 
 
@@ -115,7 +115,7 @@ namespace YaoJian.Models
             var cer = WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
                     System.Security.Cryptography.X509Certificates.StoreName.My,
                     System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                    "广东三丰医药有限公司-签名证书");
+                    Global.Certificate_name);
 
             if (cer == null)
             {

@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cwjk_jn\DataInfor.cs" />
+    <Compile Include="cwjk_jn\tb_dwys.cs" />
     <Compile Include="Interface\fapiaodet.cs" />
     <Compile Include="Interface\fapiaogl.cs" />
     <Compile Include="Interface\jh_rkhz.cs" />
