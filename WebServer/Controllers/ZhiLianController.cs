@@ -20,7 +20,7 @@ namespace WebServer.Controllers
         {
             try
             {
-                return new { error = 0, msg = "查询成功", data = "777777" };
+                return new { error = 0, msg = "查询成功", data = "55555" };
             }
             catch (Exception e)
             {
