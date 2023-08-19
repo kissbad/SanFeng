@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29418.71
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer", "WebServer\WebServer.csproj", "{BE6806F2-602F-46E3-AB7C-B1EF277A8C90}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS_Server", "SMS_Servar\SMS_Server.csproj", "{F9524E4C-C868-41E2-A037-B0ACE0FD5F4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarningTool", "WarningTool\WarningTool.csproj", "{575F4C63-F016-4687-BBFA-55FA8488F008}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YK_DataSync", "YK_DataSync\YK_DataSync.csproj", "{E321655E-CF55-433F-B93F-327648BD69CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{575F4C63-F016-4687-BBFA-55FA8488F008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{575F4C63-F016-4687-BBFA-55FA8488F008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{575F4C63-F016-4687-BBFA-55FA8488F008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E321655E-CF55-433F-B93F-327648BD69CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E321655E-CF55-433F-B93F-327648BD69CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E321655E-CF55-433F-B93F-327648BD69CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E321655E-CF55-433F-B93F-327648BD69CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
