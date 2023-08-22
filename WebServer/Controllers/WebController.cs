@@ -8,6 +8,11 @@ namespace WebServer.Controllers
 {
     public class WebController : Controller
     {
+        public ActionResult XZ()
+        {
+            ViewBag.Title = "发票下载";
+            return View();
+        }
         public ActionResult Login()
         {
             ViewBag.Title = "登录页";
@@ -25,11 +30,7 @@ namespace WebServer.Controllers
             return View();
         }
 
-        public ActionResult XZ()
-        {
-            ViewBag.Title = "发票下载";
-            return View();
-        }
+        
 
     }
 }
