@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>发票下载</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-app="app" ng-controller="control">
+    <div>
+        <table class="table table-striped" scroll>
+            <tbody>
+                <tr ng-repeat="x in pf_list">
+                    <td>
+                        <a href={{x.zx_fpdz}}>下载发票</a>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+</div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/comom.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script type="text/javascript" src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+        var app = angular.module('app', []);
+        app.config(['$locationProvider', function ($locationProvider) {
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false
+            });
+        }]);
+        app.controller('control', function ($scope, $http, $location) {
+            var djbh = $location.search().d;
+            $scope.pf_list = [];
+            $scope.get_FP_url = function () {
+                layer.load();
+                $http({
+                    method: 'POST',
+                    url: '../api/YK/XZ?djbh=' + djbh,
+                    data: {}
+                }).then(function successCallback(response) {
+                    //console.log(response.data);
+                    if (response.data.error == '0') {
+                        console.log(response.data.data);
+                        for (var i = 0; i < response.data.data.length; i++) {
+                            $scope.pf_list.push(response.data.data[i]);
+                        }
+                    } else {
+                        layer.alert(response.data.msg, { icon: 2 });
+                        //alert(response.data.msg)
+                    }
+                    layer.closeAll('loading');
+                }, function errorCallback(response) {
+                    console.log(response);
+                });
+            };
+            $scope.get_FP_url();
+        })
+    </script>
+</body>
+</html>
+
+

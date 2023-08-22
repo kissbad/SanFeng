@@ -25,5 +25,11 @@ namespace WebServer.Controllers
             return View();
         }
 
+        public ActionResult XZ()
+        {
+            ViewBag.Title = "发票下载";
+            return View();
+        }
+
     }
 }
