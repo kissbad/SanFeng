@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarningTool", "WarningTool\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YK_DataSync", "YK_DataSync\YK_DataSync.csproj", "{E321655E-CF55-433F-B93F-327648BD69CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneClickPrinting", "OneClickPrinting\OneClickPrinting.csproj", "{F9A36AF5-DDE4-4B0E-B75C-DBB704FE0BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto_Expressage", "Auto_Expressage\Auto_Expressage.csproj", "{BBB15D20-6C3A-4179-970D-9AAACB4FB179}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{E321655E-CF55-433F-B93F-327648BD69CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E321655E-CF55-433F-B93F-327648BD69CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E321655E-CF55-433F-B93F-327648BD69CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A36AF5-DDE4-4B0E-B75C-DBB704FE0BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A36AF5-DDE4-4B0E-B75C-DBB704FE0BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A36AF5-DDE4-4B0E-B75C-DBB704FE0BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A36AF5-DDE4-4B0E-B75C-DBB704FE0BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB15D20-6C3A-4179-970D-9AAACB4FB179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB15D20-6C3A-4179-970D-9AAACB4FB179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB15D20-6C3A-4179-970D-9AAACB4FB179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB15D20-6C3A-4179-970D-9AAACB4FB179}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

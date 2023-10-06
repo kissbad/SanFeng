@@ -55,5 +55,7 @@ D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.pdb
 D:\C#\SanFeng\YaoJian\bin\Debug\AipSdk.dll
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.OCR.resources
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.AssemblyReference.cache
-D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.SuggestedBindingRedirects.cache
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.CoreCompileInputs.cache
+D:\C#\SanFeng\YaoJian\bin\Debug\Spire.Pdf.dll
+D:\C#\SanFeng\YaoJian\bin\Debug\Microsoft.mshtml.dll
+D:\C#\SanFeng\YaoJian\bin\Debug\Spire.Pdf.xml

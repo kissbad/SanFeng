@@ -1,5 +1,4 @@
 D:\C#\SanFeng\YK_DataSync\obj\Debug\YK_DataSync.csproj.AssemblyReference.cache
-D:\C#\SanFeng\YK_DataSync\obj\Debug\YK_DataSync.csproj.SuggestedBindingRedirects.cache
 D:\C#\SanFeng\YK_DataSync\obj\Debug\YK_DataSync.csproj.CoreCompileInputs.cache
 D:\C#\SanFeng\YK_DataSync\bin\Debug\YK_DataSync.exe.config
 D:\C#\SanFeng\YK_DataSync\bin\Debug\YK_DataSync.exe
@@ -34,3 +33,6 @@ D:\C#\SanFeng\YK_DataSync\obj\Debug\YK_DataSync.exe
 D:\C#\SanFeng\YK_DataSync\obj\Debug\YK_DataSync.pdb
 D:\C#\SanFeng\YK_DataSync\obj\Debug\YK_DataSync.ProjectInstaller.resources
 D:\C#\SanFeng\YK_DataSync\obj\Debug\YK_DataSync.csproj.GenerateResource.cache
+D:\C#\SanFeng\YK_DataSync\bin\Debug\Spire.Pdf.dll
+D:\C#\SanFeng\YK_DataSync\bin\Debug\Microsoft.mshtml.dll
+D:\C#\SanFeng\YK_DataSync\bin\Debug\Spire.Pdf.xml

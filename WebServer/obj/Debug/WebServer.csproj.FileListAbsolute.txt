@@ -199,3 +199,6 @@ D:\C#\SanFeng\WebServer\bin\System.Text.Encodings.Web.xml
 D:\C#\SanFeng\WebServer\bin\System.Text.Json.xml
 D:\C#\SanFeng\WebServer\bin\System.Threading.Tasks.Extensions.xml
 D:\C#\SanFeng\WebServer\bin\System.ValueTuple.xml
+D:\C#\SanFeng\WebServer\bin\Spire.Pdf.dll
+D:\C#\SanFeng\WebServer\bin\Microsoft.mshtml.dll
+D:\C#\SanFeng\WebServer\bin\Spire.Pdf.xml

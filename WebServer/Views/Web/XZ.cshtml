@@ -12,13 +12,14 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body ng-app="app" ng-controller="control">
+    <h1>{{a}}</h1>
     <div>
         <table class="table table-striped" scroll>
             <tbody>
                 <tr ng-repeat="x in pf_list">
                     <td>
-                        <a href={{x.zx_fpdz}}>下载发票</a>
-                    </td>
+                        <h1><a href={{x.zx_fpdz}}>下载发票</a></h1>
+</td>
                 </tr>
             </tbody>
             </table>
@@ -40,6 +41,8 @@
         app.controller('control', function ($scope, $http, $location) {
             var djbh = $location.search().d;
             $scope.pf_list = [];
+            $scope.a = "";
+            $scope.b = "";
             $scope.get_FP_url = function () {
                 layer.load();
                 $http({
@@ -52,6 +55,12 @@
                         console.log(response.data.data);
                         for (var i = 0; i < response.data.data.length; i++) {
                             $scope.pf_list.push(response.data.data[i]);
+                        }
+                        if ($scope.pf_list.length > 0) {
+                            $scope.a = "";                            
+                        }
+                        else {
+                            $scope.a = "发票未开出";
                         }
                     } else {
                         layer.alert(response.data.msg, { icon: 2 });

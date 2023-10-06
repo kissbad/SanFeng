@@ -23,10 +23,12 @@ D:\C#\SanFeng\DataSynchronization\bin\Debug\Dapper.xml
 D:\C#\SanFeng\DataSynchronization\bin\Debug\WQH.pdb
 D:\C#\SanFeng\DataSynchronization\bin\Debug\Newtonsoft.Json.xml
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.AssemblyReference.cache
-D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.SuggestedBindingRedirects.cache
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.ProjectInstaller.resources
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.GenerateResource.cache
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.CoreCompileInputs.cache
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.csproj.CopyComplete
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.exe
 D:\C#\SanFeng\DataSynchronization\obj\Debug\DataSynchronization.pdb
+D:\C#\SanFeng\DataSynchronization\bin\Debug\Spire.Pdf.dll
+D:\C#\SanFeng\DataSynchronization\bin\Debug\Microsoft.mshtml.dll
+D:\C#\SanFeng\DataSynchronization\bin\Debug\Spire.Pdf.xml

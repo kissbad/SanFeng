@@ -8,5 +8,4 @@ D:\C#\SanFeng\SMS_Servar\obj\Debug\SMS_Server.csproj.CopyComplete
 D:\C#\SanFeng\SMS_Servar\obj\Debug\SMS_Servar.exe
 D:\C#\SanFeng\SMS_Servar\obj\Debug\SMS_Servar.pdb
 D:\C#\SanFeng\SMS_Servar\obj\Debug\SMS_Server.csproj.AssemblyReference.cache
-D:\C#\SanFeng\SMS_Servar\obj\Debug\SMS_Server.csproj.SuggestedBindingRedirects.cache
 D:\C#\SanFeng\SMS_Servar\obj\Debug\SMS_Server.csproj.CoreCompileInputs.cache
