@@ -40,7 +40,7 @@ namespace Auto_Expressage.npserver
         public int dbs { get; set; }
         public static List<wqh_Expressage> getList()
         {
-            string sql = @"select * from wqh_expressage where rownum <= 1";
+            string sql = @"select * from wqh_expressage where rownum <= 4 and dbs > 1";
             var sp = Oracle.ExecuteDataTable(sql);
             return WQH.Convert.TableToList<wqh_Expressage>(sp);
         }

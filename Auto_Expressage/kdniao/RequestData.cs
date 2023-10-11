@@ -34,7 +34,7 @@ namespace Auto_Expressage.kdniao
         public string Remark { get; set; }
         public string TemplateSize { get; set; }
         public RequestData(wqh_Expressage exp) {
-            this.OrderCode = exp.salesid + "t";
+            this.OrderCode = exp.salesid;
             this.ShipperCode = exp.expresscode;
             this.CustomerName = exp.customername;
             this.CustomerPwd = exp.customerpwd;
