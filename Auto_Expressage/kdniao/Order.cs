@@ -19,5 +19,6 @@ namespace Auto_Expressage.kdniao
         public string OriginCode { get; set; }
         public string DestinatioName { get; set; }
         public string PackageCode { get; set; }
+        public string ShipperInfo { get; set; }
     }
 }

@@ -21,6 +21,8 @@ namespace Auto_Expressage.kdniao
 
             string json = JsonConvert.SerializeObject(data);
 
+            //WQH.system.IO.File.WriteLog("提交数据:" + json, 1);
+
             HttpContent content = new FormUrlEncodedContent(new[]
             {
                 new KeyValuePair<string, string>("RequestData", json),
@@ -40,10 +42,11 @@ namespace Auto_Expressage.kdniao
             if (responseData.Success & responseData.ResultCode == "100")
             {
                 responseData.SaveOrder(data.OrderCode);
-                responseData.SaveOrder_2(data.OrderCode);
+                if (data.ShipperCode != "SF") { responseData.SaveOrder_2(data.OrderCode); }
                 responseData.UpdateOrder(data.OrderCode);
             }
             else {
+                if (responseData.ResultCode == "106") { responseData.UpdateOrder(data.OrderCode); }
                 responseData.error(data.OrderCode);
             }
         }
