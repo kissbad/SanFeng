@@ -38,6 +38,7 @@ namespace Auto_Expressage.npserver
         public string COUNTRYNAME_S { get; set; }
         public decimal zx_insure { get; set; }
         public int dbs { get; set; }
+        public int transtype { get; set; }
         public static List<wqh_Expressage> getList()
         {
             string sql = @"select * from wqh_expressage where rownum <= 20";

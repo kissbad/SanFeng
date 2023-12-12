@@ -48,8 +48,9 @@ namespace Auto_Expressage.kdniao
             Order.ShipperInfo = Order.ShipperInfo?.Replace("'", "''").Replace("&", "'||chr(38)||'");
 
             //WQH.system.IO.File.WriteLog(PrintTemplate, 1);
+            PrintTemplate = Order.ShipperCode == "JTSD" ? PrintTemplate.Substring(0, 10000) : PrintTemplate;
 
-            string sql = @"declare str varchar(32767);
+            string sql = @"declare str varchar2(32767);
 begin
  dbms_output.enable(buffer_size => null);
  str := '" + PrintTemplate + @"';
@@ -87,10 +88,11 @@ insert into bms_sa_doc_printtemplate (salesid, printtemplate, markdestination, o
         }
 
         public void exesql(string salesid,string logisticcode, string suborders, string printtemplate) {
-            string sql = @"declare str varchar(32767);
+            printtemplate = Order.ShipperCode == "JTSD" ? printtemplate.Substring(0, 10000) : printtemplate;
+            string sql = @"declare str varchar2(32767);
 begin
  dbms_output.enable(buffer_size => null);
- str := '"+ printtemplate + @"';
+ str := '" + printtemplate + @"';
  dbms_output.put_line(str);
  insert into wqh_kd (salesid, logisticcode, suborders, printtemplate)values('"+ salesid + "','"+ logisticcode + "','"+ suborders + @"',str);
 end;";

@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Auto_Expressage.kdniao
 {
-	public class RequestData
-	{
+    public class RequestData
+    {
         public string OrderCode { get; set; }
         public string ShipperCode { get; set; }
         public string CustomerName { get; set; }
@@ -24,6 +24,7 @@ namespace Auto_Expressage.kdniao
         public Receiver Receiver { get; set; } = new Receiver();
         public Commodity[] Commodity { get; set; }
         public AddService[] AddService { get; set; }
+        public int IsNotice { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
         public int TransType { get; set; }
@@ -33,7 +34,8 @@ namespace Auto_Expressage.kdniao
         public int IsReturnPrintTemplate { get; set; }
         public string Remark { get; set; }
         public string TemplateSize { get; set; }
-        public RequestData(wqh_Expressage exp) {
+        public RequestData(wqh_Expressage exp)
+        {
             this.OrderCode = exp.salesid;
             this.ShipperCode = exp.expresscode;
             this.CustomerName = exp.customername;
@@ -62,12 +64,28 @@ namespace Auto_Expressage.kdniao
 
             this.Commodity = new Commodity[] { new Commodity() };
 
-            this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()) };
+            this.TransType = exp.transtype;
+
+            if (ShipperCode == "JD" && TransType == 29)
+            {
+                this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()), new AddService("Delivery", "24") };
+            }
+            else { this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()) }; }
+
+
+
+            if (ShipperCode == "JDKY" || ShipperCode == "KYSY" || ShipperCode == "JD")
+            {
+                this.IsNotice = 0;
+                this.StartDate = DateTime.Now.ToString("yyyy-MM-dd 20:00:00");
+                this.EndDate = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd") + " 00:00:00";
+            }
+
 
             this.IsReturnPrintTemplate = 1;
             this.Quantity = exp.dbs;
             this.Remark = exp.customname;
-            
+
         }
     }
 }
