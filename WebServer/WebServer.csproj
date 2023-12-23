@@ -284,9 +284,10 @@
     <Compile Include="Models\Yaojian\yjj_qyjk_pfck.cs" />
     <Compile Include="Models\ZhiLian\wqh_yl_cg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YK\DataInfor.cs" />
-    <Compile Include="YK\FP.cs" />
-    <Compile Include="YK\Oracle.cs" />
+    <Compile Include="Models\YK\DataInfor.cs" />
+    <Compile Include="Models\YK\FP.cs" />
+    <Compile Include="Models\YK\Oracle.cs" />
+    <Compile Include="Models\YK\wqh_sp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -432,6 +433,7 @@
     <Content Include="Views\Web\Login.cshtml" />
     <Content Include="Views\Web\sp_image.cshtml" />
     <Content Include="Views\Web\XZ.cshtml" />
+    <Content Include="Views\Web\Search_goods.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

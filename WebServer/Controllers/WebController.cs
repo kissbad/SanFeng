@@ -30,7 +30,9 @@ namespace WebServer.Controllers
             return View();
         }
 
-        
-
+        public ActionResult Search_goods()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,169 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>商品检索</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-app="app">
+    <div ng-controller="control">
+        <h2>货品检索</h2>
+        <form class="bs-example bs-example-form" role="form">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <input type="text" class="form-control" id="Text1" ng-model="keyword">
+
+                            <button class="btn btn-default" type="button" ng-click="search()">
+                                搜索!
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table class="table table-striped" scroll>
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in sp_List">
+                    <td>
+                        <table class="table">
+                            <tr>
+                                <td>货品ID</td>
+                                <td>{{x.goodsid}}</td>
+                            </tr>
+                            <tr>
+                                <td>通用名</td>
+                                <td>{{x.goodsname}}</td>
+                            </tr>
+                            <tr>
+                                <td>规格</td>
+                                <td>{{x.goodstype}}</td>
+                            </tr>
+                            <tr>
+                                <td>商品名</td>
+                                <td>{{x.currencyname}}</td>
+                            </tr>
+                            <tr>
+                                <td>生厂厂家</td>
+                                <td>{{x.factoryname}}</td>
+                            </tr>
+                            <tr>
+                                <td>上市许可持有人</td>
+                                <td>{{x.holdersname}}</td>
+                            </tr>
+                            <tr>
+                                <td>批准文号</td>
+                                <td>{{x.approvedocno}}</td>
+                            </tr>
+                            <tr>
+                                <td>商品条码</td>
+                                <td><input class="form-control" type="text" goodsid="{{x.goodsid}}" value="{{x.barcode}}" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <button class="btn btn-default" type="button" ng-click="update(x.goodsid)">
+                                        修改条码
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/comom.js"></script>
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script type="text/javascript" src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+        var app = angular.module('app', []);
+        app.controller('control', function ($scope, $http) {
+            $scope.page_index = 1;
+            $scope.sp_List = [];
+            $scope.shopWorkOnLoad = false;
+            $scope.is_end = false;
+
+            //搜索
+            $scope.search = function () {
+                $scope.page_index = 1
+                $scope.sp_List = [];
+                $scope.is_end = false;
+                $scope.getList();
+            };
+
+            //获取数据
+            $scope.getList = function () {
+                if ($scope.is_end == true) { return; }
+                layer.load();
+                $scope.shopWorkOnLoad = true;
+                $http({
+                    method: 'POST',
+                    url: '../api/YK/get_splist?keyword=' + $scope.keyword,
+                    data: {}
+                }).then(function successCallback(response) {
+                    //console.log(response)
+                    if (response.data.error == '0') {
+                        if (response.data.data.length == 0) {
+                            $scope.is_end = true;
+                            layer.closeAll('loading');
+                            return;
+                        }
+                        for (var i = 0; i < response.data.data.length; i++) {
+                            $scope.sp_List.push(response.data.data[i]);
+                        }
+                        $scope.page_index++;
+                    } else {
+                        layer.alert(response.data.msg, { icon: 2 });
+                    }
+                    layer.closeAll('loading');
+                    $scope.shopWorkOnLoad = false;
+                }, function errorCallback(response) {
+                    layer.closeAll('loading');
+                    console.log(response);
+                });
+            };
+
+            $scope.update = function (goodsid) {
+                var barcode = document.querySelector("input[goodsid='" + goodsid + "']").value;
+                layer.load();
+                $http.post('../api/YK/update_barcode?goodsid=' + goodsid + "&barcode=" + barcode, null, {
+                    transformRequest: angular.identity,
+                    headers: {
+                        'Content-Type': undefined
+                    }
+                }).success(function (response) {
+                    if (response.error == '0') {
+                        layer.alert(response.msg, { icon: 1 });
+                    } else {
+                        layer.alert(response.msg, { icon: 2 });
+                    }
+                    layer.closeAll('loading');
+                }).error(function (response) {
+                    layer.closeAll('loading');
+                    console.log(response);
+                });
+            };
+        })
+    </script>
+</body>
+
+</html>
