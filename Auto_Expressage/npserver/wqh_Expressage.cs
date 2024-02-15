@@ -43,6 +43,7 @@ namespace Auto_Expressage.npserver
         {
             string sql = @"select * from wqh_expressage where rownum <= 20";
             var sp = Oracle.ExecuteDataTable(sql);
+            //WQH.system.IO.File.WriteLog("22222", 1);
             return WQH.Convert.TableToList<wqh_Expressage>(sp);
         }
     }

@@ -1,0 +1,33 @@
+﻿@using System.IO
+@inject IJSRuntime JS
+
+@if (String.IsNullOrWhiteSpace(fileName))
+{
+    <button clase="btn btn-secondary">
+        未上传文件
+    </button>
+}
+else
+{
+    <button class="btn btn-primary"  @onclick="DownloadFileFromStream">
+        下载文件
+    </button>
+}
+@code {
+    [Parameter]
+    public string path { get; set; } = "";
+    [Parameter]
+    public string fileName { get; set; } = "";
+
+    private Stream GetFileStream()
+    {
+        return File.OpenRead(path);
+    }
+    private async Task DownloadFileFromStream()
+    {
+        var fileStream = GetFileStream();
+        using var streamRef = new DotNetStreamReference(stream: fileStream);
+        await JS.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
+    }
+
+}

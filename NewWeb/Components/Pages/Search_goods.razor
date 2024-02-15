@@ -1,0 +1,81 @@
+﻿@page "/Search_goods"
+@rendermode InteractiveServer
+
+<title>商品条码修改</title>
+<div>
+    
+    <div class="container-sm">
+        <h2>货品检索</h2>
+        <div class="row">
+            <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="名称/条码/货位号" @bind="key_word" />
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-primary" @onclick="search">
+                    搜索!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table table-striped">
+            <tbody>
+                @foreach (var sp in sp_list)
+                {
+                    <tr>
+                        <td>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="col-sm-2">货品ID</td>
+                                    <td class="col-sm-8">@sp.goodsid</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">通用名</td>
+                                    <td class="col-sm-8">@sp.goodsname</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">规格</td>
+                                    <td class="col-sm-8">@sp.goodstype</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">商品名</td>
+                                    <td class="col-sm-8">@sp.currencyname</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">生厂厂家</td>
+                                    <td class="col-sm-8">@sp.factoryname</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">上市许可持有人</td>
+                                    <td class="col-sm-8">@sp.holdersname</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">批准文号</td>
+                                    <td class="col-sm-8">@sp.approvedocno</td>
+                                </tr>
+                                <Update_barcode goodsid="@sp.goodsid" barcode="@sp.barcode" />
+                            </tbody>
+                        </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@code {
+    private string? key_word;
+
+    private List<YK.wqh_sp>? sp_list = new();
+
+    private void search()
+    {
+        if (!string.IsNullOrWhiteSpace(key_word))
+        {
+            sp_list = YK.wqh_sp.get_splist(key_word);
+        }
+        else { return; }
+    }
+}

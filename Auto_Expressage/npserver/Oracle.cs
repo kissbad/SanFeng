@@ -12,19 +12,22 @@ namespace Auto_Expressage.npserver
     {
         public static OracleDataReader ExecuteReader(string strSQL)
         {
-            OracleConnection connection = new OracleConnection(ConnectionString);
-            OracleCommand cmd = new OracleCommand(strSQL, connection);
             try
             {
-                connection.Open();
-                OracleDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                return myReader;
+                using (OracleConnection connection = new OracleConnection(ConnectionString))
+                {
+                    connection.Open();
+                    using (OracleCommand cmd = new OracleCommand(strSQL, connection))
+                    {
+                        OracleDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                        return myReader;
+                    }
+                }
             }
             catch (OracleException e)
             {
                 throw new Exception(e.Message);
             }
-
         }
         public static int ExecuteNonQuery(string sql, params OracleParameter[] parameters)
         {

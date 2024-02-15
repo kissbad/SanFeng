@@ -1,0 +1,99 @@
+﻿@page "/{d:int?}"
+@rendermode InteractiveServer
+@using YK;
+
+<title>发票下载</title>
+
+<h1>@a</h1>
+<div>
+    <table class="table table-striped" scroll>
+        <tbody>
+            <tr>
+                @if (pf_list is not null)
+                    @foreach (var fp in pf_list)
+                    {
+                        <td>
+                            <h1><a href=@fp.zx_fpdz>下载发票</a></h1>
+                        </td>
+                    }
+            </tr>
+        </tbody>
+    </table>
+    <div class="container mt-3">
+        <table class="table table-striped">
+            <tbody>
+                @if (dd_list?.Count > 0)
+                {
+                    <h1>药检图片下载</h1>
+                    @foreach (var mx in dd_list)
+                    {
+                        <tr>
+                            <td>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-sm-2">通用名</td>
+                                            <td class="col-sm-8">@mx.goodsname</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-sm-2">规格</td>
+                                            <td class="col-sm-8">@mx.goodstype</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-sm-2">商品名</td>
+                                            <td class="col-sm-8">@mx.goodsname</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-sm-2">生厂厂家</td>
+                                            <td class="col-sm-8">@mx.factoryname</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-sm-2">上市许可持有人</td>
+                                            <td class="col-sm-8">@mx.holdersname</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-sm-2">批准文号</td>
+                                            <td class="col-sm-8">@mx.approvedocno</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-sm-2">批号</td>
+                                            <td class="col-sm-8">
+                                            <td class="col-sm-5">@mx.lotno</td>
+
+                                            <td class="col-sm-5">
+                                                <Download_Button fileName="@mx.filename" path="@mx.path" />
+                                            </td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </td>
+                </tr>
+                    }
+                }
+        </tbody>
+        </table>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public int? d { get; set; }
+
+    private string? a = "";
+    private List<FP>? pf_list = null;
+    private List<Order_factory_check>? dd_list = null;
+
+    protected override void OnParametersSet()
+    {
+        pf_list = FP.get_FP_url(d?.ToString());
+        if (pf_list.Count > 0)
+        {
+            a = "";
+        }
+        else { a = "发票未开出"; }
+
+        //dd_list = Order_factory_check.get_Order_factory_check_list(d?.ToString());
+    }
+}

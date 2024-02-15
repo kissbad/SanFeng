@@ -74,12 +74,11 @@ namespace Auto_Expressage.kdniao
 
 
 
-            if (ShipperCode == "JDKY" || ShipperCode == "KYSY" || ShipperCode == "JD")
-            {
+            
                 this.IsNotice = 0;
                 this.StartDate = DateTime.Now.ToString("yyyy-MM-dd 20:00:00");
                 this.EndDate = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd") + " 00:00:00";
-            }
+            
 
 
             this.IsReturnPrintTemplate = 1;

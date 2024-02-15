@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneClickPrinting", "OneClic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto_Expressage", "Auto_Expressage\Auto_Expressage.csproj", "{BBB15D20-6C3A-4179-970D-9AAACB4FB179}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YK", "YK\YK.csproj", "{FB90F1D4-2B79-456E-827A-69BF06C27EC4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewWeb", "NewWeb\NewWeb.csproj", "{062A48DD-60B2-4B0B-8D8C-E42ED9AE8AA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{BBB15D20-6C3A-4179-970D-9AAACB4FB179}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBB15D20-6C3A-4179-970D-9AAACB4FB179}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBB15D20-6C3A-4179-970D-9AAACB4FB179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB90F1D4-2B79-456E-827A-69BF06C27EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB90F1D4-2B79-456E-827A-69BF06C27EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB90F1D4-2B79-456E-827A-69BF06C27EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB90F1D4-2B79-456E-827A-69BF06C27EC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{062A48DD-60B2-4B0B-8D8C-E42ED9AE8AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{062A48DD-60B2-4B0B-8D8C-E42ED9AE8AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{062A48DD-60B2-4B0B-8D8C-E42ED9AE8AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{062A48DD-60B2-4B0B-8D8C-E42ED9AE8AA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

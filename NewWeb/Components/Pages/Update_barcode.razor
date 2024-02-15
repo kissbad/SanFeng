@@ -1,0 +1,41 @@
+﻿@inject IJSRuntime JS
+
+<tr>
+    <td>商品条码</td>
+    <td><input type="text" @bind="barcode" class="form-control" /></td>
+</tr>
+<tr>
+    <td></td>
+    <td>
+        <tr>
+            <td>
+            <button @onclick="update" class="btn btn-primary">修改条码</button>
+            </td>
+        </tr>
+    </td>
+</tr>
+
+
+
+@code {
+    [Parameter]
+    public int goodsid { get; set; } = 1;
+    [Parameter]
+    public string barcode { get; set; } = "";
+
+    private string mess { get; set; } = "";
+
+    private async Task update()
+    {
+        try
+        {
+            YK.wqh_sp.update_barcode(goodsid, barcode);
+            await JS.InvokeVoidAsync("displayTickerAlert", "保存成功");
+        }
+        catch (Exception ex)
+        {
+            mess = ex.Message;
+            await JS.InvokeVoidAsync("displayTickerAlert", mess);
+        }
+    }
+}

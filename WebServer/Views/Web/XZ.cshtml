@@ -19,17 +19,17 @@
                 <tr ng-repeat="x in pf_list">
                     <td>
                         <h1><a href={{x.zx_fpdz}}>下载发票</a></h1>
-</td>
+                    </td>
                 </tr>
             </tbody>
-            </table>
-</div>
+        </table>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/comom.js"></script>
     <script src="~/Scripts/layer/layer.js"></script>
-    <script type="text/javascript" src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
     <script>
         var app = angular.module('app', []);
         app.config(['$locationProvider', function ($locationProvider) {
@@ -57,7 +57,7 @@
                             $scope.pf_list.push(response.data.data[i]);
                         }
                         if ($scope.pf_list.length > 0) {
-                            $scope.a = "";                            
+                            $scope.a = "";
                         }
                         else {
                             $scope.a = "发票未开出";
