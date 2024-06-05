@@ -25,6 +25,33 @@
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
             </NavLink>
         </div>
+
+        @foreach (var mx in pf_list)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="@mx.b">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> @mx.a
+                </NavLink>
+            </div>
+        }
     </nav>
 </div>
+
+@code {
+    private List<test> pf_list = null;
+
+    public class test
+    {
+        public string a { get; set; }
+        public string b { get; set; }
+    }
+
+    protected override void OnParametersSet()
+    {
+        pf_list = new List<test>();
+        pf_list.Add(new test { a = "111111", b = "sdasdas" });
+        pf_list.Add(new test { a = "222222", b = "sdasdas" });
+    }
+
+}
 

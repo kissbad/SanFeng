@@ -9,7 +9,8 @@
 }
 else
 {
-    <button class="btn btn-primary"  @onclick="DownloadFileFromStream">
+    
+    <button class="btn btn-primary" @onclick="DownloadFileFromStream">
         下载文件
     </button>
 }
@@ -25,9 +26,16 @@ else
     }
     private async Task DownloadFileFromStream()
     {
-        var fileStream = GetFileStream();
-        using var streamRef = new DotNetStreamReference(stream: fileStream);
-        await JS.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
+        try
+        {
+            var fileStream = GetFileStream();
+            using var streamRef = new DotNetStreamReference(stream: fileStream);
+            await JS.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
+        }
     }
 
 }

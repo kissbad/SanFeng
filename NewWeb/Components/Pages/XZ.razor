@@ -1,9 +1,11 @@
 ﻿@page "/{d:int?}"
 @rendermode InteractiveServer
 @using YK;
+@using Microsoft.Extensions.Options;
+
 
 <title>发票下载</title>
-
+<h1>@b</h1>
 <h1>@a</h1>
 <div>
     <table class="table table-striped" scroll>
@@ -57,21 +59,29 @@
                                         </tr>
                                         <tr>
                                             <td class="col-sm-2">批号</td>
-                                            <td class="col-sm-8">
-                                            <td class="col-sm-5">@mx.lotno</td>
-
-                                            <td class="col-sm-5">
-                                                <Download_Button fileName="@mx.filename" path="@mx.path" />
-                                            </td>
+                                            <td class="col-sm-8">@mx.lotno</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-sm-2">@mx.filename</td>
+                                            @if (string.IsNullOrEmpty(mx.filename))
+                                            {
+                                                <td class="col-sm-8"><h1>未上传药检</h1></td>
+                                            }
+                                            else
+                                            {
+                                                <td class="col-sm-8">
+                                                    <h1><a href=@mx.path download=@mx.filename>下载文件</a></h1>
+                                                    @* <Download_Button fileName="@mx.filename" path="@mx.path" /> *@
+                                                </td>
+                                            }
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </td>
                         </tr>
-                    </tbody>
-                </table>
-                </td>
-                </tr>
                     }
                 }
-        </tbody>
+            </tbody>
         </table>
     </div>
 </div>
@@ -84,6 +94,7 @@
     private string? a = "";
     private List<FP>? pf_list = null;
     private List<Order_factory_check>? dd_list = null;
+    private string? b = "";
 
     protected override void OnParametersSet()
     {
@@ -94,6 +105,6 @@
         }
         else { a = "发票未开出"; }
 
-        //dd_list = Order_factory_check.get_Order_factory_check_list(d?.ToString());
+        dd_list = Order_factory_check.get_Order_factory_check_list(d?.ToString());
     }
 }

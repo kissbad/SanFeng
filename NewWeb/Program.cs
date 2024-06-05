@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using NewWeb.Components;
+using NewWeb.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,9 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddRazorPages();
+
+builder.Services.Configure<DBSettings>(
+    builder.Configuration.GetSection("DB"));
 
 var app = builder.Build();
 

@@ -72,13 +72,18 @@ namespace Auto_Expressage.kdniao
             }
             else { this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()) }; }
 
-
-
             
-                this.IsNotice = 0;
+            this.IsNotice = 0;
+
+            if(ShipperCode == "SF")
+            {
+                this.StartDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd 16:00:00");
+            }
+            else {
                 this.StartDate = DateTime.Now.ToString("yyyy-MM-dd 20:00:00");
-                this.EndDate = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd") + " 00:00:00";
+            }
             
+            this.EndDate = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd") + " 00:00:00";
 
 
             this.IsReturnPrintTemplate = 1;
