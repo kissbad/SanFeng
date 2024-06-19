@@ -36,7 +36,7 @@ namespace Auto_Expressage.kdniao
                     templateurl += "," + "http://resources.kdniao.com/electron/' || to_char(sysdate, 'yyyy/mm/dd') || '/SF/' || '" + SubOrders?[i] + "' || '.pdf";
                 }
             }
-            string sql = @"update bms_sa_doc set zx_kdbirdflag = '1',zx_wlnumber = '" + zx_wlnumber + "',templateurl = '"+ templateurl + "' where salesid = " + salesid;
+            string sql = @"update bms_sa_doc set zx_kdbirdflag = '1',zx_wlnumber = '" + (zx_wlnumber.Length >= 4000?zx_wlnumber.Substring(0,4000):zx_wlnumber) + "',templateurl = '"+ templateurl + "' where salesid = " + salesid;
             //WQH.system.IO.File.WriteLog(sql, 1);
             WQH.system.IO.File.WriteLog(salesid + "：回写状态、单号", 1);
             npserver.Oracle.ExecuteNonQuery(sql);
