@@ -23,7 +23,7 @@ namespace Auto_Expressage.kdniao
         public Sender Sender { get; set; } = new Sender();
         public Receiver Receiver { get; set; } = new Receiver();
         public Commodity[] Commodity { get; set; }
-        public AddService[] AddService { get; set; }
+        public IEnumerable<AddService> AddService { get; set; }
         public int IsNotice { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
@@ -66,13 +66,28 @@ namespace Auto_Expressage.kdniao
 
             this.TransType = exp.transtype;
 
-            if (ShipperCode == "JD" && TransType == 29)
-            {
-                this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()), new AddService("Delivery", "24") };
-            }
-            else { this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()) }; }
+            //if (ShipperCode == "JD" && TransType == 29)
+            //{
+            //    this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()), new AddService("Delivery", "24") ,
+            //        new AddService("COD", exp.COD.ToString())};
+            //}
+            //else { this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()) }; }
 
-            
+            List<AddService> addServices = new List<AddService>
+            {
+                new AddService("INSURE", exp.zx_insure.ToString())
+            };
+
+            if (ShipperCode == "JD" || ShipperCode == "JDKY") {
+                if (exp.COD > 0) {
+                    addServices.Add(new AddService("COD", exp.COD.ToString()));
+                }
+                if (TransType == 29) {
+                    addServices.Add(new AddService("Delivery", "24"));
+                }
+            }
+            this.AddService = addServices;
+
             this.IsNotice = 0;
 
             if(ShipperCode == "SF")

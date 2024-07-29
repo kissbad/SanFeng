@@ -1,3 +1,4 @@
+D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.csproj.AssemblyReference.cache
 D:\C#\SanFeng\NewWeb\bin\Debug\net8.0\appsettings.Development.json
 D:\C#\SanFeng\NewWeb\bin\Debug\net8.0\appsettings.json
 D:\C#\SanFeng\NewWeb\bin\Debug\net8.0\NewWeb.staticwebassets.runtime.json
@@ -35,7 +36,6 @@ D:\C#\SanFeng\NewWeb\bin\Debug\net8.0\YK.pdb
 D:\C#\SanFeng\NewWeb\bin\Debug\net8.0\WQH.pdb
 D:\C#\SanFeng\NewWeb\bin\Debug\net8.0\Newtonsoft.Json.xml
 D:\C#\SanFeng\NewWeb\bin\Debug\net8.0\Spire.Pdf.xml
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.csproj.AssemblyReference.cache
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.GeneratedMSBuildEditorConfig.editorconfig
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.AssemblyInfoInputs.cache
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.AssemblyInfo.cs
@@ -59,3 +59,4 @@ D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\refint\NewWeb.dll
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.pdb
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.genruntimeconfig.cache
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\ref\NewWeb.dll
+D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\Components\Layout\ZL_Layout.razor.rz.scp.css
