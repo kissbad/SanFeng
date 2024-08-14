@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using NewWeb.Components;
+using NewWeb.Components.Layout;
 using NewWeb.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,11 +11,13 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<LayoutComponentBase, ZL_Layout>();
 
 builder.Services.Configure<DBSettings>(
     builder.Configuration.GetSection("DB"));
 
 var app = builder.Build();
+var sql = app.Configuration["AllowedHosts"];
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
