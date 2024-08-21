@@ -13,6 +13,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_INSTANCE_WAIT_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -28,6 +29,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var data = YK.YD_INSTANCE_WAIT_V.get_sum(and);
                 return Results.Ok(data);
@@ -43,6 +45,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_INSTANCE>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -58,6 +61,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 data.insert();
                 return Results.Ok();
@@ -73,6 +77,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 YK.YD_INSTANCE.delete(instdtlid);
                 return Results.Ok();
@@ -88,6 +93,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 data.update();
                 return Results.Ok();

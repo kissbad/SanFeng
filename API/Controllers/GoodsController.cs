@@ -18,6 +18,7 @@ namespace API.Controllers
         [HttpPost]
         public IEnumerable<YK.Goods> Post( [FromQuery] int pageIndex, [FromQuery] int pageSize, [FromQuery] string keyword="", [FromQuery] string and = "")
         {
+            Com.IP_record(Request.HttpContext);
             return YK.Goods.get_goodslist(keyword, pageIndex, pageSize,and);
         }
     }

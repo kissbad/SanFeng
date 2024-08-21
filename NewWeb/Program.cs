@@ -16,6 +16,10 @@ builder.Services.AddScoped<LayoutComponentBase, ZL_Layout>();
 builder.Services.Configure<DBSettings>(
     builder.Configuration.GetSection("DB"));
 
+
+builder.Services.AddHttpContextAccessor();
+
+
 var app = builder.Build();
 var sql = app.Configuration["AllowedHosts"];
 

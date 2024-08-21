@@ -10,6 +10,7 @@ namespace API.Controllers
         [HttpPost]
         public IEnumerable<YK.YD_DDL_V> Post([FromQuery] int sysid)
         {
+            Com.IP_record(Request.HttpContext);
             return YK.YD_DDL_V.get_yd_ddl_v(sysid);
         }
     }

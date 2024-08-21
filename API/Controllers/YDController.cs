@@ -15,6 +15,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = YK.YD_EMPLOYEE_AP_V.get_list(USERID, and);
                 return Results.Ok(list);
@@ -36,6 +37,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_SUPPLYER_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -58,6 +60,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_CUSTOMER_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -78,6 +81,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_COMPANY_TO_CONTACT_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -98,6 +102,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_COMPANY_TO_AGENT_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -119,6 +124,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_COMPANY_LICENSE_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -141,6 +147,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_INV_INFO_V> (pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -156,6 +163,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_QTYLST_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -171,6 +179,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var data = YK.YD_QTYLST_V.get_sum(and);
                 return Results.Ok(data);

@@ -17,7 +17,9 @@ namespace API.YK
         public decimal PAYTOTAL_LINE { get; set; }
         public string? ISRECFLAG { get; set; }
         public string? ISREGISTERFLAG { get; set; }
-        
+        public string? ZQBS { get; set; }
+
+
         public static object get_sum(string and)
         {
             string sql = @"SELECT NVL(SUM(TOTAL_LINE), 0) SUMTOTAL_LINE,

@@ -1,7 +1,9 @@
 ﻿using API.YK;
 using API.YK.ZhiLian;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace API.Controllers
 {
@@ -14,6 +16,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 wqh_zhilian_apikey.Check_APIKey("BX", APIKey);
                 var list = YK.ZhiLian.wqh_bx_cg.get_list(startdate);
                 return Results.Ok(list);
@@ -29,6 +32,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 wqh_zhilian_apikey.Check_APIKey("BX", APIKey);
                 var list = YK.ZhiLian.wqh_bx_kc.get_list();
                 return Results.Ok(list);
@@ -44,6 +48,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 wqh_zhilian_apikey.Check_APIKey("BX", APIKey);
                 var list = YK.ZhiLian.wqh_bx_xsh.get_list(startdate);
                 return Results.Ok(list);

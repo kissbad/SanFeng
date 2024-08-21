@@ -1,5 +1,6 @@
 ﻿@page "/{d:int?}"
 @rendermode InteractiveServer
+@inject IHttpContextAccessor httpContextAccessor
 
 @using YK;
 @using Microsoft.Extensions.Options;
@@ -100,6 +101,10 @@
 
     protected override void OnParametersSet()
     {
+        if (httpContextAccessor.HttpContext is not null)
+        {
+            Com.IP_record(httpContextAccessor.HttpContext);
+        }
         pf_list = FP.get_FP_url(d?.ToString());
         if (pf_list.Count > 0)
         {

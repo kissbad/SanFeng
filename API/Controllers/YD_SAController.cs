@@ -13,6 +13,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_SADOC_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -28,6 +29,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = YK.YD_SADTL_V.get_list(salesid, and);
                 return Results.Ok(list);
@@ -42,6 +44,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_SADTLQRY_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -57,6 +60,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var data = YK.YD_SADTLQRY_V.get_sum(and);
                 return Results.Ok(data);
@@ -73,6 +77,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_UNREC_SADTLQRY_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -88,6 +93,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var data = YK.YD_UNREC_SADTLQRY_V.get_sum(and);
                 return Results.Ok(data);
@@ -96,7 +102,6 @@ namespace API.Controllers
             {
                 return Results.BadRequest(ex.Message);
             }
-
         }
 
     }

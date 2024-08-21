@@ -13,6 +13,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_SUCONDOC_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -28,6 +29,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var data = YK.YD_SUCONDOC_V.get_sum(and);
                 return Results.Ok(data);
@@ -43,6 +45,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = YK.YD_SUCONDTL_V.get_list(SUCONID, and);
                 return Results.Ok(list);
@@ -58,6 +61,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_UNREC_SUDTLQRY_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -73,6 +77,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var data = YK.YD_UNREC_SUDTLQRY_V.get_sum(and);
                 return Results.Ok(data);
@@ -88,6 +93,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var list = Common.GetList<YD_SUDTLQRY_V>(pageIndex, pageSize, and);
                 return Results.Ok(list);
@@ -103,6 +109,7 @@ namespace API.Controllers
         {
             try
             {
+                Com.IP_record(Request.HttpContext);
                 Common.Check_APIKey(APIKey);
                 var data = YK.YD_SUDTLQRY_V.get_sum(and);
                 return Results.Ok(data);

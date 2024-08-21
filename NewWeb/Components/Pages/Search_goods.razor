@@ -1,5 +1,6 @@
 ﻿@page "/Search_goods"
 @rendermode InteractiveServer
+@inject IHttpContextAccessor httpContextAccessor
 
 <title>商品条码修改</title>
 <div>
@@ -70,8 +71,18 @@
 
     private List<YK.wqh_sp>? sp_list = new();
 
+    protected override void OnParametersSet()
+    {
+        if (httpContextAccessor.HttpContext is not null)
+        {
+            Com.IP_record(httpContextAccessor.HttpContext);
+        }
+    }
+    
+
     private void search()
     {
+
         if (!string.IsNullOrWhiteSpace(key_word))
         {
             sp_list = YK.wqh_sp.get_splist(key_word);
