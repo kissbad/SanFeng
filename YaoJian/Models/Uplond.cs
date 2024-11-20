@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -124,12 +126,17 @@ namespace YaoJian.Models
             CspParameters cp = new CspParameters();
             cp.KeyContainerName = "MyKeyContainerName";
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(cp);
+            XmlElement Signature = WQH.Xml.Sign.SignXmlFile(xml, rsa, cer);
 
             //System.Security.Cryptography.CspParameters cspParams = new System.Security.Cryptography.CspParameters();
             //cspParams.KeyContainerName = "XML_DSIG_RSA_KEY";
             //System.Security.Cryptography.RSACryptoServiceProvider rsaKey = new System.Security.Cryptography.RSACryptoServiceProvider(cspParams);
 
-            XmlElement Signature = WQH.Xml.Sign.SignXmlFile(xml, rsa, cer);
+            //XmlElement Signature;
+            //using (ECDsaCng dsa = new ECDsaCng()) {
+            //    Signature = WQH.Xml.Sign.SignXmlFile(xml, dsa, cer);
+            //}
+
             Signature.AppendChild(Object);
 
             xml.RemoveAll();

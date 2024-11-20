@@ -34,6 +34,7 @@ namespace Auto_Expressage.kdniao
         public int IsReturnPrintTemplate { get; set; }
         public string Remark { get; set; }
         public string TemplateSize { get; set; }
+        public int? DeliveryMethod { get; set; } = null;
         public RequestData(wqh_Expressage exp)
         {
             this.OrderCode = exp.salesid;
@@ -99,6 +100,8 @@ namespace Auto_Expressage.kdniao
             }
             
             this.EndDate = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd") + " 00:00:00";
+
+            if (ShipperCode == "DBL") { DeliveryMethod = 4; }
 
 
             this.IsReturnPrintTemplate = 1;

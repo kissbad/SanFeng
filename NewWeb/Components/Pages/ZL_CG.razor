@@ -2,50 +2,86 @@
 @layout ZL_Layout
 @rendermode InteractiveServer
 
+<div class="container-fluid">
 <button class="btn btn-primary" @onclick="getlist">
     查询
 </button>
-<div class="container">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Sex</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Anna</td>
+                    <td>Pitt</td>
+                    <td>35</td>
+                    <td>New York</td>
+                    <td>USA</td>
+                    <td>Female</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-fluid table-responsive">
     @if (list?.Count > 0)
     {
         <table class="table">
             <tbody>
                 <tr>
-                    <td class="col-sm-1">日期</td>
-                    <td class="col-sm-1">供应商ID</td>
-                    <td class="col-sm-1">供应商</td>
-                    <td class="col-sm-1">货品ID</td>
-                    <td class="col-sm-1">通用名</td>
-                    <td class="col-sm-1">生厂厂家</td>
-                    <td class="col-sm-1">规格</td>
-                    <td class="col-sm-1">单位</td>
-                    <td class="col-sm-1">批号</td>
-                    <td class="col-sm-1">效期</td>
-                    <td class="col-sm-1">数量</td>
-                    <td class="col-sm-1">单价</td>
-                    <td class="col-sm-1">金额</td>
+                        <td class="col-sm-1">日期</td>
+                        <td class="col-sm-1">供应商ID</td>
+                        <td class="col-sm-1">供应商</td>
+                        <td class="col-sm-1">货品ID</td>
+                        <td class="col-sm-1">通用名</td>
+                        <td class="col-sm-1">生厂厂家</td>
+                        <td class="col-sm-1">规格</td>
+                        <td class="col-sm-1">单位</td>
+                        <td class="col-sm-1">批号</td>
+                        <td class="col-sm-1">效期</td>
+                        <td class="col-sm-1">数量</td>
+                        <td class="col-sm-1">单价</td>
+                        <td class="col-sm-1">金额</td>
                 </tr>
                 @foreach (var mx in list)
                 {
                     <tr>
-                        <td class="col-sm-1">@mx.CREDATE</td>
-                        <td class="col-sm-1">@mx.SUPPLYID</td>
-                        <td class="col-sm-1">@mx.COMPANYNAME</td>
-                        <td class="col-sm-1">@mx.GOODSID</td>
-                        <td class="col-sm-1">@mx.GOODSNAME</td>
-                        <td class="col-sm-1">@mx.FACTORYNAME</td>
-                        <td class="col-sm-1">@mx.GOODSTYPE</td>
-                        <td class="col-sm-1">@mx.GOODSUNIT</td>
-                        <td class="col-sm-1">@mx.LOTNO</td>
-                        <td class="col-sm-1">@mx.INVALIDDATE</td>
-                        <td class="col-sm-1">@mx.GOODSQTY</td>
-                        <td class="col-sm-1">@mx.UNITPRICE</td>
-                        <td class="col-sm-1">@mx.TOTAL_LINE</td>
+                            <td class="col-sm-1">@mx.CREDATE</td>
+                            <td class="col-sm-1">@mx.SUPPLYID</td>
+                            <td class="col-sm-1">@mx.COMPANYNAME</td>
+                            <td class="col-sm-1">@mx.GOODSID</td>
+                            <td class="col-sm-1">@mx.GOODSNAME</td>
+                            <td class="col-sm-1">@mx.FACTORYNAME</td>
+                            <td class="col-sm-1">@mx.GOODSTYPE</td>
+                            <td class="col-sm-1">@mx.GOODSUNIT</td>
+                            <td class="col-sm-1">@mx.LOTNO</td>
+                            <td class="col-sm-1">@mx.INVALIDDATE</td>
+                            <td class="col-sm-1">@mx.GOODSQTY</td>
+                            <td class="col-sm-1">@mx.UNITPRICE</td>
+                            <td class="col-sm-1">@mx.TOTAL_LINE</td>
                     </tr>
                 }
             </tbody>
         </table>
     }
+</div>
 </div>
 
 @code {

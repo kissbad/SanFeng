@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -88,7 +89,7 @@ namespace YaoJian
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "系统错误");
+                MessageBox.Show(ex.Message+ex.StackTrace, "系统错误");
                 enabled(button2, true);
             }
         }
