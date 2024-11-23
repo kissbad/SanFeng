@@ -52,7 +52,7 @@ namespace YaoJian
             dataGridView2.DataSource = mx[0];
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace YaoJian
                 uplond.xml_Validate = "yjj_qyjk_cgrk.xsd";
                 uplond.upload_type = "采购入库";
                 var xml = uplond.GetXml<yjj_qyjk_cgrk>(uplond_data);
-                if (uplond.doUplond(xml,djbhs))
+                if (await uplond.doUplond(xml, djbhs))
                 {
                     MessageBox.Show("上传成功");
                     get_data();

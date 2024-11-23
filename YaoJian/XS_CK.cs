@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,7 +54,7 @@ namespace YaoJian
             dataGridView2.DataSource = mx[0];
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -76,7 +78,8 @@ namespace YaoJian
                 uplond.xml_Validate = "yjj_qyjk_pfck.xsd";
                 uplond.upload_type = "批发出库";
                 var xml = uplond.GetXml<yjj_qyjk_pfck>(uplond_data);
-                if (uplond.doUplond(xml, djbhs)) {
+
+                if (await uplond.doUplond(xml, djbhs)) {
                     MessageBox.Show("上传成功");
                     get_data();
                     enabled(button2, true);

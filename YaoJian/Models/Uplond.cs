@@ -21,9 +21,11 @@ namespace YaoJian.Models
         public string xml_Validate { get; set; }
         public string upload_type { get; set; }
 
-        public bool doUplond(XmlDocument xml, List<string> djbhs)
+        public async Task<bool> doUplond(XmlDocument xml, List<string> djbhs)
         {
             string xml_v = WQH.Xml.Validate.XmlValidationByXsd(xml.InnerXml, Global.BasePath + "/XSD/" + xml_Validate);
+
+            
             if (!string.IsNullOrWhiteSpace(xml_v))
             {
                 throw new Exception(xml_v);
@@ -36,19 +38,40 @@ namespace YaoJian.Models
             mfdc.Add(new StringContent(xml.InnerXml), "signFile", xml_name);
             mfdc.Add(new StringContent("json"), "resType");
 
-
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.ClientCertificates.Add(WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
+            X509Certificate2 x509 = WQH.Web.HTTP.Certificate.GetCertificateFromFriendlyName(
                     System.Security.Cryptography.X509Certificates.StoreName.My,
                     System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
-                    Global.Certificate_name));
+                    Global.Certificate_name);
 
+
+            
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.ClientCertificates.Add(x509);
+
+            
+
+            WQH.system.IO.File.WriteLog(string.Format("{0}Subject: {1}{0}", Environment.NewLine, x509.Subject),1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Issuer: {1}{0}", Environment.NewLine, x509.Issuer), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Version: {1}{0}", Environment.NewLine, x509.Version), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Valid Date: {1}{0}", Environment.NewLine, x509.NotBefore), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Expiry Date: {1}{0}", Environment.NewLine, x509.NotAfter), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Thumbprint: {1}{0}", Environment.NewLine, x509.Thumbprint), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Serial Number: {1}{0}", Environment.NewLine, x509.SerialNumber), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Friendly Name: {1}{0}", Environment.NewLine, x509.PublicKey.Oid.FriendlyName), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Public Key Format: {1}{0}", Environment.NewLine, x509.PublicKey.EncodedKeyValue.Format(true)), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Raw Data Length: {1}{0}", Environment.NewLine, x509.RawData.Length), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Certificate to string: {1}{0}", Environment.NewLine, x509.ToString(true)), 1);
+            WQH.system.IO.File.WriteLog(string.Format("{0}Certificate to XML String: {1}{0}", Environment.NewLine, x509.GetECDsaPublicKey().ToXmlString(true)), 1);
 
 
             HttpClient client = new HttpClient(handler);
             client.MaxResponseContentBufferSize = 256000;
             client.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36");
-            HttpResponseMessage response = client.PostAsync(url, mfdc).Result;
+
+
+            HttpResponseMessage response = await client.PostAsync(url, mfdc);
+
+            WQH.system.IO.File.WriteLog("已调用url", 1);
             //HttpResponseMessage response = client.GetAsync(url).Result;
 
             if (response.StatusCode == HttpStatusCode.OK)
@@ -133,7 +156,8 @@ namespace YaoJian.Models
             //System.Security.Cryptography.RSACryptoServiceProvider rsaKey = new System.Security.Cryptography.RSACryptoServiceProvider(cspParams);
 
             //XmlElement Signature;
-            //using (ECDsaCng dsa = new ECDsaCng()) {
+            //using (ECDsaCng dsa = new ECDsaCng())
+            //{
             //    Signature = WQH.Xml.Sign.SignXmlFile(xml, dsa, cer);
             //}
 
