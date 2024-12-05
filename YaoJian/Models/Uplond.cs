@@ -44,25 +44,8 @@ namespace YaoJian.Models
                     Global.Certificate_name);
 
 
-            
             HttpClientHandler handler = new HttpClientHandler();
             handler.ClientCertificates.Add(x509);
-
-            
-
-            WQH.system.IO.File.WriteLog(string.Format("{0}Subject: {1}{0}", Environment.NewLine, x509.Subject),1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Issuer: {1}{0}", Environment.NewLine, x509.Issuer), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Version: {1}{0}", Environment.NewLine, x509.Version), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Valid Date: {1}{0}", Environment.NewLine, x509.NotBefore), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Expiry Date: {1}{0}", Environment.NewLine, x509.NotAfter), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Thumbprint: {1}{0}", Environment.NewLine, x509.Thumbprint), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Serial Number: {1}{0}", Environment.NewLine, x509.SerialNumber), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Friendly Name: {1}{0}", Environment.NewLine, x509.PublicKey.Oid.FriendlyName), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Public Key Format: {1}{0}", Environment.NewLine, x509.PublicKey.EncodedKeyValue.Format(true)), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Raw Data Length: {1}{0}", Environment.NewLine, x509.RawData.Length), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Certificate to string: {1}{0}", Environment.NewLine, x509.ToString(true)), 1);
-            WQH.system.IO.File.WriteLog(string.Format("{0}Certificate to XML String: {1}{0}", Environment.NewLine, x509.GetECDsaPublicKey().ToXmlString(true)), 1);
-
 
             HttpClient client = new HttpClient(handler);
             client.MaxResponseContentBufferSize = 256000;
@@ -71,7 +54,6 @@ namespace YaoJian.Models
 
             HttpResponseMessage response = await client.PostAsync(url, mfdc);
 
-            WQH.system.IO.File.WriteLog("已调用url", 1);
             //HttpResponseMessage response = client.GetAsync(url).Result;
 
             if (response.StatusCode == HttpStatusCode.OK)
