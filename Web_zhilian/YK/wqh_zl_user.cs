@@ -3,14 +3,14 @@ using System.Data;
 
 namespace Web_zhilian.YK
 {
-    public class wqh_zl_user
+    public class wqh_zl_user : IToken
     {
         public int USERID { get; set; }
-        public string USERNAME { get; set; }
-        public string PASSWORD { get; set; }
-        public string CG_VIEW { get; set; }
-        public string KC_VIEW { get; set; }
-        public string XS_VIEW { get; set; }
+        public string? USERNAME { get; set; }
+        public string? PASSWORD { get; set; }
+        public string? CG_VIEW { get; set; }
+        public string? KC_VIEW { get; set; }
+        public string? XS_VIEW { get; set; }
 
         public static void Authentication(string username, string password) {
 
@@ -27,6 +27,10 @@ namespace Web_zhilian.YK
                 new OracleParameter("password", password)]);
 
             if (dt.Rows.Count == 0) throw new Exception("账号不存在或密码错误！");
+        }
+
+        public wqh_zl_user(int userid) { 
+
         }
     }
 }
