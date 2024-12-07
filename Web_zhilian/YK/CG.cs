@@ -1,4 +1,6 @@
-﻿namespace Web_zhilian.YK
+﻿using Oracle.ManagedDataAccess.Client;
+
+namespace Web_zhilian.YK
 {
     public class CG
     {
@@ -15,5 +17,12 @@
         public int GOODSQTY { get; set; }
         public decimal UNITPRICE { get; set; }
         public decimal TOTAL_LINE { get; set; }
+
+        public static List<CG> getList(string view)
+        {
+            string sql = @"select * from " + view;
+            var splist = Oracle.ExecuteDataTable(sql, new OracleParameter[] { new OracleParameter("view", view) });
+            return WQH.Convert.TableToList<CG>(splist);
+        }
     }
 }

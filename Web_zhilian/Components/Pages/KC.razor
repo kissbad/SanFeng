@@ -1,0 +1,76 @@
+﻿@page "/KC"
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<div class="container-fluid">
+    <button class="btn btn-primary" @onclick="getlist">
+        查询
+    </button>
+    <div class="container-fluid table-responsive">
+        @if (list?.Count > 0)
+        {
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td class="col-sm-1">货品ID</td>
+                        <td class="col-sm-1">通用名</td>
+                        <td class="col-sm-1">生厂厂家</td>
+                        <td class="col-sm-1">规格</td>
+                        <td class="col-sm-1">单位</td>
+                        <td class="col-sm-1">批号</td>
+                        <td class="col-sm-1">生产日期</td>
+                        <td class="col-sm-1">效期</td>
+                        <td class="col-sm-1">数量</td>
+                    </tr>
+                    @foreach (var mx in list)
+                    {
+                        <tr>
+                            <td class="col-sm-1">@mx.GOODSID</td>
+                            <td class="col-sm-1">@mx.GOODSNAME</td>
+                            <td class="col-sm-1">@mx.FACTORYNAME</td>
+                            <td class="col-sm-1">@mx.GOODSTYPE</td>
+                            <td class="col-sm-1">@mx.GOODSUNIT</td>
+                            <td class="col-sm-1">@mx.LOTNO</td>
+                            <td class="col-sm-1">@mx.PRODDATE</td>
+                            <td class="col-sm-1">@mx.INVALIDDATE</td>
+                            <td class="col-sm-1">@mx.GOODSQTY</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+@code {
+    private List<YK.KC>? list;
+
+    private YK.wqh_zl_user? user;
+
+    private string? v;
+
+    protected override async Task OnAfterRenderAsync(Boolean f)
+    {
+        try
+        {
+            if (f)
+            {
+                string token = new(await JS.InvokeAsync<string>("Get_token"));
+                user = YK.Token.Verify_token(token);
+                v = user.CG_VIEW;
+            }
+        }
+        catch (Exception e)
+        {
+            NavigationManager.NavigateTo("/login");
+            await JS.InvokeVoidAsync("displayTickerAlert", e.Message);
+        }
+    }
+
+
+    private void getlist()
+    {
+        list = YK.KC.getList(v);
+    }
+}
