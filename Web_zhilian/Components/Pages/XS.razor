@@ -1,0 +1,94 @@
+﻿@page "/XS"
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<div class="container-fluid">
+    <input type="date" @bind="startdate">
+    <input type="date" @bind="enddate">
+    <button class="btn btn-primary" @onclick="getlist">查询</button>
+    <div class="container-fluid table-responsive">
+        @if (list?.Count > 0)
+        {
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td class="col-sm-1">日期</td>
+                        <td class="col-sm-1">单据ID</td>
+                        <td class="col-sm-1">客户ID</td>
+                        <td class="col-sm-1">客户</td>
+                        <td class="col-sm-1">货品ID</td>
+                        <td class="col-sm-1">通用名</td>
+                        <td class="col-sm-1">生厂厂家</td>
+                        <td class="col-sm-1">规格</td>
+                        <td class="col-sm-1">批准文号</td>
+                        <td class="col-sm-1">单位</td>
+                        <td class="col-sm-1">批号</td>
+                        <td class="col-sm-1">生产日期</td>
+                        <td class="col-sm-1">效期</td>
+                        <td class="col-sm-1">数量</td>
+                        <td class="col-sm-1">单价</td>
+                        <td class="col-sm-1">金额</td>
+                    </tr>
+                    @foreach (var mx in list)
+                    {
+                        <tr>
+                            <td class="col-sm-1">@mx.CREDATE.ToString("yyyy-MM-dd")</td>
+                            <td class="col-sm-1">@mx.SALESID</td>
+                            <td class="col-sm-1">@mx.COMPANYID</td>
+                            <td class="col-sm-1">@mx.COMPANYNAME</td>
+                            <td class="col-sm-1">@mx.GOODSID</td>
+                            <td class="col-sm-1">@mx.GOODSNAME</td>
+                            <td class="col-sm-1">@mx.FACTORYNAME</td>
+                            <td class="col-sm-1">@mx.GOODSTYPE</td>
+                            <td class="col-sm-1">@mx.APPROVEDOCNO</td>
+                            <td class="col-sm-1">@mx.GOODSUNIT</td>
+                            <td class="col-sm-1">@mx.LOTNO</td>
+                            <td class="col-sm-1">@mx.PRODDATE.ToString("yyyy-MM-dd")</td>
+                            <td class="col-sm-1">@mx.INVALIDDATE.ToString("yyyy-MM-dd")</td>
+                            <td class="col-sm-1">@mx.GOODSQTY</td>
+                            <td class="col-sm-1">@mx.UNITPRICE</td>
+                            <td class="col-sm-1">@mx.TOTAL_LINE</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+@code {
+    private List<YK.XS>? list;
+
+    private YK.wqh_zl_user? user;
+
+    private string? v;
+
+    private DateTime startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+    private DateTime enddate = DateTime.Now;
+
+    protected override async Task OnAfterRenderAsync(Boolean f)
+    {
+        try
+        {
+            if (f)
+            {
+                string token = new(await JS.InvokeAsync<string>("Get_token"));
+                if (string.IsNullOrWhiteSpace(token)) NavigationManager.NavigateTo("/login");
+                user = YK.Token.Verify_token(token);
+                v = user.XS_VIEW;
+            }
+        }
+        catch (Exception e)
+        {
+            NavigationManager.NavigateTo("/login");
+            await JS.InvokeVoidAsync("displayTickerAlert", e.Message);
+        }
+    }
+
+
+    private void getlist()
+    {
+        list = YK.XS.getList(v, startdate, enddate);
+    }
+}

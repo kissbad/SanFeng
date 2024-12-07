@@ -32,8 +32,8 @@
                             <td class="col-sm-1">@mx.GOODSTYPE</td>
                             <td class="col-sm-1">@mx.GOODSUNIT</td>
                             <td class="col-sm-1">@mx.LOTNO</td>
-                            <td class="col-sm-1">@mx.PRODDATE</td>
-                            <td class="col-sm-1">@mx.INVALIDDATE</td>
+                            <td class="col-sm-1">@mx.PRODDATE.ToString("yyyy-MM-dd")</td>
+                            <td class="col-sm-1">@mx.INVALIDDATE.ToString("yyyy-MM-dd")</td>
                             <td class="col-sm-1">@mx.GOODSQTY</td>
                         </tr>
                     }
@@ -57,8 +57,9 @@
             if (f)
             {
                 string token = new(await JS.InvokeAsync<string>("Get_token"));
+                if (string.IsNullOrWhiteSpace(token)) NavigationManager.NavigateTo("/login");
                 user = YK.Token.Verify_token(token);
-                v = user.CG_VIEW;
+                v = user.KC_VIEW;
             }
         }
         catch (Exception e)

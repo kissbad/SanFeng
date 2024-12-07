@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\C#\\SanFeng\\Web_zhilian\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\Web_zhilian.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Web_zhilian.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Web_zhilian\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Web_zhilian\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Web_zhilian\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Web_zhilian\\wwwroot\\comom.js",
+      "PackagePath": "staticwebassets\\comom.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Web_zhilian\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.Web_zhilian.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.Web_zhilian.props",
+      "PackagePath": "build\\Web_zhilian.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Web_zhilian.props",
+      "PackagePath": "buildMultiTargeting\\Web_zhilian.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.Web_zhilian.props",
+      "PackagePath": "buildTransitive\\Web_zhilian.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

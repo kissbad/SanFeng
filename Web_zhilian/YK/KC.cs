@@ -8,6 +8,7 @@ namespace Web_zhilian.YK
         public string? GOODSNAME { get; set; }
         public string? GOODSTYPE { get; set; }
         public string? FACTORYNAME { get; set; }
+        public string? APPROVEDOCNO { get; set; }
         public string? GOODSUNIT { get; set; }
         public int GOODSQTY { get; set; }
         public string? LOTNO { get; set; }
@@ -17,8 +18,8 @@ namespace Web_zhilian.YK
         public static List<KC> getList(string view)
         {
             string sql = @"select * from " + view;
-            var splist = Oracle.ExecuteDataTable(sql, new OracleParameter[] { new OracleParameter("view", view) });
-            return WQH.Convert.TableToList<KC>(splist);
+            var data = Oracle.ExecuteDataTable(sql, new OracleParameter[] { new OracleParameter("view", view) });
+            return WQH.Convert.TableToList<KC>(data);
         }
     }
 }
