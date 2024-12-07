@@ -1,7 +1,39 @@
 ﻿@page "/"
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Hello, @username</h1>
 
 Welcome to your new app.
+
+<button @onclick="aa" class="btn btn-primary">aa</button>
+
+@code{
+    private string? username;
+
+    private YK.wqh_zl_user? user;
+
+    protected override async Task OnAfterRenderAsync(Boolean f)
+    {
+        try
+        {
+            if (f)
+            {
+                string token = new(await JS.InvokeAsync<string>("Get_token"));
+                user = YK.Token.Verify_token(token);
+            }
+        }
+        catch (Exception e)
+        {
+            NavigationManager.NavigateTo("/login");
+            await JS.InvokeVoidAsync("displayTickerAlert", e.Message);
+        }
+    }
+
+    protected void aa(){
+        username = user.USERNAME;
+    }
+}

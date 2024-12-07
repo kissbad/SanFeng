@@ -15,6 +15,23 @@
 <body>
     <Routes />
     <script src="_framework/blazor.web.js"></script>
+    <script src="comom.js"></script>
+    <script>
+        window.displayTickerAlert = (convert) => {
+            alert(convert);
+        };
+    </script>
+    <script>
+        window.SaveToken = (token) => {
+            delCookie("token");
+            setCookie("token", token);
+        };
+    </script>
+    <script>
+        window.Get_token = () => {
+            return getCookie("token");
+        };
+    </script>
 </body>
 
 </html>

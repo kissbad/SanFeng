@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewWeb", "NewWeb\NewWeb.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{4DBB4D59-8EFC-49F0-8702-B81E47C20861}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web_zhilian", "Web_zhilian\Web_zhilian.csproj", "{29C7C26B-315E-4694-B1FD-3BB6F00D6D62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_zhilian", "Web_zhilian\Web_zhilian.csproj", "{29C7C26B-315E-4694-B1FD-3BB6F00D6D62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
