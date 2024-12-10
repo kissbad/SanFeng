@@ -7,6 +7,7 @@
     <input type="date" @bind="startdate">
     <input type="date" @bind="enddate">
     <button class="btn btn-primary" @onclick="getlist">查询</button>
+    <button class="btn btn-primary" @onclick="toExcel">导出Excel下载</button>
     <div class="container-fluid table-responsive">
         @if (list?.Count > 0)
         {
@@ -87,8 +88,34 @@
     }
 
 
-    private void getlist()
+    private async void getlist()
     {
         list = YK.XS.getList(v, startdate, enddate);
+        if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
+    }
+
+    private async void toExcel()
+    {
+        if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
+
+        string filename = string.Format("{0}_{1}.xlsx", user.USERNAME, DateTime.Now.ToString("yyyyMMdd"));
+
+        NPOI.SS.UserModel.IWorkbook workbook = ExcelHelp.toExcel<YK.XS>(list);
+
+        using (FileStream fileStream = new FileStream("./temp/" + filename, FileMode.Create, FileAccess.Write))
+        {
+            workbook.Write(fileStream);
+        }
+
+        try
+        {
+            var fileStream = File.OpenRead("./temp/" + filename);
+            using var streamRef = new DotNetStreamReference(stream: fileStream);
+            await JS.InvokeVoidAsync("downloadFileFromStream", filename, streamRef);
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
+        }
     }
 }
