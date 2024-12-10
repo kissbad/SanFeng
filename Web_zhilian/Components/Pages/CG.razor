@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/CG"
 @inject IJSRuntime JS
 @rendermode InteractiveServer
 @inject NavigationManager NavigationManager
@@ -75,7 +75,7 @@
             if (f)
             {
                 string token = new(await JS.InvokeAsync<string>("Get_token"));
-                if (string.IsNullOrWhiteSpace(token)) NavigationManager.NavigateTo("/login");
+                if (string.IsNullOrWhiteSpace(token)) { NavigationManager.NavigateTo("/login"); return; }
                 user = YK.Token.Verify_token(token);
                 v = user.CG_VIEW;
             }

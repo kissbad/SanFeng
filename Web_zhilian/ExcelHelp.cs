@@ -1,5 +1,4 @@
-﻿using NPOI.SS.Formula.Functions;
-using NPOI.SS.UserModel;
+﻿using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System.Reflection;
 
@@ -21,7 +20,7 @@ namespace Web_zhilian
             var i = 0;
             foreach (PropertyInfo item in proInfos)
             {
-                headerRow.CreateCell(i++).SetCellValue(item.Name);
+                headerRow.CreateCell(i++).SetCellValue(YK.Dictionary.To(item.Name));
             }
 
             int rowIndex = 1;

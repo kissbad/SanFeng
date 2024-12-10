@@ -6,8 +6,8 @@ namespace Web_zhilian.YK
     {
         public DateTime CREDATE { get; set; } 
         public int SALESID { get; set; }
-        public int COMPANYID { get; set; }
-        public string? COMPANYNAME { get; set; }
+        public int CUSTOMID { get; set; }
+        public string? CUSTOMNAME { get; set; }
         public int GOODSID { get; set; }
         public string? GOODSNAME { get; set; }
         public string? GOODSTYPE { get; set; }

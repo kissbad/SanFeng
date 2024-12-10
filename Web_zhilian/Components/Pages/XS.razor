@@ -1,4 +1,4 @@
-﻿@page "/XS"
+﻿@page "/"
 @inject IJSRuntime JS
 @rendermode InteractiveServer
 @inject NavigationManager NavigationManager
@@ -36,8 +36,8 @@
                         <tr>
                             <td class="col-sm-1">@mx.CREDATE.ToString("yyyy-MM-dd")</td>
                             <td class="col-sm-1">@mx.SALESID</td>
-                            <td class="col-sm-1">@mx.COMPANYID</td>
-                            <td class="col-sm-1">@mx.COMPANYNAME</td>
+                            <td class="col-sm-1">@mx.CUSTOMID</td>
+                            <td class="col-sm-1">@mx.CUSTOMNAME</td>
                             <td class="col-sm-1">@mx.GOODSID</td>
                             <td class="col-sm-1">@mx.GOODSNAME</td>
                             <td class="col-sm-1">@mx.FACTORYNAME</td>
@@ -75,7 +75,7 @@
             if (f)
             {
                 string token = new(await JS.InvokeAsync<string>("Get_token"));
-                if (string.IsNullOrWhiteSpace(token)) NavigationManager.NavigateTo("/login");
+                if (string.IsNullOrWhiteSpace(token)) { NavigationManager.NavigateTo("/login"); return; }
                 user = YK.Token.Verify_token(token);
                 v = user.XS_VIEW;
             }
