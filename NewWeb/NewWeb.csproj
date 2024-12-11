@@ -55,10 +55,13 @@
 
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.2" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.6.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\YK\YK.csproj" />
+    <Reference Include="WQH">
+      <HintPath>..\..\WQH_C_SHARP\WQH\bin\Debug\WQH.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

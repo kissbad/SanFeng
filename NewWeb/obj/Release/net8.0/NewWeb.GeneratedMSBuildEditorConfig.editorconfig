@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/C\#/SanFeng/NewWeb/Components/Pages/JH.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xKSC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/C\#/SanFeng/NewWeb/Components/Pages/Search_goods.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZWFyY2hfZ29vZHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,14 +44,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/C\#/SanFeng/NewWeb/Components/Pages/XZ.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xYWi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/C\#/SanFeng/NewWeb/Components/Pages/ZL.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xaTC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/C\#/SanFeng/NewWeb/Components/Pages/ZL_CG.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xaTF9DRy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/C\#/SanFeng/NewWeb/Components/Routes.razor]

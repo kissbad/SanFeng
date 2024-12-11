@@ -1,0 +1,144 @@
+﻿@page "/JH"
+@rendermode InteractiveServer
+@inject IJSRuntime JS
+
+<div class="hello">
+    <div id="left">
+        @sumtask
+    </div>
+    <div id="right">
+        <img alt="Vue logo" src="/logo.png" width="410px" height="330px ">
+        <button class="btn btn-primary" @onclick="print" :disabled="fels" ref="btn" style="width: 40%;">
+            打印
+        </button>
+        <button class="btn btn-primary" style="width: 40%;" @onclick="reprint">
+            补打
+        </button>
+    </div>
+</div>
+
+@code {
+    private int sumtask;
+    private int ID = 0;
+    private int task;
+    private int rwlx;
+
+    private async Task print()
+    {
+        try
+        {
+            var a = YK.VUE_CKRWS_SZF_V.get_list();
+            if (a.Count == 0) throw new Exception("当前无未领取任务");
+            rwlx = a[0].RWLX;
+
+            switch (rwlx)
+            {
+                case 1:
+                    task = YK.VUE_SJD_SZF_V.first_sjd();
+                    var uptaskzd = YK.VUE_SJD_SZF_V.get_data(task);
+                    var uptaskxd = YK.SJD_XD.get_list(task);
+                    await JS.InvokeVoidAsync("sj", uptaskzd, uptaskxd);
+                    YK.BMS_UP_TASK_DOC.print(task, ID);
+                    break;
+                case 2:
+                    task = YK.VUE_BHD_SZF_V.first_bhd();
+                    var stadjustzd = YK.VUE_BHD_SZF_V.get_date(task);
+                    await JS.InvokeVoidAsync("bh", stadjustzd);
+                    YK.BMS_ST_ADJUST_TMP.print(task, ID);
+                    break;
+                case 3:
+                    task = YK.wqh_djh.first_jhd();
+                    var data_zd = YK.VUE_JHD_SZF_V.get_data(task);
+                    var data_mx = YK.VUE_JHDMX_SZF_V.get_data(task);
+                    var data_mxs = YK.VUE_JHDMXS_SZF_V.get_data(task);
+                    await JS.InvokeVoidAsync("jh", data_zd, data_mx, data_mxs);
+                    YK.BMS_TR_PICK_DOC.print(task, ID);
+                    break;
+
+            }
+            ID = 0;
+            sumtask = YK.VUE_CKRWS_SZF_V.count_wjh();
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message + "\r" + ex.StackTrace);
+        }
+    }
+
+    private async Task reprint()
+    {
+        try
+        {
+            if (task == 0 || rwlx == 0) { throw new Exception("当前无补打任务!!"); }
+            switch (rwlx)
+            {
+                case 1:
+                    var uptaskzd = YK.VUE_SJD_SZF_V.get_data(task);
+                    var uptaskxd = YK.SJD_XD.get_list(task);
+                    await JS.InvokeVoidAsync("sj", uptaskzd, uptaskxd);
+                    YK.BMS_UP_TASK_DOC.print(task, ID);
+                    break;
+                case 2:
+                    var stadjustzd = YK.VUE_BHD_SZF_V.get_date(task);
+                    await JS.InvokeVoidAsync("bh", stadjustzd);
+                    YK.BMS_ST_ADJUST_TMP.print(task, ID);
+                    break;
+                case 3:
+                    var data_zd = YK.VUE_JHD_SZF_V.get_data(task);
+                    var data_mx = YK.VUE_JHDMX_SZF_V.get_data(task);
+                    var data_mxs = YK.VUE_JHDMXS_SZF_V.get_data(task);
+                    await JS.InvokeVoidAsync("jh", data_zd, data_mx, data_mxs);
+                    YK.BMS_TR_PICK_DOC.print(task, ID);
+                    break;
+
+            }
+            ID = 0;
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
+        }
+    }
+
+    [JSInvokable]
+    public static Task<int> ReturnAsync()
+    {
+        return Task.FromResult(YK.VUE_CKRWS_SZF_V.count_wjh());
+    }
+}
+
+<script src="/js/LodopFuncs.js"></script>
+<script src="/js/trpick.js"></script>
+<script src="/js/uptask.js"></script>
+<script src="/js/stadjust.js"></script>
+<link rel="stylesheet" href="css/JH.css">
+
+<script>
+    window.jh = async (data_zd, data_mx, data_mxs) => {
+        LODOP.SET_PRINT_PAGESIZE(3, '72mm', 0, "");
+        trpick(data_zd, data_mx, data_mxs);
+    }
+</script>
+<script>
+    window.sj = async (uptaskzd, uptaskxd) => {
+        LODOP.SET_PRINT_PAGESIZE(3, '72mm', 0, "");
+        uptask(uptaskzd, uptaskxd);
+    }
+</script>
+<script>
+    window.bh = async (stadjustzd) => {
+        LODOP.SET_PRINT_PAGESIZE(3, '72mm', 0, "");
+        stadjust(stadjustzd);
+    }
+</script>
+<script>
+    function ReturnAsync() {
+        DotNet.invokeMethodAsync('NewWeb', 'ReturnAsync')
+            .then(data => {
+                console.log(data);
+                document.getElementById('left').textContent = data;
+            });
+        setTimeout("ReturnAsync()", 5000);
+    };
+    ReturnAsync();
+</script>

@@ -17,8 +17,32 @@
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\css\\JH.css",
+      "PackagePath": "staticwebassets\\css\\JH.css"
+    },
+    {
       "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\js\\LodopFuncs.js",
+      "PackagePath": "staticwebassets\\js\\LodopFuncs.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\js\\stadjust.js",
+      "PackagePath": "staticwebassets\\js\\stadjust.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\js\\trpick.js",
+      "PackagePath": "staticwebassets\\js\\trpick.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\js\\uptask.js",
+      "PackagePath": "staticwebassets\\js\\uptask.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\logo.png",
+      "PackagePath": "staticwebassets\\logo.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NewWeb.Microsoft.AspNetCore.StaticWebAssets.props",
