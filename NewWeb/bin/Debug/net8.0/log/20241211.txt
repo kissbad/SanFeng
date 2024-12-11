@@ -23,3 +23,43 @@ https://docs.oracle.com/error-help/db/ora-00904/   at OracleInternal.ServiceObj
 2024/12/11 14:58:55: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
    at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
    at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 16:18:56: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 16:19:11: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 16:20:21: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 17:05:51: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:05:56: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:24:00: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:33:02: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:33:05: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:33:07: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:33:11: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:34:09: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:34:14: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:35:38: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:35:47: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:35:53: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:36:03: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:38:28: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:41:24: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:41:39: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:42:48: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:42:51: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:43:06: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:48:43: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:48:45: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:48:48: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:48:50: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:48:55: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:48:58: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:49:01: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:49:02: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35
+2024/12/11 17:49:07: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:49:11: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:53:00: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 17:53:03: 当前无未领取任务   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 35

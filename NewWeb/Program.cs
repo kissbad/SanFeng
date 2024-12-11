@@ -11,10 +11,6 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<LayoutComponentBase, ZL_Layout>();
-
-builder.Services.Configure<DBSettings>(
-    builder.Configuration.GetSection("DB"));
 
 
 builder.Services.AddHttpContextAccessor();

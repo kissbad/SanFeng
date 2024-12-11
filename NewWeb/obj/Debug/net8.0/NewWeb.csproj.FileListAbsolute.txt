@@ -38,8 +38,6 @@ D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargetin
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.NewWeb.props
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets.pack.json
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\Components\Layout\ZL_Layout.razor.rz.scp.css
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\bundle\NewWeb.styles.css
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\projectbundle\NewWeb.bundle.scp.css
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.csproj.CopyComplete
