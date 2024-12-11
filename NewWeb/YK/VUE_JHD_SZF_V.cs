@@ -31,12 +31,12 @@ namespace NewWeb.YK
         public DateTime CONFIRMDATE { get; set; }
         public string? GOODSDEPTNAME { get; set; }
         public string? COMEFROM { get; set; }
-        public string? ZX_COLUMNA { get; set; }
+        public int ZDID { get; set; }
 
         public static VUE_JHD_SZF_V get_data(int task)
         {
             string sql = @"SELECT A.PICKDOCID, A.WAVENO, A.CREDATE, A.WAVEID, A.COMPANYNAME, A.INVTYPENAME, A.MERMECDEPTNAME, A.GOODSDEPTNAME,A.COMEFROM,
-A.ISRECFLAG, A.MEMO, A.CONSIGNEE, A.PLACETYPENAME, A.TRANSLINENAME, A.INPUTMANNAME,A.GOODSUNITFLAG,a.ZX_COLUMNA
+A.ISRECFLAG, A.MEMO, A.CONSIGNEE, A.PLACETYPENAME, A.TRANSLINENAME, A.INPUTMANNAME,A.GOODSUNITFLAG,a.ZDID
 FROM VUE_JHD_SZF_V A WHERE PICKDOCID = :task";
 
             var data = Oracle.ExecuteDataTable(sql, [new OracleParameter("task", task)]);

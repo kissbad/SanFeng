@@ -1,0 +1,25 @@
+2024/12/11 14:36:58: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 33
+2024/12/11 14:41:35: ORA-00904: "A"."ZX_COLUMNA": 标识符无效
+https://docs.oracle.com/error-help/db/ora-00904/   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at NewWeb.YK.Oracle.ExecuteDataTable(String sql, OracleParameter[] parameters) in D:\C#\SanFeng\NewWeb\YK\Oracle.cs:line 53
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 42
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 14:49:04: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 14:53:27: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 14:54:11: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 14:54:16: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 14:54:53: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55
+2024/12/11 14:58:55: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 55

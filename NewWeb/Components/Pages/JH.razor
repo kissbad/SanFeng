@@ -8,18 +8,21 @@
     </div>
     <div id="right">
         <img alt="Vue logo" src="/logo.png" width="410px" height="330px ">
-        <button class="btn btn-primary" @onclick="print" :disabled="fels" ref="btn" style="width: 40%;">
+        <div>
+        <input type="number" style="width: 30%;height: 50px;" placeholder="请输入人员ID" @bind="ID" />
+        <button class="btn btn-primary" @onclick="print" :disabled="fels" ref="btn" style="width: 30%;">
             打印
         </button>
-        <button class="btn btn-primary" style="width: 40%;" @onclick="reprint">
+        <button class="btn btn-primary" style="width: 30%;" @onclick="reprint">
             补打
         </button>
+        </div>
     </div>
 </div>
 
 @code {
     private int sumtask;
-    private int ID = 0;
+    private int ID = 0 ;
     private int task;
     private int rwlx;
 
@@ -27,6 +30,7 @@
     {
         try
         {
+            if (ID == 0 || YK.pub_employee.is_ckry(ID)) { throw new Exception("人员ID无效！"); }
             var a = YK.VUE_CKRWS_SZF_V.get_list();
             if (a.Count == 0) throw new Exception("当前无未领取任务");
             rwlx = a[0].RWLX;
@@ -61,7 +65,8 @@
         }
         catch (Exception ex)
         {
-            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message + "\r" + ex.StackTrace);
+            WQH.system.IO.File.WriteLog(ex.Message + "\r" + ex.StackTrace, 1);
+            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
         }
     }
 
@@ -69,6 +74,7 @@
     {
         try
         {
+            if (ID == 0 || YK.pub_employee.is_ckry(ID)) { throw new Exception("人员ID无效！"); }
             if (task == 0 || rwlx == 0) { throw new Exception("当前无补打任务!!"); }
             switch (rwlx)
             {
