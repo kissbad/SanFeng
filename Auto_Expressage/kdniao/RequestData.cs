@@ -106,7 +106,7 @@ namespace Auto_Expressage.kdniao
 
             this.IsReturnPrintTemplate = 1;
             this.Quantity = exp.dbs;
-            this.Remark = exp.customname;
+            this.Remark = exp.customname + "(" + OrderCode + ")";
 
         }
     }
