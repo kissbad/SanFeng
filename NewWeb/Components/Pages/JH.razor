@@ -9,7 +9,7 @@
     <div id="right">
         <img alt="Vue logo" src="/logo.png" width="410px" height="330px ">
         <div>
-            <input type="number" style="width: 30%;height: 50px;" placeholder="请输入人员ID" @bind="ID" @onkeydown="OnKeyDownHandler" @oninput="OnTextValueChanged" />
+            <input type="number" style="width: 30%;height: 50px;" placeholder="请输入人员ID" @bind="ID" @bind:event="oninput"  @onkeydown="OnKeyDownHandler"/>
             <button class="btn btn-primary" @onclick="print" :disabled="fels" ref="btn" style="width: 30%;">
                 打印
             </button>
@@ -118,12 +118,6 @@
         {
             await print();
         }
-    }
-
-
-    private void OnTextValueChanged(ChangeEventArgs e)
-    {
-        ID = e.Value.ToString() == "" ? null : Convert.ToInt16(e.Value);
     }
 }
 

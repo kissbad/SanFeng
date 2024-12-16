@@ -1,4 +1,5 @@
 ﻿using Oracle.ManagedDataAccess.Client;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace Web_zhilian.YK
 {
@@ -21,10 +22,14 @@ namespace Web_zhilian.YK
         public decimal UNITPRICE { get; set; }
         public decimal TOTAL_LINE { get; set; }
 
-        public static List<CG> getList(string view,DateTime startdate, DateTime  enddate)
+        public static List<CG> getList(string view,DateTime startdate, DateTime  enddate,string keyword)
         {
-            string sql = @"select * from " + view + " where CREDATE between :startdate and :enddate";
-            var data = Oracle.ExecuteDataTable(sql, [new OracleParameter("startdate", startdate), new OracleParameter("enddate", enddate)]);
+            string sql = @"select * from " + view + " where CREDATE between :startdate and :enddate and (goodsname like '%'||:keyword||'%' or lotno like '%'||:keyword||'%') ";
+            var data = Oracle.ExecuteDataTable(sql, 
+                [new OracleParameter("startdate", startdate), 
+                new OracleParameter("enddate", enddate),
+                new OracleParameter("keywod", keyword),
+                new OracleParameter("keywod", keyword)]);
             return WQH.Convert.TableToList<CG>(data);
         }
     }

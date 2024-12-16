@@ -8,6 +8,7 @@
 <div class="container-fluid">
     <input type="date" @bind="startdate">
     <input type="date" @bind="enddate">
+    <input type="text" placeholder="通用名/批号" @bind="keyword" @bind:event="oninput" />
     <button class="btn btn-primary" @onclick="getlist">查询</button>
     <button class="btn btn-primary" @onclick="toExcel">导出Excel下载</button>
     <div class="container-fluid table-responsive">
@@ -16,12 +17,12 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <td class="col-sm-1">日期</td>
+                        <td class="col-sm-1"><a @onclick="@(e => Sorter("CREDATE"))">日期</a></td>
                         <td class="col-sm-1">单据ID</td>
                         <td class="col-sm-1">客户ID</td>
                         <td class="col-sm-1">客户</td>
                         <td class="col-sm-1">货品ID</td>
-                        <td class="col-sm-1">通用名</td>
+                        <td class="col-sm-1"><a @onclick="@(e => Sorter("GOODSNAME"))">通用名</a></td>
                         <td class="col-sm-1">生厂厂家</td>
                         <td class="col-sm-1">规格</td>
                         <td class="col-sm-1">批准文号</td>
@@ -66,6 +67,7 @@
     private YK.wqh_zl_user? user;
 
     private string? v;
+    private string keyword = "";
 
     private DateTime startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
     private DateTime enddate = DateTime.Now;
@@ -92,7 +94,7 @@
 
     private async void getlist()
     {
-        list = YK.XS.getList(v, startdate, enddate);
+        list = YK.XS.getList(v, startdate, enddate,keyword);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
     }
 
@@ -118,6 +120,19 @@
         catch (Exception ex)
         {
             await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
+        }
+    }
+
+    private void Sorter(string str)
+    {
+        switch (str)
+        {
+            case "CREDATE":
+                list = list?.OrderBy(n => n.CREDATE).ToList();
+                break;
+            case "GOODSNAME":
+                list = list?.OrderBy(n => n.GOODSNAME).ToList();
+                break;
         }
     }
 }

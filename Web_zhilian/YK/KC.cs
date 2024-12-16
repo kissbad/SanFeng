@@ -15,10 +15,10 @@ namespace Web_zhilian.YK
         public DateTime PRODDATE { get; set; }
         public DateTime INVALIDDATE { get; set; }
 
-        public static List<KC> getList(string view)
+        public static List<KC> getList(string view,string keyword)
         {
-            string sql = @"select * from " + view;
-            var data = Oracle.ExecuteDataTable(sql, new OracleParameter[] { new OracleParameter("view", view) });
+            string sql = @"select * from " + view + " where goodsname like '%'||:keyword||'%' or lotno like '%'||:keyword||'%'";
+            var data = Oracle.ExecuteDataTable(sql, [new OracleParameter("keywod", keyword)]);
             return WQH.Convert.TableToList<KC>(data);
         }
     }
