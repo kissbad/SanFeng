@@ -17,7 +17,7 @@ namespace Web_zhilian.YK
 
         public static List<KC> getList(string view,string keyword)
         {
-            string sql = @"select * from " + view + " where goodsname like '%'||:keyword||'%' or lotno like '%'||:keyword||'%'";
+            string sql = @"select * from " + view + " where nvl(goodsname,' ') like '%'||:keyword||'%' or nvl(lotno,' ') like '%'||:keyword||'%'";
             var data = Oracle.ExecuteDataTable(sql, [new OracleParameter("keywod", keyword)]);
             return WQH.Convert.TableToList<KC>(data);
         }

@@ -23,7 +23,7 @@ namespace Web_zhilian.YK
 
         public static List<XS> getList(string view, DateTime startdate, DateTime enddate,string keyword)
         {
-            string sql = @"select * from " + view + " where CREDATE between :startdate and :enddate and  (goodsname like '%'||:keyword||'%' or lotno like '%'||:keyword||'%') ";
+            string sql = @"select * from " + view + " where CREDATE between :startdate and :enddate and  (nvl(goodsname,' ') like '%'||:keyword||'%' or nvl(lotno,' ') like '%'||:keyword||'%') ";
             var data = Oracle.ExecuteDataTable(sql, 
                 [new OracleParameter("startdate", startdate), 
                 new OracleParameter("enddate", enddate),
