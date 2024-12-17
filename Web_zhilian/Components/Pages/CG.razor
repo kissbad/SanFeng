@@ -56,6 +56,24 @@
                             <td class="col-sm-1">@mx.TOTAL_LINE</td>
                         </tr>
                     }
+                    <tr>
+                        <td class="col-sm-1">合计</td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1">@sum_shl</td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1">@sum_je</td>
+                    </tr>
                 </tbody>
             </table>
         }
@@ -69,6 +87,9 @@
 
     private string? v;
     private string keyword = "";
+
+    private int sum_shl = 0;
+    private decimal sum_je = 0;
 
     private DateTime startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
     private DateTime enddate = DateTime.Now;
@@ -97,6 +118,15 @@
     {
         list = YK.CG.getList(v, startdate, enddate,keyword);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
+
+        sum_shl = 0;
+        sum_je = 0;
+
+        foreach (YK.CG i in list)
+        {
+            sum_shl += i.GOODSQTY;
+            sum_je += i.TOTAL_LINE;
+        }
     }
 
     private async void toExcel()
