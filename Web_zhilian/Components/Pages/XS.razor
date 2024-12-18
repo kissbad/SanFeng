@@ -55,6 +55,24 @@
                             <td class="col-sm-1">@mx.TOTAL_LINE</td>
                         </tr>
                     }
+                    <tr>
+                        <td class="col-sm-1">合计</td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1">@sum_shl</td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1">@sum_je</td>
+                    </tr>
                 </tbody>
             </table>
         }
@@ -62,15 +80,16 @@
 </div>
 
 @code {
-    private List<YK.XS>? list;
-
     private YK.wqh_zl_user? user;
-
     private string? v;
-    private string keyword = "";
 
+    private string keyword = "";
     private DateTime startdate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
     private DateTime enddate = DateTime.Now;
+
+    private List<YK.XS>? list;
+    private int sum_shl = 0;
+    private decimal sum_je = 0;
 
     protected override async Task OnAfterRenderAsync(Boolean f)
     {
@@ -96,6 +115,15 @@
     {
         list = YK.XS.getList(v, startdate, enddate,keyword);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
+
+        sum_shl = 0;
+        sum_je = 0;
+
+        foreach (YK.XS i in list)
+        {
+            sum_shl += i.GOODSQTY;
+            sum_je += i.TOTAL_LINE;
+        }
     }
 
     private async void toExcel()

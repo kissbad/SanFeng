@@ -40,6 +40,17 @@
                             <td class="col-sm-1">@mx.GOODSQTY</td>
                         </tr>
                     }
+                    <tr>
+                        <td class="col-sm-1">合计</td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1"></td>
+                        <td class="col-sm-1">@sum_shl</td>
+                    </tr>
                 </tbody>
             </table>
         }
@@ -47,12 +58,13 @@
 </div>
 
 @code {
-    private List<YK.KC>? list;
-
     private YK.wqh_zl_user? user;
-
     private string? v;
+
     private string keyword = "";
+
+    private List<YK.KC>? list;
+    private int sum_shl = 0;
 
     protected override async Task OnAfterRenderAsync(Boolean f)
     {
@@ -78,6 +90,13 @@
     {
         list = YK.KC.getList(v,keyword);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
+
+        sum_shl = 0;
+
+        foreach (YK.KC i in list)
+        {
+            sum_shl += i.GOODSQTY;
+        }
     }
 
     private async void toExcel()
