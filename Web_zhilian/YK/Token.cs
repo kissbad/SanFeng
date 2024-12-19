@@ -49,7 +49,7 @@ namespace Web_zhilian.YK
 
 
 
-        public static wqh_zl_user Verify_token(string token)
+        public static wqh_zhilian_user Verify_token(string token)
         {
             var sql = @"select * from wqh_token where token = :token ";
             var data = Oracle.ExecuteDataTable(sql, new OracleParameter("token", token));
@@ -66,7 +66,7 @@ namespace Web_zhilian.YK
                 throw new Exception("token过期！");
             }
 
-            var user = wqh_zl_user.get_formid(t.userid);
+            var user = wqh_zhilian_user.get_formid(t.userid);
             if (t.token != GenerateToken(user.USERID, user.PASSWORD, t.expire_time))
             {
                 throw new Exception("token检验失败");

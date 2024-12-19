@@ -30,7 +30,7 @@
     {
         try
         {
-            string t = YK.wqh_zl_user.Authentication(username, password);
+            string t = YK.wqh_zhilian_user.Authentication(username, password);
             await JS.InvokeVoidAsync("SaveToken", t);
             NavigationManager.NavigateTo("/");
         }
