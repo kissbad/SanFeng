@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Net;
+using System.Text.Json;
 
 namespace NewWeb.IP_analyse
 {
@@ -15,11 +16,18 @@ namespace NewWeb.IP_analyse
 
             using (HttpResponseMessage response = await client.GetAsync(url))
             {
-                respContent = await response.Content.ReadAsStringAsync();
-                rep = JsonSerializer.Deserialize<Response>(respContent);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    respContent = await response.Content.ReadAsStringAsync();
+                    rep = JsonSerializer.Deserialize<Response>(respContent);
 
-                if (rep.code != 200) { return new IP_information { address = rep.msg }; }
-                return new IP_information { address = rep?.data?.address };
+                    if (rep.code != 200) { return new IP_information { address = rep.msg }; }
+                    return new IP_information { address = rep?.data?.address };
+                }
+                else
+                {
+                    return new IP_information { address = "解析接口错误！！" };
+                }
             }
         }
     }
