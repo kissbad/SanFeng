@@ -15,6 +15,7 @@ namespace Web_zhilian.YK
             { "SUPPLYNAME", "供应商" },
             { "GOODSID", "货品ID" },
             { "GOODSNAME", "通用名" },
+            { "HOLDERSNAME", "上市许可持有人" },
             { "FACTORYNAME", "生产厂家" },
             { "APPROVEDOCNO", "批准文号" },
             { "GOODSTYPE", "规格" },

@@ -5,7 +5,10 @@
 
 <h1>库存数据</h1>
 <div class="container-fluid">
-    <input type="text" placeholder="通用名/批号" @bind="keyword" @bind:event="oninput" />
+    <input type="text" placeholder="通用名" @bind="goodsid" @bind:event="oninput" />
+    <input type="text" placeholder="批号" @bind="lotno" @bind:event="oninput" />
+    <input type="text" placeholder="上市许可持有人" @bind="holdersname" @bind:event="oninput" />
+    <input type="text" placeholder="生厂厂家" @bind="factoryname" @bind:event="oninput" />
     <button class="btn btn-primary" @onclick="getlist">
         查询
     </button>
@@ -18,6 +21,7 @@
                     <tr>
                         <td class="col-sm-1">货品ID</td>
                         <td class="col-sm-1"><a @onclick="@(e => Sorter("GOODSNAME"))">通用名</a></td>
+                        <td class="col-sm-1">上市许可持有人</td>
                         <td class="col-sm-1">生厂厂家</td>
                         <td class="col-sm-1">规格</td>
                         <td class="col-sm-1">单位</td>
@@ -31,6 +35,7 @@
                         <tr>
                             <td class="col-sm-1">@mx.GOODSID</td>
                             <td class="col-sm-1">@mx.GOODSNAME</td>
+                            <td class="col-sm-1">@mx.HOLDERSNAME</td>
                             <td class="col-sm-1">@mx.FACTORYNAME</td>
                             <td class="col-sm-1">@mx.GOODSTYPE</td>
                             <td class="col-sm-1">@mx.GOODSUNIT</td>
@@ -61,7 +66,10 @@
     private YK.wqh_zhilian_user? user;
     private string? v;
 
-    private string keyword = "";
+    private string goodsid = "";
+    private string lotno = "";
+    private string holdersname = "";
+    private string factoryname = "";
 
     private List<YK.KC>? list;
     private int sum_shl = 0;
@@ -88,7 +96,7 @@
 
     private async void getlist()
     {
-        list = YK.KC.getList(v,keyword);
+        list = YK.KC.getList(v, goodsid, lotno, holdersname, factoryname);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
 
         sum_shl = 0;

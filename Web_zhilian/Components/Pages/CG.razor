@@ -10,7 +10,10 @@
 <div class="container-fluid">
     <input type="date" @bind="startdate">
     <input type="date" @bind="enddate">
-    <input type="text" placeholder="通用名/批号" @bind="keyword" @bind:event="oninput"/>
+    <input type="text" placeholder="通用名" @bind="goodsid" @bind:event="oninput"/>
+    <input type="text" placeholder="批号" @bind="lotno" @bind:event="oninput" />
+    <input type="text" placeholder="上市许可持有人" @bind="holdersname" @bind:event="oninput" />
+    <input type="text" placeholder="生厂厂家" @bind="factoryname" @bind:event="oninput" />
     <button class="btn btn-primary" @onclick="getlist">查询</button>
     <button class="btn btn-primary" @onclick="toExcel">导出Excel下载</button>
     <div class="container-fluid table-responsive">
@@ -20,11 +23,11 @@
                 <tbody>
                     <tr>
                         <td class="col-sm-1"><a @onclick="@(n => Sorter("CREDATE"))">日期</a></td>
-                        <td class="col-sm-1">单据ID</td>
                         <td class="col-sm-1">供应商ID</td>
                         <td class="col-sm-1">供应商</td>
                         <td class="col-sm-1">货品ID</td>
                         <td class="col-sm-1"><a @onclick="@(e => Sorter("GOODSNAME"))">通用名</a></td>
+                        <td class="col-sm-1">上市许可持有人</td>
                         <td class="col-sm-1">生厂厂家</td>
                         <td class="col-sm-1">规格</td>
                         <td class="col-sm-1">批准文号</td>
@@ -40,11 +43,11 @@
                     {
                         <tr>
                             <td class="col-sm-1">@mx.CREDATE.ToString("yyyy-MM-dd")</td>
-                            <td class="col-sm-1">@mx.SUDOCID</td>
                             <td class="col-sm-1">@mx.SUPPLYID</td>
                             <td class="col-sm-1">@mx.SUPPLYNAME</td>
                             <td class="col-sm-1">@mx.GOODSID</td>
                             <td class="col-sm-1">@mx.GOODSNAME</td>
+                            <td class="col-sm-1">@mx.HOLDERSNAME</td>
                             <td class="col-sm-1">@mx.FACTORYNAME</td>
                             <td class="col-sm-1">@mx.GOODSTYPE</td>
                             <td class="col-sm-1">@mx.APPROVEDOCNO</td>
@@ -87,7 +90,10 @@
     private YK.wqh_zhilian_user? user;
 
     private string? v;
-    private string keyword = "";
+    private string goodsid = "";
+    private string lotno = "";
+    private string holdersname = "";
+    private string factoryname = "";
 
     private int sum_shl = 0;
     private decimal sum_je = 0;
@@ -118,7 +124,7 @@
     private async void getlist()
     {
         
-        list = YK.CG.getList(v, startdate, enddate,keyword);
+        list = YK.CG.getList(v, startdate, enddate, goodsid, lotno, holdersname, factoryname);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
 
         sum_shl = 0;
