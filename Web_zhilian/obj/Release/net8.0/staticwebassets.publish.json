@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Lr06TTAVvU09iDeXl8Sb9emx61HHn2/RBQ+R8ZMw4PQ=",
+  "Hash": "zxTRTOO3J8GvUrpdnCqk9UmG5GTdgvkuYOOB7IcruEQ=",
   "Source": "Web_zhilian",
   "BasePath": "_content/Web_zhilian",
   "Mode": "Default",
@@ -148,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon1.png"
+    },
+    {
+      "Identity": "D:\\C#\\SanFeng\\Web_zhilian\\wwwroot\\favicon2.png",
+      "SourceId": "Web_zhilian",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\SanFeng\\Web_zhilian\\wwwroot\\",
+      "BasePath": "_content/Web_zhilian",
+      "RelativePath": "favicon2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon2.png"
     }
   ]
 }

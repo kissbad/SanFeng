@@ -5,7 +5,7 @@ namespace Web_zhilian.YK
     public class XS
     {
         public DateTime CREDATE { get; set; }
-        public int CUSTOMID { get; set; }
+        public string? COMEFROM { get; set; }
         public string? CUSTOMNAME { get; set; }
         public int GOODSID { get; set; }
         public string? GOODSNAME { get; set; }

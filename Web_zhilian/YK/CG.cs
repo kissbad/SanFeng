@@ -6,7 +6,7 @@ namespace Web_zhilian.YK
     public class CG
     {
         public DateTime CREDATE { get; set; }
-        public int SUPPLYID { get; set; }
+        public string? COMEFROM { get; set; }
         public string? SUPPLYNAME { get; set; }
         public int GOODSID { get; set; }
         public string? GOODSNAME { get; set; }

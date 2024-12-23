@@ -11,7 +11,7 @@
     <input type="text" placeholder="通用名" @bind="goodsid" @bind:event="oninput" />
     <input type="text" placeholder="批号" @bind="lotno" @bind:event="oninput" />
     <input type="text" placeholder="上市许可持有人" @bind="holdersname" @bind:event="oninput" />
-    <input type="text" placeholder="生厂厂家" @bind="factoryname" @bind:event="oninput" />
+    <input type="text" placeholder="生产企业" @bind="factoryname" @bind:event="oninput" />
     <button class="btn btn-primary" @onclick="getlist">查询</button>
     <button class="btn btn-primary" @onclick="toExcel">导出Excel下载</button>
     <div class="container-fluid table-responsive">
@@ -21,12 +21,12 @@
                 <tbody>
                     <tr>
                         <td class="col-sm-1"><a @onclick="@(e => Sorter("CREDATE"))">日期</a></td>
-                        <td class="col-sm-1">客户ID</td>
+                        <td class="col-sm-1">单据类型</td>
                         <td class="col-sm-1">客户</td>
                         <td class="col-sm-1">货品ID</td>
                         <td class="col-sm-1"><a @onclick="@(e => Sorter("GOODSNAME"))">通用名</a></td>
                         <td class="col-sm-1">上市许可持有人</td>
-                        <td class="col-sm-1">生厂厂家</td>
+                        <td class="col-sm-1">生产企业</td>
                         <td class="col-sm-1">规格</td>
                         <td class="col-sm-1">批准文号</td>
                         <td class="col-sm-1">单位</td>
@@ -41,7 +41,7 @@
                     {
                         <tr>
                             <td class="col-sm-1">@mx.CREDATE.ToString("yyyy-MM-dd")</td>
-                            <td class="col-sm-1">@mx.CUSTOMID</td>
+                            <td class="col-sm-1">@mx.COMEFROM</td>
                             <td class="col-sm-1">@mx.CUSTOMNAME</td>
                             <td class="col-sm-1">@mx.GOODSID</td>
                             <td class="col-sm-1">@mx.GOODSNAME</td>

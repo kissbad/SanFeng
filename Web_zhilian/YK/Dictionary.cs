@@ -16,7 +16,7 @@ namespace Web_zhilian.YK
             { "GOODSID", "货品ID" },
             { "GOODSNAME", "通用名" },
             { "HOLDERSNAME", "上市许可持有人" },
-            { "FACTORYNAME", "生产厂家" },
+            { "FACTORYNAME", "生产企业" },
             { "APPROVEDOCNO", "批准文号" },
             { "GOODSTYPE", "规格" },
             { "GOODSUNIT", "单位" },
@@ -25,7 +25,8 @@ namespace Web_zhilian.YK
             { "INVALIDDATE", "有效期" },
             { "GOODSQTY", "数量" },
             { "UNITPRICE", "单价" },
-            { "TOTAL_LINE", "金额" }
+            { "TOTAL_LINE", "金额" },
+            { "COMEFROM", "单据类型" }
         };
 
         public static string To(string str)
