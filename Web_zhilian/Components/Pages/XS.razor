@@ -84,8 +84,8 @@
 
 @code {
     private YK.wqh_zhilian_user? user;
-    private string? v;
 
+    private string? v;
     private string goodsid = "";
     private string lotno = "";
     private string holdersname = "";
@@ -98,6 +98,7 @@
     private int sum_shl = 0;
     private decimal sum_je = 0;
 
+
     protected override async Task OnAfterRenderAsync(Boolean f)
     {
         try
@@ -107,7 +108,7 @@
                 string token = new(await JS.InvokeAsync<string>("Get_token"));
                 if (string.IsNullOrWhiteSpace(token)) { NavigationManager.NavigateTo("/login"); return; }
                 user = YK.Token.Verify_token(token);
-                v = user.XS_VIEW;
+                v = user.XS_VIEW; 
             }
         }
         catch (Exception e)
@@ -117,10 +118,9 @@
         }
     }
 
-
     private async void getlist()
     {
-        list = YK.XS.getList(v, startdate, enddate, goodsid, lotno, holdersname, factoryname);
+        list = YK.XS.getList(user.XS_VIEW, startdate, enddate, goodsid, lotno, holdersname, factoryname);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
 
         sum_shl = 0;
