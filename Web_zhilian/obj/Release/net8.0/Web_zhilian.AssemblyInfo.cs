@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Web_zhilian")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b70b52f5b0b826482c0217646593965ffdf9eee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Web_zhilian")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Web_zhilian")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

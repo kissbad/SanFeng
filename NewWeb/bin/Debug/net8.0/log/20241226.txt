@@ -1,0 +1,139 @@
+2024/12/26 9:10:47: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 37
+2024/12/26 9:10:59: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 59
+2024/12/26 9:11:17: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 59
+2024/12/26 9:11:51: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 37
+2024/12/26 9:33:29: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:33:54: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:33:57: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:34:02: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:34:04: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:37:50: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:37:52: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:37:59: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:38:02: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:38:10: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:38:12: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:38:20: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:38:22: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:38:27: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:47:19: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:47:29: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:47:35: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:47:40: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:47:46: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:48:02: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:05: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:06: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:08: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:12: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:13: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:14: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:16: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:17: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:18: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:19: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:22: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:25: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:48:31: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:48:33: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:38: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:42: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:45: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:46: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:48:47: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:49:27: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:49:47: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:49:55: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:49:57: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:53:26: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at NewWeb.YK.VUE_JHD_SZF_V.get_data(Int32 task) in D:\C#\SanFeng\NewWeb\YK\VUE_JHD_SZF_V.cs:line 43
+   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 58
+2024/12/26 9:53:54: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:56:23: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 9:57:45: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:57:57: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:58:03: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:58:43: 人员ID无效！78   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:58:47: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:58:50: 人员ID无效！78   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:58:52: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:59:07: 人员ID无效！4545   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:59:13: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:59:30: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 9:59:49: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 10:03:24: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 10:04:10: 人员ID无效！   at NewWeb.Components.Pages.JH.print()
+2024/12/26 10:14:09: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:14:13: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:14:21: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:14:30: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:14:31: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:14:33: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:14:36: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:14:39: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:14:41: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:20:19: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:20:22: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36
+2024/12/26 10:20:24: 人员ID无效！   at NewWeb.Components.Pages.JH.print() in D:\C#\SanFeng\NewWeb\Components\Pages\JH.razor:line 36

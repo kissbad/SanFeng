@@ -23,7 +23,7 @@ namespace NewWeb.YK
 
         public static List<VUE_JHDMX_SZF_V> get_data(int task)
         {
-            string sql = @"select * from VUE_JHDMX_SZF_V WHERE PICKDOCID = :task";
+            string sql = @"select * from VUE_JHDMX_SZF_V WHERE PICKDOCID = :task order by sortnumber_a,sortnumber_b";
             var data = Oracle.ExecuteDataTable(sql, [new OracleParameter("task", task)]);
             return WQH.Convert.TableToList<VUE_JHDMX_SZF_V>(data);
         }

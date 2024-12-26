@@ -2,6 +2,8 @@
 @rendermode InteractiveServer
 @inject IJSRuntime JS
 
+<PageTitle>拣货单打印</PageTitle>
+
 <div class="hello">
     <div id="left">
         @sumtask
@@ -9,7 +11,7 @@
     <div id="right">
         <img alt="Vue logo" src="/logo.png" width="410px" height="330px ">
         <div>
-            <input type="number" style="width: 30%;height: 50px;" placeholder="请输入人员ID" @bind="ID" @bind:event="oninput"  @onkeydown="OnKeyDownHandler"/>
+            <input type="number" style="width: 30%;height: 50px;" placeholder="请输入人员ID" @bind="ID" @bind:event="oninput" @onkeydown="OnKeyDownHandler" />
             <button class="btn btn-primary" @onclick="print" :disabled="fels" ref="btn" style="width: 30%;">
                 打印
             </button>
@@ -26,13 +28,13 @@
     private int task;
     private int rwlx;
 
-    private async Task print()
+    private void print()
     {
         try
         {
-            if (ID == null || !YK.pub_employee.is_ckry(ID ?? 0)) { throw new Exception("人员ID无效！"); }
+            if (ID == null || !YK.pub_employee.is_ckry(ID ?? 0)) { ID = null; throw new Exception("人员ID无效！");}
             var a = YK.VUE_CKRWS_SZF_V.get_list();
-            if (a.Count == 0) throw new Exception("当前无未领取任务");
+            if (a.Count == 0) { ID = null; throw new Exception("当前无未领取任务"); }
             rwlx = a[0].RWLX;
 
             switch (rwlx)
@@ -41,32 +43,32 @@
                     task = YK.VUE_SJD_SZF_V.first_sjd();
                     var uptaskzd = YK.VUE_SJD_SZF_V.get_data(task);
                     var uptaskxd = YK.SJD_XD.get_list(task);
-                    await JS.InvokeVoidAsync("sj", uptaskzd, uptaskxd);
-                    YK.BMS_UP_TASK_DOC.print(task, ID ?? 0);
+                    JS.InvokeVoidAsync("sj", uptaskzd, uptaskxd);
+                    YK.BMS_UP_TASK_DOC.print(task, ID??0);
                     break;
                 case 2:
                     task = YK.VUE_BHD_SZF_V.first_bhd();
                     var stadjustzd = YK.VUE_BHD_SZF_V.get_date(task);
-                    await JS.InvokeVoidAsync("bh", stadjustzd);
-                    YK.BMS_ST_ADJUST_TMP.print(task, ID ?? 0);
+                     JS.InvokeVoidAsync("bh", stadjustzd);
+                    YK.BMS_ST_ADJUST_TMP.print(task, ID??0);
                     break;
                 case 3:
                     task = YK.wqh_djh.first_jhd();
                     var data_zd = YK.VUE_JHD_SZF_V.get_data(task);
                     var data_mx = YK.VUE_JHDMX_SZF_V.get_data(task);
                     var data_mxs = YK.VUE_JHDMXS_SZF_V.get_data(task);
-                    await JS.InvokeVoidAsync("jh", data_zd, data_mx, data_mxs);
-                    YK.BMS_TR_PICK_DOC.print(task, ID ?? 0);
+                    JS.InvokeVoidAsync("jh", data_zd, data_mx, data_mxs);
+                    YK.BMS_TR_PICK_DOC.print(task, ID??0);
                     break;
 
             }
-            ID = 0;
+            ID = null;
             sumtask = YK.VUE_CKRWS_SZF_V.count_wjh();
         }
         catch (Exception ex)
         {
             WQH.system.IO.File.WriteLog(ex.Message + "\r" + ex.StackTrace, 1);
-            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
+            JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
         }
     }
 
@@ -74,8 +76,8 @@
     {
         try
         {
-            if (ID == null || !YK.pub_employee.is_ckry(ID ?? 0)) { throw new Exception("人员ID无效！"); }
-            if (task == 0 || rwlx == 0) { throw new Exception("当前无补打任务!!"); }
+            if (ID == null || !YK.pub_employee.is_ckry(ID ?? 0)) { ID = null; throw new Exception("人员ID无效！"); }
+            if (task == 0 || rwlx == 0) { ID = null; throw new Exception("当前无补打任务!!"); }
             switch (rwlx)
             {
                 case 1:
@@ -98,10 +100,11 @@
                     break;
 
             }
-            ID = 0;
+            ID = null;
         }
         catch (Exception ex)
         {
+            WQH.system.IO.File.WriteLog(task.ToString() + ex.Message + "\r" + ex.StackTrace, 1);
             await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
         }
     }
@@ -112,11 +115,11 @@
         return Task.FromResult(YK.VUE_CKRWS_SZF_V.count_wjh());
     }
 
-    private async void OnKeyDownHandler(KeyboardEventArgs e)
+    private void OnKeyDownHandler(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
         {
-            await print();
+            print();
         }
     }
 }
