@@ -14,6 +14,9 @@
     <input type="text" placeholder="生产企业" @bind="factoryname" @bind:event="oninput" />
     <button class="btn btn-primary" @onclick="getlist">查询</button>
     <button class="btn btn-primary" @onclick="toExcel">导出Excel下载</button>
+
+
+
     <div class="container-fluid table-responsive">
         @if (list?.Count > 0)
         {
@@ -97,6 +100,7 @@
     private List<YK.XS>? list;
     private int sum_shl = 0;
     private decimal sum_je = 0;
+
 
 
     protected override async Task OnAfterRenderAsync(Boolean f)

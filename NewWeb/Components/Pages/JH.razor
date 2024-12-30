@@ -67,7 +67,7 @@
         }
         catch (Exception ex)
         {
-            WQH.system.IO.File.WriteLog(ex.Message + "\r" + ex.StackTrace, 1);
+            WQH.system.IO.File.WriteLog(task.ToString() + "|" + ex.Message + "\r" + ex.StackTrace, 1);
             JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
         }
     }
@@ -104,7 +104,7 @@
         }
         catch (Exception ex)
         {
-            WQH.system.IO.File.WriteLog(task.ToString() + ex.Message + "\r" + ex.StackTrace, 1);
+            WQH.system.IO.File.WriteLog(task.ToString() + "|" + ex.Message + "\r" + ex.StackTrace, 1);
             await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
         }
     }

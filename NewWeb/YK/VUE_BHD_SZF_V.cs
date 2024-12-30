@@ -7,7 +7,7 @@ namespace NewWeb.YK
         public string? STORERNAME { get; set; }
         public string? CREDATE { get; set; }
         public int STADJUSTID { get; set; }
-        public int SOURCEID { get; set; }
+        public string SOURCEID { get; set; }
         public string? HPXX { get; set; }
         public string? PHXX { get; set; }
         public string? SL { get; set; }
