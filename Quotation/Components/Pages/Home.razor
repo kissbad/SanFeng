@@ -1,0 +1,159 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject ILogger<Home> Logger
+@inject IWebHostEnvironment Environment
+@using NPOI.SS.UserModel
+@using NPOI.XSSF.UserModel
+
+
+<p>
+    <InputFile OnChange="LoadFiles" multiple />
+</p>
+<p>
+    <button class="btn btn-primary" @onclick="Matching">匹配数据</button>
+</p>
+
+<div class="container-fluid table-responsive">
+    @if (list?.Count > 0)
+    {
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="col-sm-1">通用名</td>
+                    <td class="col-sm-1">商品名</td>
+                    <td class="col-sm-1">上市许可持有人</td>
+                    <td class="col-sm-1">生产企业</td>
+                    <td class="col-sm-1">规格</td>
+                    <td class="col-sm-1">批准文号</td>
+                    <td class="col-sm-1">条形码</td>
+                </tr>
+                @foreach (var mx in list)
+                {
+                    <tr>
+                        <td class="col-sm-1">@mx.goodsname</td>
+                        <td class="col-sm-1">@mx.currencyname</td>
+                        <td class="col-sm-1">@mx.holdersname</td>
+                        <td class="col-sm-1">@mx.factoryname</td>
+                        <td class="col-sm-1">@mx.goodstype</td>
+                        <td class="col-sm-1">@mx.approvedocno</td>
+                        <td class="col-sm-1">@mx.barcode</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    private string path = "";
+
+    private List<Goods> list = [];
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            var trustedFileName = Path.GetRandomFileName();
+            path = Path.Combine(Environment.ContentRootPath,
+                Environment.EnvironmentName, "unsafe_uploads",
+                trustedFileName);
+
+            await using FileStream fs = new(path, FileMode.Create);
+            await e.File.OpenReadStream(1024 * 10240).CopyToAsync(fs);
+
+
+
+            Logger.LogInformation(
+                "Unsafe Filename: {UnsafeFilename} File saved: {Filename}",
+                e.File.Name, trustedFileName);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError("File: {Filename} Error: {Error}",
+                e.File.Name, ex.Message);
+        }
+    }
+
+    private void Matching()
+    {
+        list.Clear();
+        using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
+        {
+            IWorkbook workbook = new XSSFWorkbook(file);
+            ISheet sheet = workbook.GetSheetAt(0);
+
+            int goodsname = -1;
+            int currencyname = -1;
+            int factoryname = -1;
+            int holdersname = -1;
+            int goodstype = -1;
+            int approvedocno = -1;
+            int barcode = -1;
+
+            IRow topRow = sheet.GetRow(0);
+            if (topRow != null)
+            {
+                for (int col = 0; col < topRow.LastCellNum; col++)
+                {
+                    ICell cell = topRow.GetCell(col);
+                    string cellValue = cell?.ToString() ?? string.Empty;
+                    switch (cellValue)
+                    {
+                        case "通用名":
+                            goodsname = col;
+                            break;
+                        case "商品名":
+                            currencyname = col;
+                            break;
+                        case "生产企业":
+                            factoryname = col;
+                            break;
+                        case "上市许可持有人":
+                            holdersname = col;
+                            break;
+                        case "规格":
+                            goodstype = col;
+                            break;
+                        case "批准文号":
+                            approvedocno = col;
+                            break;
+                        case "条形码":
+                            barcode = col;
+                            break;
+                    }
+                }
+            }
+
+            for (int row = 1; row <= sheet.LastRowNum; row++)
+            {
+                IRow currentRow = sheet.GetRow(row);
+                if (currentRow != null)
+                {
+                    Goods g = new Goods();
+                    if (goodsname >= 0)
+                        g.goodsname = currentRow.GetCell(goodsname)?.ToString() ?? string.Empty;
+
+                    if (currencyname >= 0)
+                        g.currencyname = currentRow.GetCell(currencyname)?.ToString() ?? string.Empty;
+
+                    if (factoryname >= 0)
+                        g.factoryname = currentRow.GetCell(factoryname)?.ToString() ?? string.Empty;
+
+                    if (holdersname >= 0)
+                        g.holdersname = currentRow.GetCell(holdersname)?.ToString() ?? string.Empty;
+
+                    if (goodstype >= 0)
+                        g.goodstype = currentRow.GetCell(goodstype)?.ToString() ?? string.Empty;
+
+                    if (approvedocno >= 0)
+                        g.approvedocno = currentRow.GetCell(approvedocno)?.ToString() ?? string.Empty;
+
+                    if (barcode >= 0)
+                        g.barcode = currentRow.GetCell(barcode)?.ToString() ?? string.Empty;
+
+                    list.Add(g);
+                }
+            }
+        }
+    }
+}

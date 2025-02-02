@@ -1,0 +1,7 @@
+D:\C#\SanFeng\Quotation\obj\Release\net8.0\PubTmp\Out\Quotation.exe
+D:\C#\SanFeng\Quotation\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+D:\C#\SanFeng\Quotation\obj\Release\net8.0\PubTmp\Out\appsettings.json
+D:\C#\SanFeng\Quotation\obj\Release\net8.0\PubTmp\Out\Quotation.dll
+D:\C#\SanFeng\Quotation\obj\Release\net8.0\PubTmp\Out\Quotation.deps.json
+D:\C#\SanFeng\Quotation\obj\Release\net8.0\PubTmp\Out\Quotation.runtimeconfig.json
+D:\C#\SanFeng\Quotation\obj\Release\net8.0\PubTmp\Out\Quotation.pdb
