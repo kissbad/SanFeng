@@ -26,7 +26,7 @@ namespace Quotation.YK
             if (!string.IsNullOrEmpty(g.barcode))
             {
                 sql = @"select goodsid,goodsname,currencyname,factoryname,holdersname,goodstype,approvedocno,barcode,
-examprice,price,marketprice,terminalprice from wqh_kcspml where storageid = 1 and barcode = :barcode ";
+examprice,price,marketprice,terminalprice from wqh_quotation where  barcode = :barcode ";
 
                 data = Oracle.ExecuteDataTable(sql, new OracleParameter("barcode", g.barcode));
             }
@@ -34,14 +34,14 @@ examprice,price,marketprice,terminalprice from wqh_kcspml where storageid = 1 an
             if (data.Rows.Count == 0 && !string.IsNullOrEmpty(g.approvedocno) && !string.IsNullOrEmpty(g.goodstype))
             {
                 sql = @"select goodsid,goodsname,currencyname,factoryname,holdersname,goodstype,approvedocno,barcode,
-examprice,price,marketprice,terminalprice from wqh_kcspml where storageid = 1 and approvedocno = :approvedocno and goodstype = :goodstype";
+examprice,price,marketprice,terminalprice from wqh_quotation where approvedocno = :approvedocno and goodstype = :goodstype";
                 data = Oracle.ExecuteDataTable(sql, [new OracleParameter("approvedocno", g.approvedocno),new OracleParameter("goodstype", g.goodstype)]);
             }
 
             if (data.Rows.Count == 0 && !string.IsNullOrEmpty(g.approvedocno))
             {
                 sql = @"select goodsid,goodsname,currencyname,factoryname,holdersname,goodstype,approvedocno,barcode,
-examprice,price,marketprice,terminalprice from wqh_kcspml where storageid = 1 and approvedocno = :approvedocno ";
+examprice,price,marketprice,terminalprice from wqh_quotation where approvedocno = :approvedocno ";
                 data = Oracle.ExecuteDataTable(sql, new OracleParameter("approvedocno", g.approvedocno));
             }
 
