@@ -47,6 +47,10 @@
             "NPOI": {
               "target": "Package",
               "version": "[2.7.2, )"
+            },
+            "Oracle.ManagedDataAccess.Core": {
+              "target": "Package",
+              "version": "[23.7.0, )"
             }
           },
           "imports": [

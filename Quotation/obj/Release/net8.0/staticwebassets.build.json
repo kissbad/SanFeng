@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NhGn5DNXGzJ60W8JDPGqlqvyX+QpkX4yDDEWg8FQRX4=",
+  "Hash": "BMCc/no0isxD5Y7qW1WvAsVkhlVTMPAw/iuenkauFXU=",
   "Source": "Quotation",
   "BasePath": "_content/Quotation",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "D:\\C#\\SanFeng\\Quotation\\wwwroot\\favicon1.png",
+      "SourceId": "Quotation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\SanFeng\\Quotation\\wwwroot\\",
+      "BasePath": "_content/Quotation",
+      "RelativePath": "favicon1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon1.png"
     }
   ]
 }

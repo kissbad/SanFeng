@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\C#\SanFeng\Quotation\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2025-02-02T06:29:59.6440269Z;</History>
+    <History>True|2025-02-03T07:20:47.1596568Z;True|2025-02-02T14:29:59.6440269+08:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

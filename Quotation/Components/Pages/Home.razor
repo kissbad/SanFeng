@@ -5,7 +5,9 @@
 @using NPOI.SS.UserModel
 @using NPOI.XSSF.UserModel
 
-
+<p>
+    <strong>导入数据字段名：条形码、批准文号、通用名、商品名、上市许可持有人、生产厂家、规格</strong>
+</p>
 <p>
     <InputFile OnChange="LoadFiles" multiple />
 </p>
@@ -19,6 +21,7 @@
         <table class="table">
             <tbody>
                 <tr>
+                    <td class="col-sm-1">Execl行号</td>
                     <td class="col-sm-1">通用名</td>
                     <td class="col-sm-1">商品名</td>
                     <td class="col-sm-1">上市许可持有人</td>
@@ -26,10 +29,16 @@
                     <td class="col-sm-1">规格</td>
                     <td class="col-sm-1">批准文号</td>
                     <td class="col-sm-1">条形码</td>
+
+                    <td class="col-sm-1">考核价</td>
+                    <td class="col-sm-1">商业价1</td>
+                    <td class="col-sm-1">市场价2</td>
+                    <td class="col-sm-1">终端价3</td>
                 </tr>
                 @foreach (var mx in list)
                 {
                     <tr>
+                        <td class="col-sm-1">@mx.line</td>
                         <td class="col-sm-1">@mx.goodsname</td>
                         <td class="col-sm-1">@mx.currencyname</td>
                         <td class="col-sm-1">@mx.holdersname</td>
@@ -37,6 +46,11 @@
                         <td class="col-sm-1">@mx.goodstype</td>
                         <td class="col-sm-1">@mx.approvedocno</td>
                         <td class="col-sm-1">@mx.barcode</td>
+
+                        <td class="col-sm-1">@mx.examprice</td>
+                        <td class="col-sm-1">@mx.price</td>
+                        <td class="col-sm-1">@mx.marketprice</td>
+                        <td class="col-sm-1">@mx.terminalprice</td>
                     </tr>
                 }
             </tbody>
@@ -47,7 +61,7 @@
 @code {
     private string path = "";
 
-    private List<Goods> list = [];
+    private List<YK.Goods_q> list = [];
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
@@ -76,84 +90,108 @@
 
     private void Matching()
     {
-        list.Clear();
-        using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
+        try
         {
-            IWorkbook workbook = new XSSFWorkbook(file);
-            ISheet sheet = workbook.GetSheetAt(0);
+            list.Clear();
+            List<Goods> list_in = [];
 
-            int goodsname = -1;
-            int currencyname = -1;
-            int factoryname = -1;
-            int holdersname = -1;
-            int goodstype = -1;
-            int approvedocno = -1;
-            int barcode = -1;
-
-            IRow topRow = sheet.GetRow(0);
-            if (topRow != null)
+            using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
-                for (int col = 0; col < topRow.LastCellNum; col++)
+                IWorkbook workbook = new XSSFWorkbook(file);
+                ISheet sheet = workbook.GetSheetAt(0);
+
+                int goodsname = -1;
+                int currencyname = -1;
+                int factoryname = -1;
+                int holdersname = -1;
+                int goodstype = -1;
+                int approvedocno = -1;
+                int barcode = -1;
+
+                IRow topRow = sheet.GetRow(0);
+                if (topRow != null)
                 {
-                    ICell cell = topRow.GetCell(col);
-                    string cellValue = cell?.ToString() ?? string.Empty;
-                    switch (cellValue)
+                    for (int col = 0; col < topRow.LastCellNum; col++)
                     {
-                        case "通用名":
-                            goodsname = col;
-                            break;
-                        case "商品名":
-                            currencyname = col;
-                            break;
-                        case "生产企业":
-                            factoryname = col;
-                            break;
-                        case "上市许可持有人":
-                            holdersname = col;
-                            break;
-                        case "规格":
-                            goodstype = col;
-                            break;
-                        case "批准文号":
-                            approvedocno = col;
-                            break;
-                        case "条形码":
-                            barcode = col;
-                            break;
+                        ICell cell = topRow.GetCell(col);
+                        string cellValue = cell?.ToString() ?? string.Empty;
+                        switch (cellValue)
+                        {
+                            case "通用名":
+                                goodsname = col;
+                                break;
+                            case "商品名":
+                                currencyname = col;
+                                break;
+                            case "生产企业":
+                                factoryname = col;
+                                break;
+                            case "生产厂家":
+                                factoryname = col;
+                                break;
+                            case "上市许可持有人":
+                                holdersname = col;
+                                break;
+                            case "规格":
+                                goodstype = col;
+                                break;
+                            case "批准文号":
+                                approvedocno = col;
+                                break;
+                            case "条形码":
+                                barcode = col;
+                                break;
+                        }
+                    }
+                }
+
+                for (int row = 1; row <= sheet.LastRowNum; row++)
+                {
+                    IRow currentRow = sheet.GetRow(row);
+                    if (currentRow != null)
+                    {
+                        Goods g = new Goods();
+                        if (goodsname >= 0)
+                            g.goodsname = currentRow.GetCell(goodsname)?.ToString() ?? string.Empty;
+
+                        if (currencyname >= 0)
+                            g.currencyname = currentRow.GetCell(currencyname)?.ToString() ?? string.Empty;
+
+                        if (factoryname >= 0)
+                            g.factoryname = currentRow.GetCell(factoryname)?.ToString() ?? string.Empty;
+
+                        if (holdersname >= 0)
+                            g.holdersname = currentRow.GetCell(holdersname)?.ToString() ?? string.Empty;
+
+                        if (goodstype >= 0)
+                            g.goodstype = currentRow.GetCell(goodstype)?.ToString() ?? string.Empty;
+
+                        if (approvedocno >= 0)
+                            g.approvedocno = currentRow.GetCell(approvedocno)?.ToString() ?? string.Empty;
+
+                        if (barcode >= 0)
+                            g.barcode = currentRow.GetCell(barcode)?.ToString() ?? string.Empty;
+
+                        list_in.Add(g);
                     }
                 }
             }
 
-            for (int row = 1; row <= sheet.LastRowNum; row++)
+            int hh = 2;
+            foreach (Goods i in list_in)
             {
-                IRow currentRow = sheet.GetRow(row);
-                if (currentRow != null)
+                foreach (YK.Goods_q i2 in YK.Goods_q.getList(i))
                 {
-                    Goods g = new Goods();
-                    if (goodsname >= 0)
-                        g.goodsname = currentRow.GetCell(goodsname)?.ToString() ?? string.Empty;
-
-                    if (currencyname >= 0)
-                        g.currencyname = currentRow.GetCell(currencyname)?.ToString() ?? string.Empty;
-
-                    if (factoryname >= 0)
-                        g.factoryname = currentRow.GetCell(factoryname)?.ToString() ?? string.Empty;
-
-                    if (holdersname >= 0)
-                        g.holdersname = currentRow.GetCell(holdersname)?.ToString() ?? string.Empty;
-
-                    if (goodstype >= 0)
-                        g.goodstype = currentRow.GetCell(goodstype)?.ToString() ?? string.Empty;
-
-                    if (approvedocno >= 0)
-                        g.approvedocno = currentRow.GetCell(approvedocno)?.ToString() ?? string.Empty;
-
-                    if (barcode >= 0)
-                        g.barcode = currentRow.GetCell(barcode)?.ToString() ?? string.Empty;
-
-                    list.Add(g);
+                    i2.line = hh;
+                    list.Add(i2);
                 }
+                hh++;
             }
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError("Error: {Error}",
+                 ex.Message);
         }
     }
 }

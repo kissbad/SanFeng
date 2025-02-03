@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "D:\\C#\\SanFeng\\Quotation\\wwwroot\\favicon1.png",
+      "PackagePath": "staticwebassets\\favicon1.png"
+    },
+    {
       "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.Quotation.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

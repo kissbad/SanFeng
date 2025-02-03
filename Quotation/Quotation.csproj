@@ -12,6 +12,13 @@
 
   <ItemGroup>
     <PackageReference Include="NPOI" Version="2.7.2" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="WQH">
+      <HintPath>..\..\WQH_C_SHARP\WQH\bin\Debug\WQH.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
