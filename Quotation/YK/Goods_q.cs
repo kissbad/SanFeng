@@ -18,6 +18,7 @@ namespace Quotation.YK
         public decimal price { get; set; }
         public decimal marketprice { get; set; }
         public decimal terminalprice { get; set; }
+        public decimal baojia { get; set; }
         public static List<Goods_q> getList(Goods g)
         {
             string sql = "";

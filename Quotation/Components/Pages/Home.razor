@@ -2,8 +2,10 @@
 @rendermode InteractiveServer
 @inject ILogger<Home> Logger
 @inject IWebHostEnvironment Environment
+@inject IJSRuntime JS
 @using NPOI.SS.UserModel
 @using NPOI.XSSF.UserModel
+@using System.Linq
 
 <p>
     <strong>导入数据字段名：条形码、批准文号、通用名、商品名、上市许可持有人、生产厂家、规格</strong>
@@ -13,6 +15,9 @@
 </p>
 <p>
     <button class="btn btn-primary" @onclick="Matching">匹配数据</button>
+</p>
+<p>
+    <button class="btn btn-primary" @onclick="Download">下载数据</button>
 </p>
 
 <div class="container-fluid table-responsive">
@@ -29,6 +34,8 @@
                     <td class="col-sm-1">规格</td>
                     <td class="col-sm-1">批准文号</td>
                     <td class="col-sm-1">条形码</td>
+
+                    <td class="col-sm-1">报价</td>
 
                     <td class="col-sm-1">考核价</td>
                     <td class="col-sm-1">商业价1</td>
@@ -47,6 +54,8 @@
                         <td class="col-sm-1">@mx.approvedocno</td>
                         <td class="col-sm-1">@mx.barcode</td>
 
+                        <td class="col-sm-1"><input type="number" value="@mx.baojia" @onchange="@(e => HandleChange(e,mx.goodsid))" /></td>
+
                         <td class="col-sm-1">@mx.examprice</td>
                         <td class="col-sm-1">@mx.price</td>
                         <td class="col-sm-1">@mx.marketprice</td>
@@ -62,6 +71,7 @@
     private string path = "";
 
     private List<YK.Goods_q> list = [];
+
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
@@ -83,8 +93,7 @@
         }
         catch (Exception ex)
         {
-            Logger.LogError("File: {Filename} Error: {Error}",
-                e.File.Name, ex.Message);
+            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
         }
     }
 
@@ -177,6 +186,7 @@
                 }
             }
 
+
             int hh = 2;
             foreach (Goods i in list_in)
             {
@@ -187,11 +197,23 @@
                 }
                 hh++;
             }
+
         }
         catch (Exception ex)
         {
-            Logger.LogError("Error: {Error}",
-                 ex.Message);
+            JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
         }
+    }
+
+    private void HandleChange(ChangeEventArgs e, int goodsid)
+    {
+        var temp = list.Find(x => x.goodsid == goodsid);
+        if (temp != null)
+            temp.baojia = Convert.ToDecimal(e.Value);
+    }
+
+    private void Download()
+    {
+        list = list.Where(n => n.baojia > 0).ToList();
     }
 }
