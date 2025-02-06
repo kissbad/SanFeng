@@ -214,6 +214,35 @@
 
     private void Download()
     {
-        list = list.Where(n => n.baojia > 0).ToList();
+        var list_hx = list.Where(n => n.baojia > 0).ToList();
+
+
+        using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
+        {
+            IWorkbook workbook = new XSSFWorkbook(file);
+            ISheet sheet = workbook.GetSheetAt(0);
+
+            foreach (YK.Goods_q v in list_hx)
+            {
+                IRow row = sheet.GetRow(v.line -1);
+                if (row == null)
+                    throw new Exception("回写行不存在！！");
+                ICell cell = row.GetCell(6);
+                if (cell == null)
+                    throw new Exception("回写列不存在！！");
+
+                cell.SetCellValue(Convert.ToDouble(v.baojia));
+            }
+
+
+            string new_path = Path.Combine(Environment.ContentRootPath,
+                Environment.EnvironmentName, "new",
+                "new.xlsx");
+
+            using (FileStream outFile = new FileStream(new_path, FileMode.Create, FileAccess.Write))
+            {
+                workbook.Write(outFile);
+            }
+        }
     }
 }
