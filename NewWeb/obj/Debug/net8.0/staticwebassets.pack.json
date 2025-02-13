@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NewWeb.bundle.scp.css",
+      "PackagePath": "staticwebassets\\NewWeb.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\css\\JH.css",
+      "PackagePath": "staticwebassets\\css\\JH.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\js\\LodopFuncs.js",
+      "PackagePath": "staticwebassets\\js\\LodopFuncs.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\js\\stadjust.js",
+      "PackagePath": "staticwebassets\\js\\stadjust.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\js\\trpick.js",
+      "PackagePath": "staticwebassets\\js\\trpick.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\js\\uptask.js",
+      "PackagePath": "staticwebassets\\js\\uptask.js"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\logo.png",
+      "PackagePath": "staticwebassets\\logo.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NewWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.NewWeb.props",
+      "PackagePath": "build\\NewWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.NewWeb.props",
+      "PackagePath": "buildMultiTargeting\\NewWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.NewWeb.props",
+      "PackagePath": "buildTransitive\\NewWeb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,8 +1,8 @@
 ﻿@page "/"
 @rendermode InteractiveServer
-@inject ILogger<Home> Logger
 @inject IWebHostEnvironment Environment
 @inject IJSRuntime JS
+@implements IDisposable
 @using NPOI.SS.UserModel
 @using NPOI.XSSF.UserModel
 @using System.Linq
@@ -16,6 +16,20 @@
 <p>
     <button class="btn btn-primary" @onclick="Matching">匹配数据</button>
 </p>
+<p>
+    @if (execl_col?.Count > 0)
+    {
+        <text>选择回写列</text>
+        <select name="fruits" id="fruitSelector" @onchange="selectChange">
+            @foreach (var col_mx in execl_col)
+            {
+                <option value="@col_mx.index">@col_mx.name</option>
+            }
+            <option value="@execl_col?.Count" selected>新增列</option>
+        </select>
+    }
+</p>
+
 <p>
     <button class="btn btn-primary" @onclick="Download">下载数据</button>
 </p>
@@ -34,13 +48,14 @@
                     <td class="col-sm-1">规格</td>
                     <td class="col-sm-1">批准文号</td>
                     <td class="col-sm-1">条形码</td>
+                    <td class="col-sm-1">有效期</td>
 
-                    <td class="col-sm-1">报价</td>
+                    <td class="col-sm-1"><a @onclick="(e => plhx(0))">报价</a></td>
 
-                    <td class="col-sm-1">考核价</td>
-                    <td class="col-sm-1">商业价1</td>
-                    <td class="col-sm-1">市场价2</td>
-                    <td class="col-sm-1">终端价3</td>
+                    <td class="col-sm-1"><a @onclick="(e => plhx(1))">考核价</a></td>
+                    <td class="col-sm-1"><a @onclick="(e => plhx(2))">商业价1</a></td>
+                    <td class="col-sm-1"><a @onclick="(e => plhx(3))">市场价2</a></td>
+                    <td class="col-sm-1"><a @onclick="(e => plhx(4))">终端价3</a></td>
                 </tr>
                 @foreach (var mx in list)
                 {
@@ -53,6 +68,7 @@
                         <td class="col-sm-1">@mx.goodstype</td>
                         <td class="col-sm-1">@mx.approvedocno</td>
                         <td class="col-sm-1">@mx.barcode</td>
+                        <td class="col-sm-1">@mx.invaliddate.ToString("yyyy-MM-dd")</td>
 
                         <td class="col-sm-1"><input type="number" value="@mx.baojia" @onchange="@(e => HandleChange(e,mx.goodsid))" /></td>
 
@@ -68,28 +84,33 @@
 </div>
 
 @code {
+    private string file_name = "";
     private string path = "";
+    private string new_path = "";
 
     private List<YK.Goods_q> list = [];
+
+    private List<Execl_col> execl_col = [];
+
+    private int hxl = 0;
 
 
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
         try
         {
+            if (!string.IsNullOrEmpty(path))
+                File.Delete(path);
+
             var trustedFileName = Path.GetRandomFileName();
             path = Path.Combine(Environment.ContentRootPath,
                 Environment.EnvironmentName, "unsafe_uploads",
                 trustedFileName);
 
+            file_name = e.File.Name;
+
             await using FileStream fs = new(path, FileMode.Create);
             await e.File.OpenReadStream(1024 * 10240).CopyToAsync(fs);
-
-
-
-            Logger.LogInformation(
-                "Unsafe Filename: {UnsafeFilename} File saved: {Filename}",
-                e.File.Name, trustedFileName);
         }
         catch (Exception ex)
         {
@@ -102,6 +123,7 @@
         try
         {
             list.Clear();
+            execl_col.Clear();
             List<Goods> list_in = [];
 
             using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
@@ -122,8 +144,13 @@
                 {
                     for (int col = 0; col < topRow.LastCellNum; col++)
                     {
+
                         ICell cell = topRow.GetCell(col);
                         string cellValue = cell?.ToString() ?? string.Empty;
+
+                        execl_col.Add(new Execl_col { index = col, name = cellValue });
+                        hxl = execl_col.Count();
+
                         switch (cellValue)
                         {
                             case "通用名":
@@ -205,6 +232,31 @@
         }
     }
 
+    private void plhx(int lx)
+    {
+        foreach (var i in list)
+        {
+            switch (lx)
+            {
+                case 0:
+                    i.baojia = 0;
+                    break;
+                case 1:
+                    i.baojia = i.examprice;
+                    break;
+                case 2:
+                    i.baojia = i.price;
+                    break;
+                case 3:
+                    i.baojia = i.marketprice;
+                    break;
+                case 4:
+                    i.baojia = i.terminalprice;
+                    break;
+            }
+        }
+    }
+
     private void HandleChange(ChangeEventArgs e, int goodsid)
     {
         var temp = list.Find(x => x.goodsid == goodsid);
@@ -212,37 +264,71 @@
             temp.baojia = Convert.ToDecimal(e.Value);
     }
 
-    private void Download()
+    private void selectChange(ChangeEventArgs e)
     {
-        var list_hx = list.Where(n => n.baojia > 0).ToList();
+        hxl = Convert.ToInt32(e.Value);
+    }
 
-
-        using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
+    private async void Download()
+    {
+        try
         {
-            IWorkbook workbook = new XSSFWorkbook(file);
-            ISheet sheet = workbook.GetSheetAt(0);
+            if (!string.IsNullOrEmpty(new_path))
+                File.Delete(new_path);
 
-            foreach (YK.Goods_q v in list_hx)
+            if (list.Count == 0) throw new Exception("没有数据下载！！");
+
+            var list_hx = list.Where(n => n.baojia > 0).ToList();
+
+
+            using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
-                IRow row = sheet.GetRow(v.line -1);
-                if (row == null)
-                    throw new Exception("回写行不存在！！");
-                ICell cell = row.GetCell(6);
-                if (cell == null)
-                    throw new Exception("回写列不存在！！");
+                IWorkbook workbook = new XSSFWorkbook(file);
+                ISheet sheet = workbook.GetSheetAt(0);
 
-                cell.SetCellValue(Convert.ToDouble(v.baojia));
-            }
+                foreach (YK.Goods_q v in list_hx)
+                {
+                    IRow row = sheet.GetRow(v.line - 1);
+                    if (row == null)
+                        throw new Exception("回写行不存在！！");
+                    ICell cell = row.GetCell(hxl);
+                    if (cell == null)
+                        cell = row.CreateCell(hxl);
+
+                    cell.SetCellValue(Convert.ToDouble(v.baojia));
+                }
 
 
-            string new_path = Path.Combine(Environment.ContentRootPath,
-                Environment.EnvironmentName, "new",
-                "new.xlsx");
+                new_path = Path.Combine(Environment.ContentRootPath,
+                    Environment.EnvironmentName, "new",
+                    Path.GetRandomFileName());
 
-            using (FileStream outFile = new FileStream(new_path, FileMode.Create, FileAccess.Write))
-            {
-                workbook.Write(outFile);
+                using (FileStream outFile = new FileStream(new_path, FileMode.Create, FileAccess.Write))
+                {
+                    workbook.Write(outFile);
+                }
+
+                using (var fileStream = File.OpenRead(new_path))
+                {
+                    using (var streamRef = new DotNetStreamReference(stream: fileStream))
+                    {
+                        await JS.InvokeVoidAsync("downloadFileFromStream", "填报_" + file_name, streamRef);
+                    }
+                }
             }
         }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("displayTickerAlert", ex.Message);
+        }
+    }
+
+    public void Dispose()
+    {
+        if (!string.IsNullOrEmpty(path))
+            File.Delete(path);
+
+        if (!string.IsNullOrEmpty(new_path))
+            File.Delete(new_path);
     }
 }
