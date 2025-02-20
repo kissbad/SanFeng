@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\C#\\SanFeng\\Quotation\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Quotation.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Quotation.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Quotation\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Quotation\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Quotation\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Quotation\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\C#\\SanFeng\\Quotation\\wwwroot\\favicon1.png",
+      "PackagePath": "staticwebassets\\favicon1.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Quotation.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Quotation.props",
+      "PackagePath": "build\\Quotation.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Quotation.props",
+      "PackagePath": "buildMultiTargeting\\Quotation.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Quotation.props",
+      "PackagePath": "buildTransitive\\Quotation.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -99,7 +99,7 @@ namespace Auto_Expressage.kdniao
                 this.StartDate = DateTime.Now.ToString("yyyy-MM-dd 20:00:00");
             }
             
-            this.EndDate = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd") + " 00:00:00";
+            this.EndDate = DateTime.Now.AddDays(4).ToString("yyyy-MM-dd") + " 00:00:00";
 
             if (ShipperCode == "DBL") { DeliveryMethod = 4; }
 

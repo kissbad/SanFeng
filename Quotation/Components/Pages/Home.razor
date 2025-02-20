@@ -34,11 +34,11 @@
     <button class="btn btn-primary" @onclick="Download">下载数据</button>
 </p>
 
-<div class="container-fluid table-responsive">
+<div class="table-responsive">
     @if (list?.Count > 0)
     {
-        <table class="table">
-            <tbody>
+        <table class="table table-bordered">
+            <thead>
                 <tr>
                     <td class="col-sm-1">Execl行号</td>
                     <td class="col-sm-1">通用名</td>
@@ -48,6 +48,7 @@
                     <td class="col-sm-1">规格</td>
                     <td class="col-sm-1">批准文号</td>
                     <td class="col-sm-1">条形码</td>
+                    <td class="col-sm-1">库存</td>
                     <td class="col-sm-1">有效期</td>
 
                     <td class="col-sm-1"><a @onclick="(e => plhx(0))">报价</a></td>
@@ -57,6 +58,8 @@
                     <td class="col-sm-1"><a @onclick="(e => plhx(3))">市场价2</a></td>
                     <td class="col-sm-1"><a @onclick="(e => plhx(4))">终端价3</a></td>
                 </tr>
+            </thead>
+            <tbody>
                 @foreach (var mx in list)
                 {
                     <tr>
@@ -68,6 +71,7 @@
                         <td class="col-sm-1">@mx.goodstype</td>
                         <td class="col-sm-1">@mx.approvedocno</td>
                         <td class="col-sm-1">@mx.barcode</td>
+                        <td class="col-sm-1">@mx.availableqty</td>
                         <td class="col-sm-1">@mx.invaliddate.ToString("yyyy-MM-dd")</td>
 
                         <td class="col-sm-1"><input type="number" value="@mx.baojia" @onchange="@(e => HandleChange(e,mx.goodsid))" /></td>
@@ -146,7 +150,7 @@
                     {
 
                         ICell cell = topRow.GetCell(col);
-                        string cellValue = cell?.ToString() ?? string.Empty;
+                        string cellValue = cell?.ToString()?.Trim() ?? string.Empty;
 
                         execl_col.Add(new Execl_col { index = col, name = cellValue });
                         hxl = execl_col.Count();
@@ -188,25 +192,25 @@
                     {
                         Goods g = new Goods();
                         if (goodsname >= 0)
-                            g.goodsname = currentRow.GetCell(goodsname)?.ToString() ?? string.Empty;
+                            g.goodsname = currentRow.GetCell(goodsname)?.ToString()?.Trim() ?? string.Empty;
 
                         if (currencyname >= 0)
-                            g.currencyname = currentRow.GetCell(currencyname)?.ToString() ?? string.Empty;
+                            g.currencyname = currentRow.GetCell(currencyname)?.ToString()?.Trim() ?? string.Empty;
 
                         if (factoryname >= 0)
-                            g.factoryname = currentRow.GetCell(factoryname)?.ToString() ?? string.Empty;
+                            g.factoryname = currentRow.GetCell(factoryname)?.ToString()?.Trim() ?? string.Empty;
 
                         if (holdersname >= 0)
-                            g.holdersname = currentRow.GetCell(holdersname)?.ToString() ?? string.Empty;
+                            g.holdersname = currentRow.GetCell(holdersname)?.ToString()?.Trim() ?? string.Empty;
 
                         if (goodstype >= 0)
-                            g.goodstype = currentRow.GetCell(goodstype)?.ToString() ?? string.Empty;
+                            g.goodstype = currentRow.GetCell(goodstype)?.ToString()?.Trim() ?? string.Empty;
 
                         if (approvedocno >= 0)
-                            g.approvedocno = currentRow.GetCell(approvedocno)?.ToString() ?? string.Empty;
+                            g.approvedocno = currentRow.GetCell(approvedocno)?.ToString()?.Trim() ?? string.Empty;
 
                         if (barcode >= 0)
-                            g.barcode = currentRow.GetCell(barcode)?.ToString() ?? string.Empty;
+                            g.barcode = currentRow.GetCell(barcode)?.ToString()?.Trim() ?? string.Empty;
 
                         list_in.Add(g);
                     }

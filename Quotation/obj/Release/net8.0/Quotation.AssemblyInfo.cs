@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Quotation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d2063095946f1e14db7dfe20b2813a4f0e15149")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cadb866f470e6393d466bacad39d1696a5adf41b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Quotation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Quotation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
