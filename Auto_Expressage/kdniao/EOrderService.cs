@@ -19,16 +19,16 @@ namespace Auto_Expressage.kdniao
         {
             string url = "https://api.kdniao.com/api/EOrderService";
 
-            string y_ShipperCode = data.ShipperCode;
+            string y_OrderCode = data.OrderCode;
 
             if (data.ShipperCode == "YTO" && data.ShipperCode.Length<7) {
-                string repeatedString = new string('*', 7 - data.ShipperCode.Length);
-                data.ShipperCode = data.ShipperCode + repeatedString;
+                string repeatedString = new string('*', 7 - data.OrderCode.Length);
+                data.OrderCode = data.OrderCode + repeatedString;
             }
 
             string json = JsonConvert.SerializeObject(data);
 
-            data.ShipperCode = y_ShipperCode;
+            data.OrderCode = y_OrderCode;
 
             WQH.system.IO.File.WriteLog("提交数据:" + json, 1);
 
