@@ -1,0 +1,10 @@
+wwwroot\app.css
+wwwroot\bootstrap\bootstrap.min.css
+wwwroot\bootstrap\bootstrap.min.css.map
+wwwroot\css\JH.css
+wwwroot\favicon.png
+wwwroot\js\LodopFuncs.js
+wwwroot\js\stadjust.js
+wwwroot\js\trpick.js
+wwwroot\js\uptask.js
+wwwroot\logo.png

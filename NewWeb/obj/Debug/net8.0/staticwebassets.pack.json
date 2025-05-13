@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "D:\\C#\\SanFeng\\NewWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NewWeb.bundle.scp.css",
-      "PackagePath": "staticwebassets\\NewWeb.bundle.scp.css"
+      "PackagePath": "staticwebassets\\NewWeb.v5omovb5be.bundle.scp.css"
     },
     {
       "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\app.css",
@@ -43,6 +43,10 @@
     {
       "Id": "D:\\C#\\SanFeng\\NewWeb\\wwwroot\\logo.png",
       "PackagePath": "staticwebassets\\logo.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NewWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NewWeb.Microsoft.AspNetCore.StaticWebAssets.props",

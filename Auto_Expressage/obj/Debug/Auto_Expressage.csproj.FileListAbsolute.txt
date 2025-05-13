@@ -15,6 +15,6 @@ D:\C#\SanFeng\Auto_Expressage\obj\Debug\Auto_Expressage.exe.config
 D:\C#\SanFeng\Auto_Expressage\obj\Debug\Auto_Expressage.ProjectInstaller.resources
 D:\C#\SanFeng\Auto_Expressage\obj\Debug\Auto_Expressage.csproj.GenerateResource.cache
 D:\C#\SanFeng\Auto_Expressage\obj\Debug\Auto_Expressage.csproj.CoreCompileInputs.cache
-D:\C#\SanFeng\Auto_Expressage\obj\Debug\Auto_Expressage.csproj.CopyComplete
 D:\C#\SanFeng\Auto_Expressage\obj\Debug\Auto_Expressage.exe
 D:\C#\SanFeng\Auto_Expressage\obj\Debug\Auto_Expressage.pdb
+D:\C#\SanFeng\Auto_Expressage\obj\Debug\Auto_Exp.5666C0F3.Up2Date

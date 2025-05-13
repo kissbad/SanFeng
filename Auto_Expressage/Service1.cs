@@ -36,6 +36,7 @@ namespace Auto_Expressage
             {
                 while (true)
                 {
+
                     try
                     {
                         List<wqh_Expressage> exp_list = npserver.wqh_Expressage.getList();

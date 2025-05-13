@@ -123,7 +123,7 @@
 
     private async void getlist()
     {
-        
+        if (string.IsNullOrEmpty(v)) { await JS.InvokeVoidAsync("displayTickerAlert", "未开通采购查询权限！");return; }
         list = YK.CG.getList(v, startdate, enddate, goodsid, lotno, holdersname, factoryname);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
 

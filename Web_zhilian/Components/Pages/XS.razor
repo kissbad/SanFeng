@@ -124,6 +124,7 @@
 
     private async void getlist()
     {
+        if (string.IsNullOrEmpty(v)) { await JS.InvokeVoidAsync("displayTickerAlert", "未开通销售查询权限！"); return; }
         list = YK.XS.getList(user.XS_VIEW, startdate, enddate, goodsid, lotno, holdersname, factoryname);
         if (list.Count < 1) await JS.InvokeVoidAsync("displayTickerAlert", "当前无数据！");
 

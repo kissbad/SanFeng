@@ -18,7 +18,7 @@ namespace NewWeb.YK
         public static List<Order_factory_check> get_Order_factory_check_list(string sasettleid)
         {
             string sql = @"select distinct c.goodsid,sp.goodsname, sp.goodstype, sp.factoryname, sp.holdersname, sp.approvedocno,
-e.lotno,d.fcheckid,f.fileid,f.filename,'http://183.237.98.131:8090/npserver/功能电子档案/5066/质检单管理/' || f.pkid || '/质检单管理/' || f.filename as path 
+e.lotno,d.fcheckid,f.fileid,f.filename,'http://113.106.243.162:8090/npserver/功能电子档案/5066/质检单管理/' || f.pkid || '/质检单管理/' || f.filename as path 
 from bms_sa_settle_dtl a
 join bms_sa_doctoset b on a.SASETTLEDTLID = b.SASETTLEDTLID
 join bms_sa_dtl c on b.SALESDTLID = c.SALESDTLID
