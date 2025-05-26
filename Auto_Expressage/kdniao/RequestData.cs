@@ -74,6 +74,10 @@ namespace Auto_Expressage.kdniao
             //}
             //else { this.AddService = new AddService[] { new AddService("INSURE", exp.zx_insure.ToString()) }; }
 
+            if (ShipperCode != "JD" && ShipperCode != "JDKY"&& ShipperCode != "DBL" && ShipperCode != "JTSD" && ShipperCode != "SF") {
+                throw new Exception("Unknown Error");
+            }
+
             List<AddService> addServices = new List<AddService>
             {
                 new AddService("INSURE", exp.zx_insure.ToString())
