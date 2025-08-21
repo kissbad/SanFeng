@@ -31,11 +31,6 @@ D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.MvcApplicationPartsAssemblyInfo.cac
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.sourcelink.json
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets.build.json
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets.development.json
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets\msbuild.NewWeb.Microsoft.AspNetCore.StaticWebAssets.props
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.NewWeb.props
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.NewWeb.props
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.NewWeb.props
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets.pack.json
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\bundle\NewWeb.styles.css
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\scopedcss\projectbundle\NewWeb.bundle.scp.css
@@ -46,6 +41,10 @@ D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.genruntimeconfig.cache
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\ref\NewWeb.dll
 D:\C#\SanFeng\NewWeb\bin\Debug\net8.0\NewWeb.staticwebassets.endpoints.json
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets\msbuild.NewWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\NewWeb.csproj.Up2Date
+D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\C#\SanFeng\NewWeb\obj\Debug\net8.0\staticwebassets.build.json.cache
