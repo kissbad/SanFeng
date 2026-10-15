@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net8.0": {
       "BouncyCastle.Cryptography/2.3.1": {
@@ -1040,7 +1040,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "D:\\.nuget\\packages": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -1049,7 +1049,7 @@
       "projectUniqueName": "D:\\C#\\SanFeng\\Web_zhilian\\Web_zhilian.csproj",
       "projectName": "Web_zhilian",
       "projectPath": "D:\\C#\\SanFeng\\Web_zhilian\\Web_zhilian.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "packagesPath": "D:\\.nuget\\packages",
       "outputPath": "D:\\C#\\SanFeng\\Web_zhilian\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -1070,6 +1070,7 @@
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {}
         }
@@ -1084,10 +1085,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net8.0": {
+        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "NPOI": {
@@ -1118,7 +1120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

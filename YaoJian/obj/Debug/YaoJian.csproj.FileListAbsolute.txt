@@ -32,7 +32,6 @@ D:\C#\SanFeng\YaoJian\bin\Debug\YaoJian.pdb
 D:\C#\SanFeng\YaoJian\bin\Debug\AipSdk.dll
 D:\C#\SanFeng\YaoJian\bin\Debug\Dapper.dll
 D:\C#\SanFeng\YaoJian\bin\Debug\Newtonsoft.Json.dll
-D:\C#\SanFeng\YaoJian\bin\Debug\WQH.dll
 D:\C#\SanFeng\YaoJian\bin\Debug\Spire.Pdf.dll
 D:\C#\SanFeng\YaoJian\bin\Debug\Microsoft.mshtml.dll
 D:\C#\SanFeng\YaoJian\bin\Debug\Dapper.xml
@@ -56,6 +55,7 @@ D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.XS_CK.resources
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.XS_TH.resources
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.GenerateResource.cache
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.CoreCompileInputs.cache
-D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.CopyComplete
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.exe
 D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.pdb
+D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.exe.config
+D:\C#\SanFeng\YaoJian\obj\Debug\YaoJian.csproj.Up2Date

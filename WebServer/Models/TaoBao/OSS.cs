@@ -13,14 +13,14 @@ namespace WebServer.Models.TaoBao
     {
         //public string url { get; set; } = "oss-cn-shanghai.aliyuncs.com";
         //public string url_internal { get; set; } = "oss-cn-shanghai-internal.aliyuncs.com";
-        //public string accessKeyId { get; set; } = "LTAI7WXAoloSq7QL";
-        //public string accessKeySecret { get; set; } = "Z1DdpleKyJxAvibd5o1dFv6dhTsg0S";
+        //public string accessKeyId { get; set; } = "******************";
+        //public string accessKeySecret { get; set; } = "******************";
         //public string bucketName { get; set; } = "xdyzhibo";
         //public string domain { get; set; } = "http://oss.vertq.com/";
         public string url { get; set; } = "oss-cn-shenzhen.aliyuncs.com";
         public string url_internal { get; set; } = "oss-cn-shenzhen-internal.aliyuncs.com";
-        public string accessKeyId { get; set; } = "LTAIFPkMIW2fy8ek";
-        public string accessKeySecret { get; set; } = "GfZzq9SoJV62RGN7YAqJuB1pCtle5i";
+        public string accessKeyId { get; set; } = "******************";
+        public string accessKeySecret { get; set; } = "******************";
         public string bucketName { get; set; } = "wuqinhuai01";
         public string domain { get; set; } = "http://wuqinhuai01.oss-cn-shenzhen.aliyuncs.com/";
         

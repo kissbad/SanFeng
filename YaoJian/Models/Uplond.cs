@@ -129,17 +129,14 @@ namespace YaoJian.Models
                 throw new MyException("获取证书失败！！");
             }
 
-            //CspParameters cp = new CspParameters();
-            //cp.KeyContainerName = "MyKeyContainerName";
-            //RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(cp);
-            //XmlElement Signature = WQH.Xml.Sign.SignXmlFile(xml, rsa, cer);
+            CspParameters cp = new CspParameters();
+            cp.KeyContainerName = "MyKeyContainerName";
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(cp);
+            XmlElement Signature = WQH.Xml.Sign.SignXmlFile(xml, rsa, cer);
 
 
 
-            ECDsaCng ecDsa = new ECDsaCng(ECCurve.NamedCurves.nistP256);
-            byte[] privateKey = ecDsa.Key.Export(CngKeyBlobFormat.EccPrivateBlob);
-            ECDsaCng ecDsa2 = new ECDsaCng(CngKey.Import(privateKey, CngKeyBlobFormat.EccPrivateBlob));
-            XmlElement Signature = WQH.Xml.Sign.SignXmlFile2(xml, ecDsa2, cer);
+            
 
 
             Signature.AppendChild(Object);

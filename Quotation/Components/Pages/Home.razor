@@ -153,7 +153,7 @@
                         string cellValue = cell?.ToString()?.Trim() ?? string.Empty;
 
                         execl_col.Add(new Execl_col { index = col, name = cellValue });
-                        hxl = execl_col.Count();
+                        
 
                         switch (cellValue)
                         {
@@ -183,6 +183,7 @@
                                 break;
                         }
                     }
+                    hxl = execl_col.Count();
                 }
 
                 for (int row = 1; row <= sheet.LastRowNum; row++)
@@ -236,6 +237,7 @@
         }
     }
 
+    //回写
     private void plhx(int lx)
     {
         foreach (var i in list)

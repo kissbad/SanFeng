@@ -1,2 +1,9 @@
 /.vs
 *.pdb
+
+
+
+API/obj/*
+API/bin/*
+NewWeb/obj/*
+NewWeb/bin/*
